@@ -1,0 +1,103 @@
+.outer_layout {
+  width: 100%;
+  float: left;
+  
+  .header_new {
+    float: left;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+    transition: all 0.2s ease-in-out;
+     &.banner-color {
+        background-color: black;
+     }
+    .logo {
+      margin: 18px 0;
+      width: 206px;
+      height: 45px;
+    }
+
+    .menu_new {
+      display: block;
+      float: right;
+      margin: 0;
+      transition: all .4s ease-in-out .4s;
+      li.menu_arrow {
+        transition: none;
+        float: left;
+        margin: 0 0 0 12px;
+        position: relative;
+        text-transform: uppercase;
+        list-style-type: none;
+        a {
+          background: url(../assets/ico_arrow_down.svg) right 12px center no-repeat rgba(0, 0, 0, 0);
+          background-size: 15%;
+          color: #fff;
+          display: inline-block;
+          padding: 20px 38px 20px 12px;
+          text-decoration: none;
+        }
+      }
+
+      li.no_arrow {
+        transition: none;
+        float: left;
+        margin: 0 0 0 12px;
+        position: relative;
+        text-transform: uppercase;
+        list-style-type: none;
+        a {
+          background-size: 15%;
+          color: #fff;
+          display: inline-block;
+          padding: 20px 12px 20px 12px;
+          text-decoration: none;
+          &.contact_a {
+            background: rgba(0, 0, 0, 0);
+            border: 1px solid #fff;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            line-height: 36px;
+            margin: 15px 14px;
+            padding: 0 18px;
+            position: relative;
+            z-index: 10;
+          }
+        }
+      }
+
+      .recruitment_solution_a {
+        background-size: 7% !important;
+      }
+    } //closing menu_new
+  } //closing header_new
+
+  .index_latest_pg {
+    width: 100%;
+    float: left;
+    .val_index_page {
+      float: left;
+      width: 100%;
+      background-image: url(../assets/banner-text-background.jpg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      text-align: center;
+      .banner_index {
+        padding: 270px 0 200px;
+        padding-top: 270px;
+        padding-right: 0px;
+        padding-bottom: 200px;
+        padding-left: 0px;
+    }
+    }
+  }
+}

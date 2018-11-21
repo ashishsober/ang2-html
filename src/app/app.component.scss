@@ -98,6 +98,18 @@
       .logo {
         font-size: 32px;
       }
+      .mob_icon2 {
+            background: url(../assets/bars-solid.svg) left top rgba(0,0,0,0);
+            background-size: 50%;
+            cursor: pointer;
+            display: block;
+            float: right;
+            padding: 20px 38px 20px 12px;
+            text-decoration: none;
+            background-repeat: no-repeat;
+            margin: 16px 0 0;
+      }
+      
     }
   }
 }

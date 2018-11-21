@@ -36,5 +36,16 @@
 
     }
   }
+}
 
+
+// Mobile screen size
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .val_index_page {
+    .banner_index {
+      .company_desc {
+        font-size: 25px;
+      }
+    }
+  }
 }

@@ -1,6 +1,7 @@
 .outer_layout {
   width: 100%;
   float: left;
+  position: relative;
   
   .header_new {
     float: left;
@@ -89,6 +90,10 @@
   }
 }
 
+.right50 {
+  right: 60%;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .outer_layout {
    .header_new {
@@ -97,14 +102,26 @@
       }
       .mob_icon2 {
             background: url(../assets/bars-solid.svg) left top rgba(0,0,0,0);
-            background-size: 50%;
+            background-size: 40%;
             cursor: pointer;
-            display: block;
             float: right;
             padding: 20px 38px 20px 12px;
             text-decoration: none;
             background-repeat: no-repeat;
-            margin: 16px 0 0;
+            margin: 20px 0 0;
+      }
+      .mob_cross {
+        background: url(../assets/times-solid.svg) left top rgba(0,0,0,0);
+        background-size: 40%;
+        cursor: pointer;
+        float: right;
+        padding: 20px 38px 20px 12px;
+        text-decoration: none;
+        background-repeat: no-repeat;
+        margin: 16px 0 0;
+       }
+      .display_block{
+        display: block !important;
       }
       .menu_new {
         display: none;
@@ -113,19 +130,28 @@
         position: fixed;
         right: 0;
         top: 0;
-        width: 260px;
+        width: 60%;
         overflow-y: auto;
         overflow-x: hidden;
-        padding-left:0px; 
+        padding-left:0px;
         li {
           float: left;
-          margin: 0 0 0 4%!important;
           width: 96%;
           &.menu_arrow , &.no_arrow{
             a{
-              color: black;
+              color: #000;
               width: 100%;
               background-size: 8%;
+              font-size: 12px;
+              &.contact_a {
+                color:#000;
+                width: 90%;
+                font-size: 10px;
+                text-align: center;
+                margin-left: 0px;
+                background-color: #ffd740;
+                border-color:  #ffd740;
+              }
             }
           }
          }

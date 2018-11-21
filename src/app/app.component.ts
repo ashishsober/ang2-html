@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { HostListener, Inject } from "@angular/core";
 import { DOCUMENT } from '@angular/platform-browser';
+import { Router } from '@angular/router'
+
+
 
 declare const window: any;
 @Component({
@@ -10,6 +13,11 @@ declare const window: any;
 })
 export class AppComponent {
   bannerColorToBlack:boolean;
+  displayBlock:boolean=false;
+  right50:boolean=false;
+  toState ='state1';
+
+  constructor(private router:Router){}
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
@@ -21,4 +29,20 @@ export class AppComponent {
     }
   }
 
+  sidebar(state:any){
+    if(state ==='close'){
+      this.displayBlock =false;
+      this.right50 = false;
+    }else {
+      this.displayBlock =true;
+      this.right50 = true;
+    }
+   
+  }
+
+  navigateTo(state:any){
+    this.displayBlock =false;
+    this.right50 = false;
+    this.router.navigate([state]);
+  }
 }

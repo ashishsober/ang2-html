@@ -17,7 +17,7 @@
      }
     .logo {
       margin: 6px 0;
-      width: 206px;
+      // width: 206px;
       height: 45px;
       font-size: 35px;
       color: wheat;
@@ -89,5 +89,15 @@
   .index_latest_pg {
     width: 100%;
     float: left;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .outer_layout {
+   .header_new {
+      .logo {
+        font-size: 32px;
+      }
+    }
   }
 }

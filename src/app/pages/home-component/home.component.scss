@@ -32,7 +32,11 @@
       display: inline-block;
       border-radius: 50px;
       text-decoration: none;
-
+      transition: 0.8s;
+      &:hover {
+        background-color: #f4511e;
+        color: white;
+      }
     }
   }
 }

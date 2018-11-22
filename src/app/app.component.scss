@@ -32,9 +32,10 @@
           float: left;
           margin: 0 0 0 12px;
           position: relative;
-          text-transform: uppercase;
+          // text-transform: uppercase;
           list-style-type: none;
           letter-spacing: 1px;
+        
         &.menu_arrow {
           a {
             background: url(../assets/ico_arrow_down.svg) right 12px center no-repeat rgba(0, 0, 0, 0);
@@ -48,35 +49,36 @@
 
         &.no_arrow {
           a {
-            background-size: 15%;
-            color: #fff;
-            display: inline-block;
-            padding: 20px 12px 20px 12px;
-            text-decoration: none;
-            &.contact_a {
-              background: rgba(0, 0, 0, 0);
-              border: 1px solid #fff;
-              border-radius: 5px;
-              -webkit-border-radius: 5px;
-              -moz-border-radius: 5px;
-              -ms-border-radius: 5px;
-              -o-border-radius: 5px;
+              background-size: 15%;
               color: #fff;
-              font-size: 18px;
-              line-height: 36px;
-              margin: 15px 14px;
-              padding: 0 18px;
-              position: relative;
-              z-index: 10;
-             }
-             &.contact_a:hover { 
-                background-color: #ffd740;
-                border: 1px solid #ffd740;
-                color: black;
+              display: inline-block;
+              padding: 20px 12px 20px 12px;
+              text-decoration: none;
+              &.contact_a {
+                background: rgba(0, 0, 0, 0);
+                border: 1px solid #fff;
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+                color: #fff;
+                font-size: 18px;
+                line-height: 36px;
+                margin: 15px 14px;
+                padding: 0 18px;
+                position: relative;
+                z-index: 10;
+                transition: 0.8s;
+                &:hover { 
+                  background-color: #ffd740;
+                  border: 1px solid #ffd740;
+                  color: black;
+                }
                }
-           }
+             }
+          }
          }
-        }
 
           .recruitment_solution_a {
             background-size: 7% !important;

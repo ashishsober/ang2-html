@@ -33,7 +33,7 @@ export class AppComponent {
     if(state ==='close'){
       this.displayBlock =false;
       this.right50 = false;
-    }else {
+    } else {
       this.displayBlock =true;
       this.right50 = true;
     }

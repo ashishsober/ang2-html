@@ -45,33 +45,48 @@
                 display: inline-block;
                 padding: 20px 38px 20px 12px;
                 text-decoration: none;
+                cursor: pointer;
               }
               .sub_menu_new {
-                transition: all .25s ease-in;
-                border-top: 7px solid #07b8de;
-                padding: 0;
-                background: #fff;
-                position: absolute;
-                right: -81%;
-                top: 100%;
-                z-index: 999;
+                transition: all .25s ease-out;
                 display: none;
-                color: #4d4d4d;
-                text-align: left;
                 &.srv-list{
-                    right: auto;
-                    left: 50%;
-                    margin-left: -150px;
-                    width: 300px;
-                    box-shadow: 0 8px 10px 0;
+                  right: auto;
+                  left: 50%;
+                  // margin-left: -150px;
+                  box-shadow: 0 8px 10px 0;
+                }
+                ul.sub-menu-list {
+                  list-style-type: none;
+                  margin: 0;
+                  padding: 0;
+                  border-top: 7px solid #07b8de;
+                  z-index: 999;
+                  position: absolute;
+                  background-color: white;
+                  width: 300px;
+                  right: -81%;
+                  li{
+                    float: none;
+                  }
+                  &.recruitment_sub{
+                    right: -15%;
+                  }
                 }
                }
             }
+
             &.menu_arrow:hover {
+              a{
+                transition: all .25s ease-out;
+                background-color: #07b8de;
+              }
               .sub_menu_new {
+                transition: all .25s ease-in;
                 display: block;
               }
             }
+
 
             &.no_arrow {
               a {
@@ -80,6 +95,7 @@
                   display: inline-block;
                   padding: 20px 12px 20px 12px;
                   text-decoration: none;
+                  cursor: pointer;
                   &.contact_a {
                     background: rgba(0, 0, 0, 0);
                     border: 1px solid #fff;
@@ -103,7 +119,13 @@
                     }
                   }
                 }
+                a:hover{
+                  transition: all .25s ease-out;
+                  background-color: #07b8de;
+                }
               }
+        
+              
             }
 
              

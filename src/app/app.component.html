@@ -11,21 +11,22 @@
       </div>
       <div class="col-xs-12 col-sm-9 col-lg-10 col-md-10">
         <ul class="menu_new" [ngClass]="{'display_block':displayBlock}">
-          <li class="no_arrow"><a (click)= "navigateTo('home')" title="Home" class="home_a">Home</a></li>
-          <li class="menu_arrow"><a title="About us" class="about_a">About us</a>
+          <!-- <li class="no_arrow main-header"><a (click)= "navigateTo('home')" title="Home" class="home_a">Company</a></li> -->
+          <li class="menu_arrow"><a title="Company" class="company_a">Company</a>
             <div class="sub_menu_new srv-list">
                 <ul class="sub-menu-list about_sub">
-                  <li class="first"><pre title="Management" class="management">Management</pre></li>
+                  <li (click)= "navigateTo('home')" class="first" title="About US" class="about-us">About US</li>
+                  <li class="first" title="Management" class="management">Management</li>
                 </ul>
             </div>  
           </li>
           <li class="menu_arrow"><a id="mob_main_service_manu" title="Services">Services</a>
               <div class="sub_menu_new srv-list">
                 <ul class="sub-menu-list services">
-                  <li class="first"><pre title="App Engine Development" class="App-Engine-Development">App Engine Development</pre></li>
-                  <li class="first"><pre title="Workflow" class="Workflow">Workflow</pre></li>
-                  <li class="first"><pre title="Apps Integration" class="apps-integration">Apps Integration</pre></li>
-                  <li class="first"><pre title="SAP Solutions" class="sap-solutions">SAP Solutions</pre></li>
+                  <li class="first" title="App Engine Development" class="App-Engine-Development">App Engine Development</li>
+                  <li class="first" title="Workflow" class="Workflow">Workflow</li>
+                  <li class="first" title="Apps Integration" class="apps-integration">Apps Integration</li>
+                  <li class="first" title="SAP Solutions" class="sap-solutions">SAP Solutions</li>
                  </ul>
               </div>
           </li>
@@ -33,8 +34,8 @@
           <li class="menu_arrow"><a title="Recruitment Solutions" class="recruitment_solution_a">Recruitment Solutions</a>
             <div class="sub_menu_new srv-list">
                 <ul class="sub-menu-list recruitment_sub">
-                  <li class="first"><pre title="Customer Stories" class="customer-stories">Customer Stories</pre></li>
-                  <li class="first"><pre title="job_board_a" class="Workflow">Job Board</pre></li>
+                  <li class="first" title="Customer Stories" class="customer-stories">Customer Stories</li>
+                  <li class="first" title="job_board_a" class="Workflow">Job Board</li>
                  </ul>
               </div>
           </li>

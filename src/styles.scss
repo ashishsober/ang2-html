@@ -2,22 +2,29 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @font-face {
     font-family: "SCSans-Regular";
-    src: url("src/assets/fonts/sc-sans-web-regular.eot");
-    src: url("src/assets/fonts/sc-sans-web-regular.eot?#iefix") format("embedded-opentype"), url("src/assets/fonts/sc-sans-web-regular.woff") format("woff"), url("src/assets/fonts/sc-sans-web-regular.ttf") format("truetype"), url("src/assets/fonts/sc-sans-web-regular.svg#SC Sans Regular-normal-normal") format("svg");
+    src: url("/assets/fonts/sc-sans-web-regular.eot");
+    src: url("/assets/fonts/sc-sans-web-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/sc-sans-web-regular.woff") format("woff"), url("/assets/fonts/sc-sans-web-regular.ttf") format("truetype"), url("/assets/fonts/sc-sans-web-regular.svg#SC Sans Regular-normal-normal") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: "SCSans-Bold";
-    src: url("src/assets/fonts/sc-sans-web-bold.eot");
-    src: url("src/assets/fonts/sc-sans-web-bold.eot?#iefix") format("embedded-opentype"), url("src/assets/fonts/sc-sans-web-bold.woff") format("woff"), url("src/assets/fonts/sc-sans-web-bold.ttf") format("truetype"), url("src/assets/fonts/sc-sans-web-bold.svg#SC Sans Bold-normal-normal") format("svg");
+    src: url("/assets/fonts/sc-sans-web-bold.eot");
+    src: url("/assets/fonts/sc-sans-web-bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/sc-sans-web-bold.woff") format("woff"), url("/assets/fonts/sc-sans-web-bold.ttf") format("truetype"), url("/assets/fonts/sc-sans-web-bold.svg#SC Sans Bold-normal-normal") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: "SCSans-Light";
-    src: url("src/assets/fonts/sc-sans-web-light.eot");
-    src: url("src/assets/fonts/sc-sans-web-light.eot?#iefix") format("embedded-opentype"), url("src/assets/fonts/sc-sans-web-light.woff") format("woff"), url("src/assets/fonts/sc-sans-web-light.ttf") format("truetype"), url("src/assets/fonts/sc-sans-web-light.svg#SC Sans Light-normal-normal") format("svg");
+    src: url("/assets/fonts/sc-sans-web-light.eot");
+    src: url("/assets/fonts/sc-sans-web-light.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/sc-sans-web-light.woff") format("woff"), url("/assets/fonts/sc-sans-web-light.ttf") format("truetype"), url("/assets/fonts/sc-sans-web-light.svg#SC Sans Light-normal-normal") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Noto-Sans";
+    src: url("/assets/fonts/NotoSans.eot");
+    src: url("/assets/fonts/NotoSans.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/NotoSans.woff") format("woff"), url("/assets/fonts/NotoSans.ttf") format("truetype"), url("/assets/fonts/NotoSans.svg#SC Sans Light-normal-normal") format("svg");
     font-weight: normal;
     font-style: normal;
 }

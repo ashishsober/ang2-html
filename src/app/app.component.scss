@@ -35,11 +35,11 @@
           //text-transform: uppercase;
           list-style-type: none;
           letter-spacing: 1px;
-          font-size: 22px; //15 for 992 width
+          font-size: 21px;
           transition: all 0.2s ease-in-out;
+          font-family: 'Noto-Sans';
           
-        
-            &.menu_arrow {
+         &.menu_arrow {
               a {
                 background: url(../assets/ico_arrow_down.svg) right 12px center no-repeat rgba(0, 0, 0, 0);
                 background-size: 15%;
@@ -66,13 +66,39 @@
                   z-index: 999;
                   position: absolute;
                   background-color: white;
-                  width: 300px;
-                  right: -81%;
-                  li{
-                    float: none;
+                  border-bottom: 5px solid #008000;
+                  &.about_sub {
+                    width: 235px;
+                    right: -30%;
                   }
-                  &.recruitment_sub{
-                    right: -15%;
+                  &.services{
+                    width: 345px;
+                    right: -78%;
+                  }
+                  &.recruitment_sub {
+                    width: 290px;
+                    right: 0%;
+                  }
+                  li {
+                    float: none;
+                    border-bottom: 1px solid #ddd;
+                    margin: 0;
+                    background-color: transparent;
+                    padding: 13px 0 12px 25px;
+                    cursor: pointer;
+                    font-family: 'SCSans-Light';
+                    font-size: 15px;
+                    img {
+                      width: 40px;
+                      margin-right:10px;
+                      border: 1px solid #df1111;
+                      border-radius: 50%;
+                      padding: 7px;
+                    }
+                  }
+                  li:hover {
+                    background-color: rgba(0, 0, 0, 0.445);
+                    color: white;
                   }
                 }
                }
@@ -126,7 +152,7 @@
                   transition: all .25s ease-out;
                   background-color: #07b8de;
                 }
-              }
+            }
         
 
             }

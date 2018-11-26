@@ -32,9 +32,11 @@
           float: left;
           margin: 0 0 0 12px;
           position: relative;
-          // text-transform: uppercase;
+          //text-transform: uppercase;
           list-style-type: none;
           letter-spacing: 1px;
+          font-size: 22px; //15 for 992 width
+          transition: all 0.2s ease-in-out;
           
         
             &.menu_arrow {
@@ -97,6 +99,7 @@
                   text-decoration: none;
                   cursor: pointer;
                   &.contact_a {
+                    transition: all 0.2s ease-in-out;
                     background: rgba(0, 0, 0, 0);
                     border: 1px solid #fff;
                     border-radius: 5px;
@@ -125,7 +128,7 @@
                 }
               }
         
-              
+
             }
 
              
@@ -224,3 +227,57 @@
      }
    }
  }
+
+ // Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) { 
+  .outer_layout {
+    .header_new {
+      .logo {
+        font-size: 24px;
+      }
+      .menu_new {
+        li {
+          transition: all 0.2s ease-in-out;
+          font-size: 12px;
+          &.no_arrow {
+            a {
+              &.contact_a {
+                transition: all 0.2s ease-in-out;
+                font-size: 11px;
+              }
+            }
+          }
+        }
+      }
+    }
+   }
+
+}
+
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px)  { 
+  .outer_layout {
+    .header_new {
+      .menu_new {
+        li {
+          transition: all 0.2s ease-in-out;
+          font-size: 15px;
+          &.no_arrow {
+            a {
+              &.contact_a {
+                transition: all 0.2s ease-in-out;
+                font-size: 11px;
+              }
+            }
+          }
+        }
+      }
+    }
+   }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+
+}

@@ -1,15 +1,15 @@
 <div class="outer_layout" [ngClass]="{'right50':right50}">
   <header class="header_new" role="banner" [ngClass]="{'banner-color':bannerColorToBlack}">
     <div class="row">
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-md-2" [ngClass]="{'right50':right50}">
+      <div class="col-xs-12 col-sm-12 col-lg-3 col-md-2" [ngClass]="{'right50':right50}">
         <a href="" title="ValueCoders">
           <!-- <img class="logo" src="https://www.valuecoders.com/common/images/logo.svg" alt="Hire Dedicated Developers - Logo"> -->
           <label class="logo">VRD Network</label>
         </a>
-        <span class="mob_icon2" (click)="sidebar('open')" *ngIf="!displayBlock" ></span>
-        <span class="mob_cross" (click)="sidebar('close')" *ngIf="displayBlock"></span>
+          <span class="mob_icon2" (click)="sidebar('open')" *ngIf="!displayBlock" ></span>
+          <span class="mob_cross" (click)="sidebar('close')" *ngIf="displayBlock"></span>
       </div>
-      <div class="col-xs-12 col-sm-9 col-lg-10 col-md-10">
+      <div class="col-xs-12 col-lg-9 col-md-10">
         <ul class="menu_new" [ngClass]="{'display_block':displayBlock}">
           <!-- <li class="no_arrow main-header"><a (click)= "navigateTo('home')" title="Home" class="home_a">Company</a></li> -->
           <li class="menu_arrow"><a title="Company" class="company_a">Company</a>

@@ -69,12 +69,15 @@
             &.flag{
             // background: url(../images/flag1.png) left center no-repeat;
             }
-            p.address{
+            pre.address{
               color: #000;
               font: 15px/25px allerregular;
-              padding: 0 0 0 15px;
-              border-left: 1px solid #afafaf;
               text-align: left;
+              padding: 15px;
+              border: 1px solid #afafaf;
+              text-align: left;
+              box-shadow: 2px 2px #88888852;
+              border-radius: 10px;
               
             }
         }

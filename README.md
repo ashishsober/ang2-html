@@ -40,3 +40,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 * To run the app from AWS instance,which is alredy running no need of running again
 
             sudo nohup http-server -p 80 &
+
+            ps -ef to see the running port

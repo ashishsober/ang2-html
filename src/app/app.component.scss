@@ -39,7 +39,7 @@
           transition: all 0.2s ease-in-out;
           font-family: 'Noto-Sans';
           
-         &.menu_arrow {
+            &.menu_arrow {
               a {
                 background: url(../assets/ico_arrow_down.svg) right 12px center no-repeat rgba(0, 0, 0, 0);
                 background-size: 15%;
@@ -106,11 +106,11 @@
 
             &.menu_arrow:hover {
               a{
-                transition: all .25s ease-out;
+                //transition: all .25s ease-out;
                 background-color: #07b8de;
               }
               .sub_menu_new {
-                transition: all .25s ease-in;
+                //transition: all .25s ease-in;
                 display: block;
               }
             }
@@ -241,6 +241,9 @@
             }
           }
           &.menu_arrow:hover {
+            a{
+              background-color: white;
+            }
             .sub_menu_new {
               display: none;
             }

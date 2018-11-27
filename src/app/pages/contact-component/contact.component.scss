@@ -9,9 +9,21 @@
     text-align: center;
   
     .banner_index {
-      padding: 270px 0 200px;
+      //padding: 270px 0 200px;
       height: 700px;
-      
+      .banner_sec{
+        padding: 120px 0 30px;
+        text-align: center;
+        background: 0 0;
+        float: left;
+        width: 100%;
+          h1 {
+            font-size: 80px;
+            line-height: 90px;
+            color: #fff;
+            font-family: 'SCSans-Bold Noto-Sans';
+          }
+       }
         .form-outer {
           padding: 15px 30px;
           float: left;

@@ -52,7 +52,7 @@ const MATERIAL_MODULES = [
 //   MatDialogModule,
 //   MatDatepickerModule,
 //   MatNativeDateModule,
-//   MatSelectModule
+   MatSelectModule
 ];
 
 @NgModule({

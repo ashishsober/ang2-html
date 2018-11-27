@@ -3,12 +3,13 @@ import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { HomeComponent } from './pages/home-component/home.component';
 import { CareerComponent } from './pages/career-component/career.component'
 import { ContactComponent } from './pages/contact-component/contact.component';
-
+import { AppIntegrationComponent } from './pages/app-integration/app.integration.component';
 const routes: Routes = [
 
   { path: '', component: HomeComponent },
   { path: 'careers', component: CareerComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'appIntegrationComponent', component: AppIntegrationComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

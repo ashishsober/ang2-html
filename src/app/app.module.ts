@@ -9,13 +9,14 @@ import { CareerComponent } from './pages/career-component/career.component'
 import { ContactComponent } from './pages/contact-component/contact.component';
 import {  AppMaterialModule  } from './app.material.module';
 import { FormsModule } from '@angular/forms';
-
+import { AppIntegrationComponent } from './pages/app-integration/app.integration.component'
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CareerComponent,
-    ContactComponent
+    ContactComponent,
+    AppIntegrationComponent
   ],
   imports: [
     BrowserModule,

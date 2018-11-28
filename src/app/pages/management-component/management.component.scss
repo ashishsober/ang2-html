@@ -41,10 +41,29 @@
       height: 500px;
       margin-bottom: 50px;
       background-image: url(../../../assets/home_banner.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      .card-info {
+        display: none;
+        text-align: left;
+        padding: 20px;
+       }
+      }
+      .manage-card:hover {
+        .card-info {
+            height: 0px;
+            transition: height 2s;
+            color: black;
+            display: block;
+            
+        }
+        .card-info:hover{
+            background: grey;
+            height: 498px;
+        }
     }
+    
   }
 
 }

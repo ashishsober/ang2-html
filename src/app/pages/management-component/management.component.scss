@@ -26,6 +26,17 @@
         font-family: 'Noto-Sans';
     }
 }
+.manag-board {
+      width: 100%;
+      float: left;
+      background: #fff;
+      //padding: 90px 0 61px;
+      .manage-card{
+          border: 1px solid black;
+          height: 500px;
+          margin-bottom: 50px;
+      }
+}
    
   
    

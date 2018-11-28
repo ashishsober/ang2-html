@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home-component/home.component';
+import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CareerComponent } from './pages/career-component/career.component'
 import { ContactComponent } from './pages/contact-component/contact.component';
@@ -13,7 +13,7 @@ import { AppIntegrationComponent } from './pages/app-integration/app.integration
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    AboutUsComponent,
     CareerComponent,
     ContactComponent,
     AppIntegrationComponent

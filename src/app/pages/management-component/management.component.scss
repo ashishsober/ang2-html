@@ -1,53 +1,54 @@
 .management_page {
+  float: left;
+  width: 100%;
+  //background-image: url(../../../assets/home_banner.jpg);
+  //background-position: center center;
+  //background-repeat: no-repeat;
+  //background-size: cover;
+  position: relative;
+  text-align: center;
+  background: black;
+
+  .banner_index {
+    //padding: 270px 0 200px;
+    height: 70px;
+
+  }
+
+  .leadership {
+    width: 100%;
     float: left;
-    width: 100%;
-    //background-image: url(../../../assets/home_banner.jpg);
-    //background-position: center center;
-    //background-repeat: no-repeat;
-    //background-size: cover;
-    position: relative;
-    text-align: center;
-    background: black;
-    .banner_index {
-      //padding: 270px 0 200px;
-      height: 70px;
-      
-    }
-.leadership {
-    width: 100%;
-      float: left;
-      padding: 70px 0 61px;
-      background: white;
-      color: black;
+    padding: 70px 0 61px;
+    background: white;
+    color: black;
+
     .our_leadership {
-        color: black;
-        font-size: 35px;
-        border-bottom: 3px solid #6bcbd5;
-        font-family: 'Noto-Sans';
+      color: black;
+      font-size: 35px;
+      border-bottom: 3px solid #6bcbd5;
+      font-family: 'Noto-Sans';
     }
-}
-.manag-board {
-      width: 100%;
-      float: left;
-      background: #fff;
-      //padding: 90px 0 61px;
-      .manage-card{
-          border: 1px solid black;
-          height: 500px;
-          margin-bottom: 50px;
-      }
-}
-   
-  
-   
-  
-  
-  
   }
-  
-  
-  // Mobile screen size
-  @media only screen and (min-width: 320px) and (max-width: 767px) {
-    
+
+  .manag-board {
+    width: 100%;
+    float: left;
+    background: #fff;
+
+    //padding: 90px 0 61px;
+    .manage-card {
+      border: 1px solid black;
+      height: 500px;
+      margin-bottom: 50px;
+      background-image: url(../../../assets/home_banner.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    }
   }
-  
+
+}
+
+
+// Mobile screen size
+@media only screen and (min-width: 320px) and (max-width: 767px) {}

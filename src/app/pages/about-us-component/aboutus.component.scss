@@ -39,6 +39,56 @@
       }
     }
   }
+
+  .get-info {
+      width: 100%;
+      float: left;
+      margin-top: 50px;
+      padding: 90px 0 61px;
+      background: white;//#1a1414;
+      color: black;
+      .about {
+        margin-bottom: 25px;
+        font-size: 20px;
+        strong {
+          float: left;
+        }
+      }
+      .content {
+        line-height: 1.7;
+        font-size: 16px;
+        text-align: left;
+        letter-spacing: 0.5px;
+      }
+      
+  }
+
+  .when-we-started {
+    background: #6bcbd5;
+    color: black;
+    width: 100%;
+    float: left;
+    padding: 90px 0 61px;
+    .heading-when-we {
+      margin-bottom: 25px;
+      font-size: 30px;
+      font-family: 'Noto-Sans';
+      letter-spacing: 0.3rem;
+      strong {
+        float: left;
+      }
+    }
+    .content-when-we-started {
+        line-height: 1.7;
+        font-size: 16px;
+        text-align: left;
+        letter-spacing: 0.5px;
+    }
+      
+  }
+
+
+
 }
 
 

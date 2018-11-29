@@ -29,7 +29,7 @@
                       <img src="../assets/users-solid.svg"/>App Engine Development</li>
                   <li class="first" title="Workflow" class="workflow">
                     <img src="../assets/statistics.svg" />Workflow</li>
-                  <li (click)= "navigateTo('appIntegrationComponent')" class="first" title="Apps Integration" class="apps-integration">
+                  <li (click)= "navigateTo('appIntegration')" class="first" title="Apps Integration" class="apps-integration">
                       <img src="../assets/users-solid.svg"/>Apps Integration</li>
                   <li class="first" title="SAP Solutions" class="sap-solutions">
                       <img src="../assets/users-solid.svg"/>SAP Solutions</li>
@@ -40,7 +40,7 @@
           <li class="menu_arrow"><a title="Recruitment Solutions" (click)="displayRecruitMenu = !displayRecruitMenu"class="recruitment_solution_a">Recruitment Solutions</a>
             <div class="sub_menu_new srv-list srv-list-for-small-device-recruitment" [ngClass]="{'display_block':displayRecruitMenu}">
                 <ul class="sub-menu-list recruitment_sub">
-                  <li class="first" title="Customer Stories" class="customer-stories">
+                  <li (click)= "navigateTo('customerStories')" class="first" title="Customer Stories" class="customer-stories">
                       <img src="../assets/handshake-regular.svg"/>Customer Stories</li>
                   <li class="first" title="job_board_a" class="Workflow">
                       <img src="../assets/users-solid.svg"/>Job Board</li>

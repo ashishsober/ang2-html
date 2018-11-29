@@ -11,6 +11,7 @@ import {  AppMaterialModule  } from './app.material.module';
 import { FormsModule } from '@angular/forms';
 import { AppIntegrationComponent } from './pages/app-integration/app.integration.component'
 import { ManagementComponent } from './pages/management-component/management.component';
+import { CustomerStoriesComponent } from './pages/customer-stories/customer-stories.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ManagementComponent } from './pages/management-component/management.com
     CareerComponent,
     ContactComponent,
     AppIntegrationComponent,
-    ManagementComponent
+    ManagementComponent,
+    CustomerStoriesComponent
   ],
   imports: [
     BrowserModule,

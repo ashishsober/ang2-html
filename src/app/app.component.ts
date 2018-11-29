@@ -16,6 +16,9 @@ export class AppComponent {
   displayBlock:boolean=false;
   right50:boolean=false;
   toState ='state1';
+  displayCompanyMenu:boolean=false;
+  displayServiceMenu:boolean=false;
+  displayRecruitMenu:boolean=false;
 
   constructor(private router:Router){}
 

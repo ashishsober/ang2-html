@@ -11,9 +11,8 @@
       </div>
       <div class="col-xs-12 col-lg-9 col-md-10">
         <ul class="menu_new" [ngClass]="{'display_block':displayBlock}">
-          <!-- <li class="no_arrow main-header"><a (click)= "navigateTo('home')" title="Home" class="home_a">Company</a></li> -->
-          <li class="menu_arrow"><a title="Company" class="company_a">Company</a>
-            <div class="sub_menu_new srv-list">
+          <li class="menu_arrow"><a (click)="displayCompanyMenu = !displayCompanyMenu" title="Company" class="company_a">Company</a>
+            <div class="sub_menu_new srv-list srv-list-for-small-device-about" [ngClass]="{'display_block':displayCompanyMenu}">
                 <ul class="sub-menu-list about_sub">
                   <li (click)= "navigateTo('home')" class="first" title="About US" class="about-us">
                       <img src="../assets/book-open-solid.svg"/>About US</li>
@@ -23,8 +22,8 @@
                 </ul>
             </div>  
           </li>
-          <li class="menu_arrow"><a id="mob_main_service_manu" title="Services">Services</a>
-              <div class="sub_menu_new srv-list">
+          <li class="menu_arrow"><a (click)="displayServiceMenu = !displayServiceMenu" title="Services">Services</a>
+              <div class="sub_menu_new srv-list srv-list-for-small-device-services" [ngClass]="{'display_block':displayServiceMenu}">
                 <ul class="sub-menu-list services">
                   <li class="first" title="App Engine Development" class="app-Engine-Development">
                       <img src="../assets/users-solid.svg"/>App Engine Development</li>
@@ -38,8 +37,8 @@
               </div>
           </li>
           <li class="no_arrow"><a (click)= "navigateTo('careers')" title="Careers" class="careers_a" routerLinkActive="active">Career</a></li>
-          <li class="menu_arrow"><a title="Recruitment Solutions" class="recruitment_solution_a">Recruitment Solutions</a>
-            <div class="sub_menu_new srv-list">
+          <li class="menu_arrow"><a title="Recruitment Solutions" (click)="displayRecruitMenu = !displayRecruitMenu"class="recruitment_solution_a">Recruitment Solutions</a>
+            <div class="sub_menu_new srv-list srv-list-for-small-device-recruitment" [ngClass]="{'display_block':displayRecruitMenu}">
                 <ul class="sub-menu-list recruitment_sub">
                   <li class="first" title="Customer Stories" class="customer-stories">
                       <img src="../assets/handshake-regular.svg"/>Customer Stories</li>
@@ -48,7 +47,6 @@
                  </ul>
               </div>
           </li>
-          <!-- <li class="no_arrow"><a href="" title="Job Board" class="job_board_a">Job Board</a></li> -->
           <li class="no_arrow"><a (click)= "navigateTo('contact')" title="Contact" class="contact_a">Contact</a></li>
         </ul>
       </div>

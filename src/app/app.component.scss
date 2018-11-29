@@ -226,13 +226,72 @@
           width: 96%;
           &.menu_arrow , &.no_arrow{
             .sub_menu_new {
-              display: none;
-            }
+              //display: none;
+              &.srv-list-for-small-device-about{
+                  height: 93px;
+                  box-shadow: none;
+                  ul.sub-menu-list {
+                    border-bottom: none;
+                    border-top: 2px solid black;
+                      &.about_sub {
+                        width: 100%;
+                        right: 0%;
+                        li {
+                          font-size: 12px;
+                          padding-left:10px; 
+                          img {
+                            display: none;
+                          }
+                        }
+                      }
+                  }
+              }
+              &.srv-list-for-small-device-services{
+                height: 181px;
+                box-shadow: none;
+                ul.sub-menu-list {
+                  border-bottom: none;
+                  border-top: 2px solid black;
+                    &.services{
+                      width: 100%;
+                      right: 0%;
+                      li {
+                        font-size: 12px;
+                        padding-left:10px;
+                        img {
+                          display: none;
+                        }
+                      }
+                    }
+                 }
+              }
+              &.srv-list-for-small-device-recruitment{
+                  height: 93px;
+                  box-shadow: none;
+                  ul.sub-menu-list {
+                    border-bottom: none;
+                    border-top: 2px solid black;
+                      &.recruitment_sub {
+                        width: 100% !important;
+                        right: 0%;
+                        li {
+                          font-size: 12px;
+                          padding-left:10px;
+                          img {
+                            display: none;
+                          }
+                        }
+                      }
+                  }
+              }
+             }
+
+
             a{
               color: #000;
               width: 100%;
-              background-size: 7%;
-              font-size: 12px;
+              background-size: 8%;
+              font-size: 14px;
               padding-bottom: 10px;
               &.contact_a {
                 color:#000;
@@ -248,6 +307,7 @@
           &.menu_arrow:hover {
             a{
               background-color: white;
+              color: black;
             }
             .sub_menu_new {
               display: none;
@@ -255,7 +315,7 @@
           }
          }
          .recruitment_solution_a {
-          background-size: 7% !important;
+          background-size: 8% !important;
         }
        }
      }

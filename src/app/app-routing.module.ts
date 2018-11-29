@@ -6,6 +6,7 @@ import { ContactComponent } from './pages/contact-component/contact.component';
 import { AppIntegrationComponent } from './pages/app-integration/app.integration.component';
 import { ManagementComponent } from './pages/management-component/management.component';
 import { CustomerStoriesComponent } from './pages/customer-stories/customer-stories.component';
+import { JobBoardComponent } from './pages/job-board/job-board.component';
 const routes: Routes = [
 
   { path: '', component: AboutUsComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'appIntegration', component: AppIntegrationComponent },
   { path: 'customerStories', component: CustomerStoriesComponent },
+  { path: 'jobBoard', component: JobBoardComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

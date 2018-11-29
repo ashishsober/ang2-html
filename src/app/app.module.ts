@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AppIntegrationComponent } from './pages/app-integration/app.integration.component'
 import { ManagementComponent } from './pages/management-component/management.component';
 import { CustomerStoriesComponent } from './pages/customer-stories/customer-stories.component';
+import { JobBoardComponent } from './pages/job-board/job-board.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CustomerStoriesComponent } from './pages/customer-stories/customer-stor
     ContactComponent,
     AppIntegrationComponent,
     ManagementComponent,
-    CustomerStoriesComponent
+    CustomerStoriesComponent,
+    JobBoardComponent
   ],
   imports: [
     BrowserModule,

@@ -44,25 +44,37 @@
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-      .card-info {
-        display: none;
-        text-align: left;
-        padding: 20px;
-       }
+       .card-info {
+           //display: none;
+            font-size:20px;
+            max-height:0;
+            //padding: 20px;
+            overflow:hidden;
+            -webkit-transition: all 2s ease-in-out;
+            -moz-transition: all 2s ease-in-out;
+            -ms-transition: all 2s ease-in-out;
+            -o-transition: all 2s ease-in-out;
+            transition: all 2s ease-in-out;
+        }
       }
-      .manage-card:hover {
+      .manage-card:hover{
         .card-info {
-            height: 0px;
-            transition: height 2s;
-            color: black;
-            display: block;
-            
-        }
-        .card-info:hover{
-            background: grey;
-            height: 498px;
-        }
-    }
+            //display: block;
+             //height:auto;
+             max-height:498px;
+             background: grey;
+                 p {
+                     height: 485px;
+                 }
+         }
+      }
+      
+        
+        // .card-info{
+        //     background: grey;
+        //     height: 498px;
+        // }
+    
     
   }
 

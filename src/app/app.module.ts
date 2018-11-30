@@ -15,6 +15,8 @@ import { CustomerStoriesComponent } from './pages/customer-stories/customer-stor
 import { JobBoardComponent } from './pages/job-board/job-board.component';
 import { AppEngineDevelopmentComponent } from './pages/app-engine-development-component/app-engine-development.component'
 import { WorkflowComponent } from './pages/workflow-component/workflow.component';
+import { SapSolutionsComponent } from './pages/sap-solutions-component/sap-solutions.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { WorkflowComponent } from './pages/workflow-component/workflow.component
     CustomerStoriesComponent,
     JobBoardComponent,
     AppEngineDevelopmentComponent,
-    WorkflowComponent
+    WorkflowComponent,
+    SapSolutionsComponent
   ],
   imports: [
     BrowserModule,

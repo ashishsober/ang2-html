@@ -9,6 +9,8 @@ import { CustomerStoriesComponent } from './pages/customer-stories/customer-stor
 import { JobBoardComponent } from './pages/job-board/job-board.component';
 import { AppEngineDevelopmentComponent } from './pages/app-engine-development-component/app-engine-development.component'
 import { WorkflowComponent } from './pages/workflow-component/workflow.component';
+import { SapSolutionsComponent } from './pages/sap-solutions-component/sap-solutions.component';
+
 const routes: Routes = [
 
   { path: '', component: AboutUsComponent },
@@ -19,6 +21,7 @@ const routes: Routes = [
   { path: 'customerStories', component: CustomerStoriesComponent },
   { path: 'jobBoard', component: JobBoardComponent },
   { path: 'appEngineDevelopment', component: AppEngineDevelopmentComponent },
+  { path: 'sapSolutions', component: SapSolutionsComponent },
   { path: 'workflow', component: WorkflowComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

@@ -13,7 +13,7 @@ import { AppIntegrationComponent } from './pages/app-integration/app.integration
 import { ManagementComponent } from './pages/management-component/management.component';
 import { CustomerStoriesComponent } from './pages/customer-stories/customer-stories.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';
-
+import { AppEngineDevelopmentComponent } from './pages/app-engine-development-component/app-engine-development.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,8 @@ import { JobBoardComponent } from './pages/job-board/job-board.component';
     AppIntegrationComponent,
     ManagementComponent,
     CustomerStoriesComponent,
-    JobBoardComponent
+    JobBoardComponent,
+    AppEngineDevelopmentComponent
   ],
   imports: [
     BrowserModule,

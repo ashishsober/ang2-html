@@ -7,6 +7,7 @@ import { AppIntegrationComponent } from './pages/app-integration/app.integration
 import { ManagementComponent } from './pages/management-component/management.component';
 import { CustomerStoriesComponent } from './pages/customer-stories/customer-stories.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';
+import { AppEngineDevelopmentComponent } from './pages/app-engine-development-component/app-engine-development.component'
 const routes: Routes = [
 
   { path: '', component: AboutUsComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'appIntegration', component: AppIntegrationComponent },
   { path: 'customerStories', component: CustomerStoriesComponent },
   { path: 'jobBoard', component: JobBoardComponent },
+  { path: 'appEngineDevelopment', component: AppEngineDevelopmentComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

@@ -25,7 +25,7 @@
           <li class="menu_arrow"><a (click)="displayServiceMenu = !displayServiceMenu" title="Services">Services</a>
               <div class="sub_menu_new srv-list srv-list-for-small-device-services" [ngClass]="{'display_block':displayServiceMenu}">
                 <ul class="sub-menu-list services">
-                  <li class="first" title="App Engine Development" class="app-Engine-Development">
+                  <li (click)= "navigateTo('appEngineDevelopment')" class="first" title="App Engine Development" class="app-Engine-Development">
                       <img src="../assets/users-solid.svg"/>App Engine Development</li>
                   <li class="first" title="Workflow" class="workflow">
                     <img src="../assets/statistics.svg" />Workflow</li>

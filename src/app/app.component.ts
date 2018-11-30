@@ -32,6 +32,14 @@ export class AppComponent {
     }
   }
 
+  // @HostListener('touchend', ['$event']) onTouchEnd(event: Event): void {
+  //   if (event) {
+  //     event.preventDefault();
+  //   }
+  //   //let part = this.el.nativeElement.querySelector('.icon-interface-question-mark');
+  //   //this.renderer.setElementStyle(part, 'display', 'yellow');
+  // }
+
   sidebar(state:any){
     if(state ==='close'){
       this.displayBlock =false;

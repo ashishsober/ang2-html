@@ -27,3 +27,16 @@
      } 
   }  
 }
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .val_index_page {
+    .banner_index {
+      .banner_sec{
+          h1 {
+            font-size: 30px;
+            line-height: 45px;
+          }
+       }
+     }
+   }
+}

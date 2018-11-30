@@ -14,6 +14,7 @@ import { ManagementComponent } from './pages/management-component/management.com
 import { CustomerStoriesComponent } from './pages/customer-stories/customer-stories.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';
 import { AppEngineDevelopmentComponent } from './pages/app-engine-development-component/app-engine-development.component'
+import { WorkflowComponent } from './pages/workflow-component/workflow.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { AppEngineDevelopmentComponent } from './pages/app-engine-development-co
     ManagementComponent,
     CustomerStoriesComponent,
     JobBoardComponent,
-    AppEngineDevelopmentComponent
+    AppEngineDevelopmentComponent,
+    WorkflowComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,6 @@
 .management_page {
   float: left;
   width: 100%;
-  //background-image: url(../../../assets/home_banner.jpg);
-  //background-position: center center;
-  //background-repeat: no-repeat;
-  //background-size: cover;
   position: relative;
   text-align: center;
   background: black;
@@ -43,7 +39,6 @@
       // float: left; //is wrong  dont enabled
       border-radius: 5px;
       padding: 0;
-      //margin: 3px 21px 40px 3px;
       ul {
         list-style: none;
         padding: 0%;
@@ -100,7 +95,6 @@
 }
 
 
-// Mobile screen size
 // Mobile screen size
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .management_page {

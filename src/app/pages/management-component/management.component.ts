@@ -9,7 +9,7 @@ export class ManagementComponent {
   managementList=[{
     "name":"Vivek Kumar",
     "position":"Managing Director",
-    "profileImage":"assets/img1.jpg",
+    "profileImage":"assets/vivek_sir.jpeg",
     "discription":"As Director of VRD NETWORK he is responsible for VRD NETWORK's day-to-day-operations, as well as leading the company's product development and technology strategy. Under his leadership, VRD NETWORK has broadened its offerings while maintaining a culture of strong innovation. His background uniquely prepares him to lead VRD NETWORK toward technological solutions that focus on users.",
     "emailid":"vivek.rai@vrdnetwork.com"
   },

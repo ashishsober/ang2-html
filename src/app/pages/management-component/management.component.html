@@ -4,43 +4,43 @@
         </div>
 
         <div class="leadership">
-            <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 our_leadership">
-                          <p>Our Leadership</p>
-                        </div>
+                    <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 our_leadership">
+                                <p>Our Leadership</p>
+                                </div>
+                            </div>
                     </div>
-            </div>
-        </div>
+
+                    <div class="manag-board">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let item of managementList">
+                                        <div class="card">
+                                                <ul>
+                                                        <li class="profile">
+                                                            <div class="profile-pic">
+                                                                <img [src]="item.profileImage" style="background-size:cover;display:inline-block;width: 107px;height: 107px;background-position: center;"/>
+                                                            </div>
+                                                            <div class="valign">
+                                                                <h4>{{ item.name }}</h4>
+                                                                <h5><span>{{ item.position }}</span></h5>
+                                                            </div>
+                                                        </li>
+                                                        <li class="descs">
+                                                                {{item.discription}}
+                                                        </li>
+                                                        <p *ngIf="item.emailid !== ''"><Strong>Email</Strong>: {{item.emailid}}</p>
+                                                </ul>
+                
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                     </div>
+         </div>
  
-        <div class="manag-board">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let item of managementList">
-                        <div class="card">
-                                <ul>
-                                        <li class="profile">
-                                            <div class="profile-pic">
-                                                <img [src]="item.profileImage" style="background-size:cover;display:inline-block;width: 107px;height: 107px;background-position: center;"/>
-                                            </div>
-                                            <div class="valign">
-                                                <h4>{{ item.name }}</h4>
-                                                <h5><span>{{ item.position }}</span></h5>
-                                            </div>
-                                        </li>
-                                        <li class="descs">
-                                                 {{item.discription}}
-                                        </li>
-                                        <p *ngIf="item.emailid !== ''"><Strong>Email</Strong>: {{item.emailid}}</p>
-                                </ul>
-
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-
-
-        </div>
+        
 
 </section>

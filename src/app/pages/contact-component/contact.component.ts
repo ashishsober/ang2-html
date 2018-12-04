@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  selectboxData= [{
+  selectboxData: Array<any> = [{
     "CODE_DESC": "Google Apps",
     "CODE_VALUE": 'google_apps'
   },
@@ -23,4 +23,43 @@ export class ContactComponent {
     "CODE_VALUE": "other"
   }
   ];
+
+
+  contact_address: Array<any> = [{
+    "office": "Regd. OFFICE",//mandatory fields
+    "address_line1": "127 Vaishali Nagar,",//mandatory fields
+    "address_line2": "Bhopal (M.P) / India 4620016",//mandatory fields
+    "address_line3": "",
+    "address_line4": "",
+    "contact": "0755-4272034",
+    "email_id": ""
+  },
+  {
+    "office": "ADMIN OFFICE",
+    "address_line1": "17 Malviya Nagar , ",
+    "address_line2": "Bhopal (M.P) / India ",
+    "address_line3": "",
+    "address_line4": "",
+    "contact": "0755-4276923",
+    "email_id": ""
+  },
+  {
+    "office": "BANGALORE",
+    "address_line1": "Manyata Embassy Business Park",
+    "address_line2": "Ground Floor, E1 Block, Beech Building",
+    "address_line3": "Outer Ring Road",
+    "address_line4": "Bangalore - (Karnataka) India 560 045",
+    "contact": "080-4276-4665",
+    "email_id": "hr@vrdnetwork.com"
+  },
+  {
+    "office": "DELHI",
+    "address_line1": "1201 NIRMAL TOWER",
+    "address_line2": "Barakhamba Road",
+    "address_line3": "New Delhi, India 110 001",
+    "address_line4": "",
+    "contact": "",
+    "email_id": "contact@vrdnetwork.com"
+  }]
+
 }

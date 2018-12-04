@@ -60,29 +60,17 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-
-
-              <ul class="contact_detail"> 
-                  <li><pre class="address"><strong>Regd. OFFICE:</strong>
-127 Vaishali Nagar , 
-Bhopal (M.P) / India 4620016 
-Contact No : 0755-4272034</pre></li>
-                  <li><pre class="address"><strong>ADMIN OFFICE: </strong>  
-17 Malviya Nagar , 
-Bhopal (M.P) / India 
-Contact No : 0755-4276923</pre></li>
-                  <li><pre class="address"><strong>BANGALORE :</strong>
-Manyata Embassy Business Park, 
-Ground Floor, E1 Block, Beech Building,
-Outer Ring Road, 
-Bangalore - (Karnataka) India 560 045
-Contact No.: 080-4276-4665. 
-email : hr@vrdnetwork.com </pre></li>  
-                  <li><pre class="address"><strong>DELHI:</strong> 
-1201 NIRMAL TOWER, 
-Barakhamba Road,
-New Delhi, India 110 001 
-email : contact@vrdnetwork.com8</pre></li>
+              <ul class="contact_detail" *ngFor = "let item of contact_address"> 
+                  <li>
+                       <p class="address"><strong>{{item.office}}:</strong><br>
+                          <span>{{ item.address_line1 }}</span><br>
+                          <span>{{ item.address_line2 }}</span>
+                          <span *ngIf="item.address_line3 !==''"><br>{{ item.address_line3 }}</span>
+                          <span *ngIf="item.address_line4 !==''"><br>{{ item.address_line4 }}</span>
+                          <span *ngIf="item.contact !==''"><br>Contact No : {{ item.contact }}</span>
+                          <span *ngIf="item.email_id !==''" ><br>email: {{ item.email_id }}</span>
+                      </p>
+                    </li>
               </ul>
           </div>
           <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">

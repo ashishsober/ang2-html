@@ -67,10 +67,7 @@
         li {
             margin: 0 0 30px;
             padding: 0 0 0 0px; 
-            &.flag{
-            // background: url(../images/flag1.png) left center no-repeat;
-            }
-            pre.address{
+            p.address{
               color: #000;
               font: 15px/25px allerregular;
               text-align: left;
@@ -79,7 +76,7 @@
               text-align: left;
               box-shadow: 2px 2px #88888852;
               border-radius: 10px;
-              
+              //text-transform: uppercase;
             }
         }
       }

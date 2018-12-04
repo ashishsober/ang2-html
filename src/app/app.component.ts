@@ -1,59 +1,11 @@
-import { Component } from '@angular/core';
-import { HostListener, Inject } from "@angular/core";
-import { DOCUMENT } from '@angular/platform-browser';
-import { Router } from '@angular/router'
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-
-
-declare const window: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  bannerColorToBlack:boolean;
-  displayBlock:boolean=false;
-  right50:boolean=false;
-  toState ='state1';
-  displayCompanyMenu:boolean=false;
-  displayServiceMenu:boolean=false;
-  displayRecruitMenu:boolean=false;
-
-  constructor(private router:Router){}
-
-  @HostListener("window:scroll", [])
-  onWindowScroll() {
-    const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (number > 20) {
-      this.bannerColorToBlack = true;
-    } else {
-      this.bannerColorToBlack = false;
-    }
-  }
-
-  // @HostListener('touchend', ['$event']) onTouchEnd(event: Event): void {
-  //   if (event) {
-  //     event.preventDefault();
-  //   }
-  //   //let part = this.el.nativeElement.querySelector('.icon-interface-question-mark');
-  //   //this.renderer.setElementStyle(part, 'display', 'yellow');
-  // }
-
-  sidebar(state:any){
-    if(state ==='close'){
-      this.displayBlock =false;
-      this.right50 = false;
-    } else {
-      this.displayBlock =true;
-      this.right50 = true;
-    }
-   
-  }
-
-  navigateTo(state:any){
-    this.displayBlock =false;
-    this.right50 = false;
-    this.router.navigate([state]);
-  }
+  public right50:boolean;
+  constructor(){}
 }

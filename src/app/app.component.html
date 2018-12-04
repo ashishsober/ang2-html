@@ -1,57 +1,5 @@
 <div class="outer_layout" [ngClass]="{'right50':right50}">
-  <header class="header_new" role="banner" [ngClass]="{'banner-color':bannerColorToBlack}">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-lg-3 col-md-2" [ngClass]="{'right50':right50}">
-        <a href="" title="ValueCoders">
-          <!-- <img class="logo" src="https://www.valuecoders.com/common/images/logo.svg" alt="Hire Dedicated Developers - Logo"> -->
-          <label class="logo">VRD Network</label>
-        </a>
-          <span class="mob_icon2" (click)="sidebar('open')" *ngIf="!displayBlock" ></span>
-          <span class="mob_cross" (click)="sidebar('close')" *ngIf="displayBlock"></span>
-      </div>
-      <div class="col-xs-12 col-lg-9 col-md-10">
-        <ul class="menu_new" [ngClass]="{'display_block':displayBlock}">
-          <li class="menu_arrow"><a (click)="displayCompanyMenu = !displayCompanyMenu" title="Company" class="company_a">Company</a>
-            <div class="sub_menu_new srv-list srv-list-for-small-device-about" [ngClass]="{'display_block':displayCompanyMenu}">
-                <ul class="sub-menu-list about_sub">
-                  <li (click)= "navigateTo('home')" class="first" title="About US" class="about-us">
-                      <img src="../assets/book-open-solid.svg"/>About US</li>
-                  <li (click)= "navigateTo('management')" class="first" title="Management" class="management">
-                    <img src="../assets/users-solid.svg"/>
-                    Management</li>
-                </ul>
-            </div>  
-          </li>
-          <li class="menu_arrow"><a (click)="displayServiceMenu = !displayServiceMenu" title="Services">Services</a>
-              <div class="sub_menu_new srv-list srv-list-for-small-device-services" [ngClass]="{'display_block':displayServiceMenu}">
-                <ul class="sub-menu-list services">
-                  <li (click)= "navigateTo('appEngineDevelopment')" class="first" title="App Engine Development" class="app-Engine-Development">
-                      <img src="../assets/users-solid.svg"/>App Engine Development</li>
-                  <li (click)= "navigateTo('workflow')" class="first" title="Workflow" class="workflow">
-                    <img src="../assets/statistics.svg" />Workflow</li>
-                  <li (click)= "navigateTo('appIntegration')" class="first" title="Apps Integration" class="apps-integration">
-                      <img src="../assets/users-solid.svg"/>Apps Integration</li>
-                  <li (click)= "navigateTo('sapSolutions')" class="first" title="SAP Solutions" class="sap-solutions">
-                      <img src="../assets/users-solid.svg"/>SAP Solutions</li>
-                 </ul>
-              </div>
-          </li>
-          <li class="no_arrow"><a (click)= "navigateTo('careers')" title="Careers" class="careers_a" routerLinkActive="active">Career</a></li>
-          <li class="menu_arrow"><a title="Recruitment Solutions" (click)="displayRecruitMenu = !displayRecruitMenu"class="recruitment_solution_a">Recruitment Solutions</a>
-            <div class="sub_menu_new srv-list srv-list-for-small-device-recruitment" [ngClass]="{'display_block':displayRecruitMenu}">
-                <ul class="sub-menu-list recruitment_sub">
-                  <li (click)= "navigateTo('customerStories')" class="first" title="Customer Stories" class="customer-stories">
-                      <img src="../assets/handshake-regular.svg"/>Customer Stories</li>
-                  <li (click)= "navigateTo('jobBoard')" class="first" title="job_board_a" class="Workflow">
-                      <img src="../assets/users-solid.svg"/>Job Board</li>
-                 </ul>
-            </div>
-          </li>
-          <li class="no_arrow"><a (click)= "navigateTo('contact')" title="Contact" class="contact_a">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
+  <ngx-header  (right50Event)="right50=$event"></ngx-header>
   <section class="index_latest_pg">
     <router-outlet></router-outlet>
   </section>
@@ -61,7 +9,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="row">
           <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-              <p>Copyright © 1996 - 2018. All Rights Reserved. vrdnetwork.com</p>
+              <p>Copyright © 1996 - 2018. All Rights Reserved. www.vrdnetwork.com</p>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <ul class="social_sec">

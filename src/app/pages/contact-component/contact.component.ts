@@ -71,17 +71,17 @@ export class ContactComponent {
     if (event.source.selected) {
       if(event.source.value ==='other'){
         this.hide=true; //making visible,field should be blank
-        this.contactModal.other='';
+        this.contactModal.other=null;
       } else {
         this.hide=false;
-        this.contactModal.other='';
+        this.contactModal.other=null;
       }
     }
   }
 
-  onSubmit(form: NgForm){
-    if(form.valid){
-      console.log(form);
+  onSubmit({ value, valid }: { value: {}, valid: boolean }){
+    if(valid){
+      console.log(value);
     } else {
       return;
     }

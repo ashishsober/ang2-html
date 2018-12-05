@@ -1,4 +1,4 @@
-# AngHtml
+# Ang Html
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
@@ -29,14 +29,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Important points 
 
-* Bootstrap-----4.1.3
+* Bootstrap-----4.1.3---for the grid layout
 * Created EC2 instance of Ubuntu 18.0 image.
 * Only using SVG icons
-* using node version 9.5.0
+* Using node version 9.5.0
+* Using Angular Material for Form field
 * Their are two type of forms :
 
-            [Template-driven validation] (https://angular.io/guide/form-validation#template-driven-validation)
-            [Reactive form validation] (https://angular.io/guide/form-validation#reactive-form-validation)
+            [Template-driven validation](https://angular.io/guide/form-validation#template-driven-validation)
+            [Reactive form validation](https://angular.io/guide/form-validation#reactive-form-validation)
 
 * To login from the terminal 
       

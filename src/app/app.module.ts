@@ -16,8 +16,8 @@ import { JobBoardComponent } from './pages/job-board/job-board.component';
 import { AppEngineDevelopmentComponent } from './pages/app-engine-development-component/app-engine-development.component'
 import { WorkflowComponent } from './pages/workflow-component/workflow.component';
 import { SapSolutionsComponent } from './pages/sap-solutions-component/sap-solutions.component';
-import { HeaderComponent } from './core/header-component/header.component'
-
+import { HeaderComponent } from './core/header-component/header.component';
+import { FooterComponent } from '../app/core/footer-component/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,8 @@ import { HeaderComponent } from './core/header-component/header.component'
     AppEngineDevelopmentComponent,
     WorkflowComponent,
     SapSolutionsComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,7 @@ import { HeaderComponent } from './core/header-component/header.component'
     FormsModule,
     AppMaterialModule
   ],
-  providers: [HeaderComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

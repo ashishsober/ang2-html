@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material'
 import { contactModal } from '../../core/contactModal';
 import { NgForm } from '@angular/forms';
+import { DataService } from '../../core/data.service';
+import { from } from 'rxjs';
 @Component({
   selector: 'ngv-contact',
   templateUrl: './contact.component.html',
@@ -9,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ContactComponent {
   contactModal = new contactModal('','',null,'','','');
-
+  constructor(private dataService:DataService){}
   selectboxData: Array<any> = [{
     "CODE_DESC": "Google Apps",
     "CODE_VALUE": 'google_apps'
@@ -79,9 +81,15 @@ export class ContactComponent {
     }
   }
 
-  onSubmit({ value, valid }: { value: {}, valid: boolean }){
+  onSubmit({ form, valid }: { form:NgForm , valid: boolean }){
     if(valid){
-      console.log(value);
+      console.log(form.value);
+      this.dataService.postContact(form.value).subscribe((result) => {
+        console.log("hello my result---"+result);
+        form.reset();
+      },err => {
+        console.log(err);
+      });
     } else {
       return;
     }

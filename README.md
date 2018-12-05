@@ -35,7 +35,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 * Using node version 9.5.0
 * Using Angular Material for Form field
 * Their are two type of forms :
-
             [Template-driven validation](https://angular.io/guide/form-validation#template-driven-validation)
             [Reactive form validation](https://angular.io/guide/form-validation#reactive-form-validation)
 

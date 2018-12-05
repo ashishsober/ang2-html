@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-
+import { MatOptionSelectionChange } from '@angular/material'
+import { contactModal } from '../../core/contactModal';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'ngv-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
+  contactModal = new contactModal('','',null,'','','');
+
   selectboxData: Array<any> = [{
     "CODE_DESC": "Google Apps",
     "CODE_VALUE": 'google_apps'
@@ -60,6 +64,32 @@ export class ContactComponent {
     "address_line4": "",
     "contact": "",
     "email_id": "contact@vrdnetwork.com"
-  }]
+  }];
+
+  hide:boolean=false;
+  onselect(event: MatOptionSelectionChange) {
+    if (event.source.selected) {
+      if(event.source.value ==='other'){
+        this.hide=true; //making visible,field should be blank
+        this.contactModal.other='';
+      } else {
+        this.hide=false;
+        this.contactModal.other='';
+      }
+    }
+  }
+
+  onSubmit(form: NgForm){
+    if(form.valid){
+      console.log(form);
+    } else {
+      return;
+    }
+  }
+
+  log(x){
+    console.log(x);
+  }
+
 
 }

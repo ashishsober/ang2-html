@@ -45,7 +45,8 @@
                 text-align: center;
                 width: 60%;
                 text-decoration: none;
-                outline: none
+                outline: none;
+                border:1px solid #71da0b;
               }
         }
       }
@@ -106,6 +107,9 @@
                 line-height: 23px;
                 width: 100%!important;
                 white-space: normal;
+                padding: 13px;
+                border:1px solid #71da0b;
+                width: 100%;
               }
           }
         }
@@ -141,6 +145,8 @@
           .send_your_request {
               font-size: 16px;
               line-height: 23px;
+              width: 100%;
+              padding: 13px;
             }
         }
       }

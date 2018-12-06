@@ -15,6 +15,7 @@ export class HeaderComponent {
   bannerColorToBlack:boolean;
   displayBlock:boolean=false;
   right50:boolean=false;
+  positionFixed:boolean=false;
   displayCompanyMenu:boolean=false;
   displayServiceMenu:boolean=false;
   displayRecruitMenu:boolean=false;
@@ -26,10 +27,15 @@ export class HeaderComponent {
   @HostListener("window:scroll", [])
   onWindowScroll() {
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (number > 20) {
+    if (number > 20 && window.outerHeight > 375) {
       this.bannerColorToBlack = true;
+      this.positionFixed = true;
+    } else if (window.outerHeight <= 375){
+      this.bannerColorToBlack = false;
+      this.positionFixed = false;
     } else {
       this.bannerColorToBlack = false;
+      this.positionFixed = true;
     }
   }
 

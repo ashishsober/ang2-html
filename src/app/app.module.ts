@@ -20,6 +20,7 @@ import { HeaderComponent } from './core/header-component/header.component';
 import { FooterComponent } from '../app/core/footer-component/footer.component';
 import { DataService } from '../app/core/data.service';
 import { HttpModule } from '@angular/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { HttpModule } from '@angular/http';
     BrowserAnimationsModule,
     FormsModule,
     AppMaterialModule,
-    HttpModule
+    HttpModule,
+    NgxSpinnerModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

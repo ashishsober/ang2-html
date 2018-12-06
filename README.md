@@ -38,6 +38,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
             [Template-driven validation](https://angular.io/guide/form-validation#template-driven-validation)
             [Reactive form validation](https://angular.io/guide/form-validation#reactive-form-validation)
 
+* Using [ngx-spinner](https://www.npmjs.com/package/ngx-spinner)
+
+          Chosse the desired spinner -- https://napster2210.github.io/ngx-spinner/
+
 * To login from the terminal 
       
            ssh -i /Users/ashishgupta/Desktop/Vivek\ Sir/vrdNetworkKeyPair.pem ubuntu@ec2-3-16-206-69.us-east-2.compute.amazonaws.com

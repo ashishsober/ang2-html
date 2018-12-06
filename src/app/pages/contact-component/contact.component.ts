@@ -3,7 +3,8 @@ import { MatOptionSelectionChange } from '@angular/material'
 import { contactModal } from '../../core/contactModal';
 import { NgForm } from '@angular/forms';
 import { DataService } from '../../core/data.service';
-import { from } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'ngv-contact',
   templateUrl: './contact.component.html',
@@ -11,7 +12,11 @@ import { from } from 'rxjs';
 })
 export class ContactComponent {
   contactModal = new contactModal('','',null,'','','');
-  constructor(private dataService:DataService){}
+  hide:boolean=false;
+
+  constructor(private dataService:DataService,
+              private spinner:NgxSpinnerService){}
+
   selectboxData: Array<any> = [{
     "CODE_DESC": "Google Apps",
     "CODE_VALUE": 'google_apps'
@@ -29,8 +34,6 @@ export class ContactComponent {
     "CODE_VALUE": "other"
   }
   ];
-
-
   contact_address: Array<any> = [{
     "office": "Regd. OFFICE",//mandatory fields
     "address_line1": "127 Vaishali Nagar,",//mandatory fields
@@ -68,7 +71,7 @@ export class ContactComponent {
     "email_id": "contact@vrdnetwork.com"
   }];
 
-  hide:boolean=false;
+
   onselect(event: MatOptionSelectionChange) {
     if (event.source.selected) {
       if(event.source.value ==='other'){
@@ -83,15 +86,14 @@ export class ContactComponent {
 
   onSubmit({ form, valid }: { form:NgForm , valid: boolean }){
     if(valid){
-      console.log(form.value);
+      this.spinner.show();
       this.dataService.postContact(form.value).subscribe((result) => {
-        console.log("hello my result---"+result);
         form.reset();
+        this.spinner.hide();
       },err => {
+        this.spinner.hide();
         console.log(err);
       });
-    } else {
-      return;
     }
   }
 

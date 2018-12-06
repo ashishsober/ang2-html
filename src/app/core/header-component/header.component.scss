@@ -326,6 +326,20 @@
        }
    }
 
+  @media only screen 
+   and (min-device-width : 320px) 
+   and (max-device-width : 767px) 
+   and (orientation : landscape) { /* STYLES GO HERE */
+    .header_new {
+      .menu_new {
+        width: 35%;
+      }
+    }
+    .right50 {
+      right: 35%;
+    }
+   }
+
 
 
  // Medium devices (tablets, 768px and up)

@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class ContactComponent {
   contactModal = new contactModal('','',null,'','','');
   hide:boolean=false;
+  showForm=true;
 
   constructor(private dataService:DataService,
               private spinner:NgxSpinnerService){}
@@ -88,8 +89,9 @@ export class ContactComponent {
     if(valid){
       this.spinner.show();
       this.dataService.postContact(form.value).subscribe((result) => {
-        form.reset();
         this.spinner.hide();
+        this.showForm=false;
+        form.reset();
       },err => {
         this.spinner.hide();
         console.log(err);

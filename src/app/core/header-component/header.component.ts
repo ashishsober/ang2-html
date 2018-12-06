@@ -44,12 +44,12 @@ export class HeaderComponent {
       this.displayBlock =false;
       this.right50 = false;  //emit from here
       this.right50Event.emit(this.right50);
-      
+      this.positionFixed = false;
     } else {
       this.displayBlock =true;
       this.right50 = true;  //emit from here
       this.right50Event.emit(this.right50);
-      
+      this.positionFixed = true;
     }
    
   }

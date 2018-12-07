@@ -31,6 +31,14 @@ export class ContactComponent {
     "CODE_VALUE": "app_engine_development"
   },
   {
+    "CODE_DESC": "Software Development",
+    "CODE_VALUE": "software_development"
+  },
+  {
+    "CODE_DESC": "ERP Solution",
+    "CODE_VALUE": "erp_solution"
+  },
+  {
     "CODE_DESC": "Other",
     "CODE_VALUE": "other"
   }

@@ -59,6 +59,10 @@
               &.descs {
                 margin: 0 0 20px 0;
                 color: black;
+                text-align: left;
+                font-family: "Operator Mono SSm A,Operator Mono SSm B,Consolas,monospace";
+                font-style: italic;
+                font-size: 18px;
               }
               
   
@@ -144,6 +148,12 @@
               li {
                 &.descs {
                   font-size: 15px;
+                }
+                .valign {
+                  h5 {
+                    font-size: 12px;
+                    line-height: 14px;
+                  }
                 }
               }
             }

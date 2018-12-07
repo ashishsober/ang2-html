@@ -1,7 +1,7 @@
 .val_index_page {
   float: left;
   width: 100%;
-  background-image: url(../../../assets/home_banner.jpg);
+  //background-image: url(../../../assets/home_banner.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,11 +10,8 @@
 
   .banner_index {
     padding: 270px 0 200px;
-    padding-top: 270px;
-    padding-right: 0px;
-    padding-bottom: 200px;
-    padding-left: 0px;
     height: 700px;
+    background-image: url(../../../assets/home_banner.jpg);
     .company_desc {
       color: #ffd740;
       font-size: 38px;

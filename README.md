@@ -45,7 +45,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 * Using Carosel from mdbootstrap
            
            https://mdbootstrap.com/docs/angular/advanced/carousel/#caption
-           https://mdbootstrap.com/docs/angular/advanced/carousel/#APIref
+           https://www.npmjs.com/package/angular-bootstrap-md
            https://www.w3.org/Style/Examples/007/fonts.en.html
 
 * To login from the terminal 

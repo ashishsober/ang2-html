@@ -1,15 +1,14 @@
 .val_index_page {
     float: left;
     width: 100%;
-    background-image: url(../../../assets/banner.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     text-align: center;
-  
     .banner_index {
-      height: 400px;
+      height: 500px;
+      background-image: url(../../../assets/banner.jpg);
       .banner_sec{
         padding: 120px 0 30px;
         text-align: center;
@@ -25,11 +24,12 @@
           }
        }
         .form-outer {
-          //padding: 15px 30px;
           float: left;
           width: 100%;
-          padding: 34px 30px;
+          padding: 34px 15px;
           background-color: white;
+          border: 1px solid #0075b0;
+          border-radius: 15px;
           .request-outer {
             padding: 30px 0 0;
            .send_your_request {
@@ -61,28 +61,34 @@
       width: 100%;
       float: left;
       margin-top: 50px;
-      background: #fff;
-      padding: 90px 0 61px;
-      ul.contact_detail {
-        float: left;
-        width: 100%;
-        padding: 0px;
-        list-style-type: none;
-        li {
-            margin: 0 0 30px;
-            padding: 0 0 0 0px; 
-            p.address{
-              color: #000;
-              font: 15px/25px allerregular;
-              text-align: left;
-              padding: 15px;
-              border: 1px solid #afafaf;
-              text-align: left;
-              box-shadow: 2px 2px #88888852;
-              border-radius: 10px;
-              //text-transform: uppercase;
-            }
-        }
+      background: #0075b0;
+      padding: 50px 0 61px;
+      .here-is-how {
+        color:#fff;
+        font-family:"klinic_slabbook", 'Helvetica', 'Arial', 'sans-serif';
+      }
+      .contact_detail {
+          border: 1px solid #fff;
+          border-radius: 15px;
+          float: left;
+          width: 100%;
+          background: #fff;
+          min-height: 100%;
+        ul {
+          padding: 0px;
+          list-style-type: none;
+          li {
+              margin: 0 0 30px;
+              padding: 0 0 0 0px; 
+              p.address{
+                padding: 15px;
+                color: #0075B0;
+                font-size: 24px;
+                margin-bottom: 10px;
+                //text-transform: uppercase;
+              }
+          }
+         }
       }
       .map {
         float: right;

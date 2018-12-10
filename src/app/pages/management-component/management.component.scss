@@ -19,6 +19,7 @@
         font-size: 35px;
         border-bottom: 3px solid #6bcbd5;
         font-family: 'Noto-Sans';
+        text-transform: uppercase;
       }
   
       .manag-board {
@@ -34,7 +35,7 @@
           position: relative;
           background-color: white;
           // float: left; //is wrong  dont enabled
-          border-radius: 5px;
+          border-radius: 15px;
           padding: 0;
   
           ul {
@@ -54,6 +55,7 @@
                 background-color: #6bcbd5;
                 padding-top: 12px;
                 height: 100px;
+                border-radius: 13px;
               }
   
               &.descs {

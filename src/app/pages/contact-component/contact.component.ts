@@ -63,15 +63,6 @@ export class ContactComponent {
     "email_id": ""
   },
   {
-    "office": "BANGALORE",
-    "address_line1": "Manyata Embassy Business Park",
-    "address_line2": "Ground Floor, E1 Block, Beech Building",
-    "address_line3": "Outer Ring Road",
-    "address_line4": "Bangalore - (Karnataka) India 560 045",
-    "contact": "080-4276-4665",
-    "email_id": "hr@vrdnetwork.com"
-  },
-  {
     "office": "DELHI",
     "address_line1": "1201 NIRMAL TOWER",
     "address_line2": "Barakhamba Road",
@@ -79,6 +70,15 @@ export class ContactComponent {
     "address_line4": "",
     "contact": "",
     "email_id": "contact@vrdnetwork.com"
+  },
+  {
+    "office": "BANGALORE",
+    "address_line1": "Manyata Embassy Business Park",
+    "address_line2": "Ground Floor, E1 Block, Beech Building",
+    "address_line3": "Outer Ring Road",
+    "address_line4": "Bangalore - (Karnataka) India 560 045",
+    "contact": "080-4276-4665",
+    "email_id": "hr@vrdnetwork.com"
   }];
 
 

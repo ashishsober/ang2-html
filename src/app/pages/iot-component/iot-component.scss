@@ -1,0 +1,85 @@
+.val_index_page {
+    float: left;
+    width: 100%;
+    background-image: url(../../../assets/banner.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+  
+    .banner_index {
+      height: 400px;
+      .banner_sec{
+        padding: 120px 0 30px;
+        text-align: center;
+        background: 0 0;
+        float: left;
+        width: 100%;
+          h1 {
+            font-size: 80px;
+            line-height: 90px;
+            color: #fff;
+            // font-family: 'SCSans-Bold Noto-Sans';
+            font-weight: 700;
+              span.development {
+                margin-top: 5px;
+                letter-spacing: .5px;
+                color: #fff;
+                display: inline-block;
+                font-size: 20px;
+                line-height: 20px;
+                font-weight: 700;
+                padding: 0 217px;
+                position: relative;
+                vertical-align: top;
+                width: auto;
+                    span.develop_before {
+                      content: "";
+                      position: absolute;
+                      left: 0;
+                      top: 50%;
+                      background: url(../../../assets/line.png) no-repeat;
+                      height: 6px;
+                      width: 204px;
+                    }
+                    span.develop_after {
+                      content: "";
+                      position: absolute;
+                      right: 0;
+                      top: 50%;
+                      background: url(../../../assets/line.png) no-repeat;
+                      height: 6px;
+                      width: 204px;
+                    }
+              }
+          }
+       }
+      }
+ }
+
+
+ @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .val_index_page {
+    .banner_index {
+      .banner_sec{
+          h1 {
+            font-size: 30px;
+            line-height: 45px;
+            span.development {
+              padding: 0 67px;
+              font-size: 15px;
+              line-height: 17px;
+              span.develop_before { 
+                width: 60px;
+              }
+              span.develop_after {
+                width: 60px;
+              }
+            }
+          }
+       }
+     }
+   }
+}
+  

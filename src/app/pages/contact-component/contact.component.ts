@@ -18,14 +18,7 @@ export class ContactComponent {
   constructor(private dataService:DataService,
               private spinner:NgxSpinnerService){}
 
-  selectboxData: Array<any> = [{
-    "CODE_DESC": "Google Apps",
-    "CODE_VALUE": 'google_apps'
-  },
-  {
-    "CODE_DESC": "Cloud Computing",
-    "CODE_VALUE": 'cloud_computing'
-  },
+  selectboxData: Array<any> = [
   {
     "CODE_DESC": "App Engine Development",
     "CODE_VALUE": "app_engine_development"
@@ -37,6 +30,14 @@ export class ContactComponent {
   {
     "CODE_DESC": "ERP Solution",
     "CODE_VALUE": "erp_solution"
+  },
+  {
+    "CODE_DESC": "Cloud Computing",
+    "CODE_VALUE": 'cloud_computing'
+  },
+  {
+    "CODE_DESC": "IOT",
+    "CODE_VALUE": 'iot'
   },
   {
     "CODE_DESC": "Other",

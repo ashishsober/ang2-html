@@ -2,6 +2,7 @@ import { Injectable, Input, Output, EventEmitter } from '@angular/core';
 // import { Observable } from 'rxjs/Rx';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 //import 'rxjs/add/operator/switchMap';
 //import 'rxjs/add/operator/map'
@@ -38,7 +39,7 @@ export class DataService {
       postContact(data): Observable<any> {
             let getHostname=this.getHostname();
             let url = getHostname.concat('/application/contactVrd')
-            return this.http.post(url, data).pipe(map(this.extractData));
+            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
                   //.map(this.extractData)
                   //.catch(this.handleError);
       }

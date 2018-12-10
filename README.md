@@ -42,6 +42,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
           Chosse the desired spinner -- https://napster2210.github.io/ngx-spinner/
 
+* Using Carosel from mdbootstrap
+           
+           https://mdbootstrap.com/docs/angular/advanced/carousel/#caption
+           https://mdbootstrap.com/docs/angular/advanced/carousel/#APIref
+
 * To login from the terminal 
       
            ssh -i /Users/ashishgupta/Desktop/Vivek\ Sir/vrdNetworkKeyPair.pem ubuntu@ec2-3-16-206-69.us-east-2.compute.amazonaws.com

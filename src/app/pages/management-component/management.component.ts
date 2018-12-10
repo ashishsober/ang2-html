@@ -28,31 +28,31 @@ export class ManagementComponent {
     "emailid":""
   },
   {
-    "name":"K MOHIT",
-    "position":"Sales Operations and Business Development Officer",
+    "name":"Name 4",
+    "position":"position 4",
     "profileImage":"assets/user-tie-solid.svg",
-    "discription":"As Director of VRD NETWORK he is responsible for VRD NETWORK's day-to-day-operations, as well as leading the company's product development and technology strategy. Under his leadership, VRD NETWORK has broadened its offerings while maintaining a culture of strong innovation. His background uniquely prepares him to lead VRD NETWORK toward technological solutions that focus on users.",
+    "discription":"",
     "emailid":""
   },
   {
-    "name":"K MOHIT",
-    "position":"Sales Operations and Business Development Officer",
+    "name":"Name 5",
+    "position":"position 5",
     "profileImage":"assets/user-tie-solid.svg",
-    "discription":"As Director of VRD NETWORK he is responsible for VRD NETWORK's day-to-day-operations, as well as leading the company's product development and technology strategy. Under his leadership, VRD NETWORK has broadened its offerings while maintaining a culture of strong innovation. His background uniquely prepares him to lead VRD NETWORK toward technological solutions that focus on users.",
+    "discription":"",
     "emailid":""
   },
   {
-    "name":"K MOHIT",
-    "position":"Sales Operations and Business Development Officer",
+    "name":"Name 6",
+    "position":"position 6",
     "profileImage":"assets/user-tie-solid.svg",
-    "discription":"As Director of VRD NETWORK he is responsible for VRD NETWORK's day-to-day-operations, as well as leading the company's product development and technology strategy. Under his leadership, VRD NETWORK has broadened its offerings while maintaining a culture of strong innovation. His background uniquely prepares him to lead VRD NETWORK toward technological solutions that focus on users.",
+    "discription":"",
     "emailid":""
   },
   {
-    "name":"K MOHIT",
-    "position":"Sales Operations and Business Development Officer",
+    "name":"Name 7",
+    "position":"position 7",
     "profileImage":"assets/user-tie-solid.svg",
-    "discription":"As Director of VRD NETWORK he is responsible for VRD NETWORK's day-to-day-operations, as well as leading the company's product development and technology strategy. Under his leadership, VRD NETWORK has broadened its offerings while maintaining a culture of strong innovation. His background uniquely prepares him to lead VRD NETWORK toward technological solutions that focus on users.",
+    "discription":"",
     "emailid":""
   }]
 }

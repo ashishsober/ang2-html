@@ -9,7 +9,7 @@ export class AboutUsComponent {
 
   slides = [
     {img: "http://placehold.it/350x150/000000"},
-    {img: "https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"},
+    {img: "assets/vrd-group1.jpeg"},
     {img: "https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"},
     {img: "https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"}
   ];

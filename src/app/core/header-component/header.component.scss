@@ -15,6 +15,9 @@
       height: 45px;
       font-size: 25px;
       color: wheat;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-family: Stencil Std;
     }
 
     .menu_new {
@@ -193,7 +196,7 @@
    @media only screen and (min-width: 320px) and (max-width: 767px) {
     .header_new {
         .logo {
-          font-size: 32px;
+          font-size: 28px;
         }
         .mob_icon2 {
               background: url(../../../assets/bars-solid.svg) left top rgba(0,0,0,0);
@@ -349,7 +352,7 @@
 @media (min-width: 768px) and (max-width: 991px) { 
     .header_new {
         .logo {
-          font-size: 17px;
+          font-size: 13px;
         }
         .menu_new {
           li {

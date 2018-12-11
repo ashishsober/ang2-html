@@ -120,6 +120,10 @@
           .card {
             ul {
               li {
+                margin: 0 0 25px 0;
+                &.descs {
+                  font-size: 16px;
+                }
                 .valign {
                   h4 {
                     font-size: 14px;

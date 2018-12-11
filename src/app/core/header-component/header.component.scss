@@ -238,12 +238,14 @@
             &.menu_arrow , &.no_arrow{
               .sub_menu_new {
                 //display: none;
+                
                 &.srv-list-for-small-device-about{
                     height: 93px;
                     box-shadow: none;
                     ul.sub-menu-list {
                       border-bottom: none;
                       border-top: 2px solid black;
+                      box-shadow: 0 0px 0px 0px #fff;
                         &.about_sub {
                           width: 100%;
                           right: 0%;
@@ -257,12 +259,14 @@
                         }
                     }
                 }
+
                 &.srv-list-for-small-device-services{
                   height: 181px;
                   box-shadow: none;
                   ul.sub-menu-list {
                     border-bottom: none;
                     border-top: 2px solid black;
+                    box-shadow: 0 0px 0px 0px #fff;
                       &.services{
                         width: 100%;
                         right: 0%;
@@ -276,12 +280,14 @@
                       }
                    }
                 }
+
                 &.srv-list-for-small-device-recruitment{
                     height: 93px;
                     box-shadow: none;
                     ul.sub-menu-list {
                       border-bottom: none;
                       border-top: 2px solid black;
+                      box-shadow: 0 0px 0px 0px #fff;
                         &.recruitment_sub {
                           width: 100% !important;
                           right: 0%;

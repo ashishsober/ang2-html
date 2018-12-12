@@ -1,7 +1,7 @@
 .val_index_page {
   float: left;
   width: 100%;
-  background-image: url(../../../assets/banner.jpg);
+  
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,8 +9,8 @@
   text-align: center;
   margin-bottom: 40px;
   .banner_index {
-    height: 400px;
-    
+    height: 500px;
+    background-image: url(../../../assets/banner.jpg);
     .banner_sec{
       padding: 120px 0 30px;
       text-align: center;

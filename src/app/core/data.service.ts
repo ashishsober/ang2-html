@@ -40,8 +40,12 @@ export class DataService {
             let getHostname=this.getHostname();
             let url = getHostname.concat('/application/contactVrd')
             return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
-                  //.map(this.extractData)
-                  //.catch(this.handleError);
+      }
+
+      postCareer(data): Observable<any> {
+            let getHostname=this.getHostname();
+            let url = getHostname.concat('/application/careerVrd')
+            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
 
       private extractData(res: Response) {

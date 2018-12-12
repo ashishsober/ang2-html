@@ -13,6 +13,7 @@ import { DataService } from '../../core/data.service';
 export class CareerComponent {
   carrerModal = new carrerModal('','','','','',null,null,'','','');
   showBasicForm =true;
+  showEducationForm=false;
   constructor(private dataService:DataService,
               private spinner:NgxSpinnerService){}
 
@@ -33,6 +34,7 @@ export class CareerComponent {
       this.dataService.postCareer(form.value).subscribe((result) => {
         this.spinner.hide();
         this.showBasicForm=false;
+        this.showEducationForm=true;
         form.reset();
       },err => {
         this.spinner.hide();

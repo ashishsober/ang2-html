@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { contactModal } from '../../core/contactModal';
+import { carrerModal } from '../../core/contactModal';
 import { NgForm } from '@angular/forms';
 @Component({
   selector: 'ngv-career',
@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./career.component.scss']
 })
 export class CareerComponent {
-  contactModal = new contactModal('','',null,'','','');
+  carrerModal = new carrerModal('','','','','',null,null,'','','');
   genderboxData: Array<any> = [
     {
       "CODE_DESC": "Male",

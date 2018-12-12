@@ -12,12 +12,17 @@
           
           <div class="container">
                 <form #contactForm="ngForm"  class="form-outer" (ngSubmit)="onSubmit(contactForm)" novalidate>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <span style="text-align:center"><h2>Basic Information</h2></span>
+                        </div>
+                    </div>
                   <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                       <mat-form-field> 
                         <input matInput type="text"
                               placeholder="First Name" #firstname="ngModel" 
-                              [(ngModel)]="contactModal.name"
+                              [(ngModel)]="carrerModal.firstname"
                               name="firstname" required>
                               <mat-error *ngIf="firstname.hasError('required')">Name is required</mat-error>
                       </mat-form-field>
@@ -27,7 +32,7 @@
                             <mat-form-field> 
                                     <input matInput type="text"
                                           placeholder="Last Name" #lastname="ngModel" 
-                                          [ngModel]
+                                          [(ngModel)]="carrerModal.lastname"
                                           name="lastname">
                             </mat-form-field>
                     </div>
@@ -39,15 +44,15 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <mat-form-field > 
                             <input matInput type="text" placeholder="Address" 
-                            name="other" #address="ngModel" 
-                            [(ngModel)]="contactModal.other">
+                            name="address" #address="ngModel" 
+                            [(ngModel)]="carrerModal.address">
                           </mat-form-field>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <mat-form-field > 
                                 <input matInput type="text" placeholder="City" 
                                 name="city" #city="ngModel" 
-                                [(ngModel)]="contactModal.other">
+                                [(ngModel)]="carrerModal.city">
                             </mat-form-field>
                     </div>
                   </div>
@@ -57,14 +62,14 @@
                               <mat-form-field > 
                                 <input matInput type="text" placeholder="State" 
                                 name="state" #state="ngModel" 
-                                [(ngModel)]="contactModal.other">
+                                [(ngModel)]="carrerModal.state">
                               </mat-form-field>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <mat-form-field > 
-                                    <input matInput type="text" placeholder="Zip Code" 
-                                    name="zipcode" #city="ngModel" 
-                                    [(ngModel)]="contactModal.other">
+                                    <input matInput type="number" placeholder="Zip Code" 
+                                    name="zipcode" #zipcode="ngModel" 
+                                    [(ngModel)]="carrerModal.zipcode">
                                 </mat-form-field>
                         </div>
                     </div>
@@ -74,7 +79,7 @@
                           <mat-form-field> 
                             <input matInput type="number" 
                             placeholder="Phone" name="phone_no" 
-                            #phone_no="ngModel" [(ngModel)]="contactModal.phone_no" 
+                            #phone_no="ngModel" [(ngModel)]="carrerModal.phone_no" 
                             pattern="^[0-9]+$" min="-9999" max="9999">
                             <!-- <mat-error *ngIf="phone_no.invalid && (phone_no.dirty || phone_no.touched)">I  invalid dirty and touched</mat-error> -->
                           </mat-form-field>
@@ -85,7 +90,7 @@
                                             placeholder="Email" 
                                             name="email" 
                                             #email="ngModel" 
-                                            [(ngModel)]="contactModal.email"
+                                            [(ngModel)]="carrerModal.email"
                                             pattern="^[a-zA-Z0-9_%+\-]+([a-zA-Z0-9_%+\.\-]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"  
                                             required>
                                             <mat-error *ngIf="email.hasError('required')">Email is required</mat-error>
@@ -99,16 +104,16 @@
                             <mat-form-field > 
                               <input matInput type="text" placeholder="Current Location" 
                               name="currentLocation" #currentLocation="ngModel" 
-                              [(ngModel)]="contactModal.currentLocation">
+                              [(ngModel)]="carrerModal.currentLocation">
                             </mat-form-field>
                          </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <mat-form-field>
                                 <mat-select placeholder="Gender" name="gender" 
-                                #gender="ngModel" [(ngModel)]="contactModal.gender">
+                                #gender="ngModel" [(ngModel)]="carrerModal.gender">
                                       <mat-option *ngFor="let data1 of genderboxData" 
                                                 [value]="data1.CODE_VALUE" 
-                                                (onSelectionChange)="onselect($event)">
+                                                 >
                                         {{ data1.CODE_DESC}}
                                       </mat-option>
                                 </mat-select>

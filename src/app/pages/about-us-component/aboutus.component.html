@@ -1,17 +1,17 @@
 <section class="val_index_page">   
     
-  <div class="banner_index">
-      <div class="container"> 
-        <div class="row">
-          <div class="col-sm-12 col-xs-12"> 
-            <div class="bnr-hdr">
-              <h1 class="company_desc">Giving IT solutions to organizations worldwide.</h1>
-              <a class="home_contactus" routerLink="contact"> Contact Us Now </a>
-            </div> 
-          </div>
+    <div class="banner_index">
+        <div class="container"> 
+            <div class="row">
+            <div class="col-sm-12 col-xs-12"> 
+                <div class="bnr-hdr">
+                <h1 class="company_desc">Giving IT solutions to organizations worldwide.</h1>
+                <a class="home_contactus" routerLink="contact"> Contact Us Now </a>
+                </div> 
+            </div>
+            </div>
         </div>
-       </div>
-  </div>
+    </div>
 
     <div class="get-info">
         <div class="container">
@@ -33,46 +33,39 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
-      <div class="when-we-started">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 heading-when-we">
-                  <strong>WHEN WE STARTED</strong>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content-when-we-started">
-                      <p>We started our new vertical of “Recruitment  Solution ” in 2012 and provided many quality consultants to companies in need.
+    <div class="when-we-started">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 heading-when-we">
+                <strong>WHEN WE STARTED</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content-when-we-started">
+                    <p>We started our new vertical of “Recruitment  Solution ” in 2012 and provided many quality consultants to companies in need.
 
-                      We have catered to clients from the US, Australia and India  with our services ranging across custom software/web development, product development, Contractual hiring  and Cloud based solutions .
-                    
-                      We  always endeavor to render up-to-the-mark  application development services and recruitment solutions  to our esteemed clients.  
-                    </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-     
-     
-            
-
-
-      
-    
-</section>
-
-
-<section>
-    <mdb-carousel [isControls]="true" [animation]="'fade'" class="carousel slide carousel-fade">
-        <div *ngFor="let slide of slides">
-            <mdb-carousel-item>
-                <img class="d-block w-100" src="{{ slide.img }}" alt="First slide">
-            </mdb-carousel-item>
+                    We have catered to clients from the US, Australia and India  with our services ranging across custom software/web development, product development, Contractual hiring  and Cloud based solutions .
+                
+                    We  always endeavor to render up-to-the-mark  application development services and recruitment solutions  to our esteemed clients.  
+                </p>
+                </div>
+            </div>
         </div>
-    </mdb-carousel>
+    </div>
+
+    <div class="row" style="width:100%;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0;">
+                    <mdb-carousel [isControls]="true" [animation]="'fade'" class="carousel slide carousel-fade">
+                            <div *ngFor="let slide of slides">
+                                <mdb-carousel-item>
+                                    <img class="d-block w-100" src="{{ slide.img }}" alt="First slide">
+                                </mdb-carousel-item>
+                            </div>
+                    </mdb-carousel>
+            </div>
+    </div> 
 </section>
           
        

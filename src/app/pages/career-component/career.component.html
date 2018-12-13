@@ -133,29 +133,73 @@
                 <form #contactForm="ngForm"  class="form-outer" (ngSubmit)="onSubmit(contactForm)" novalidate *ngIf="showEducationForm">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                          <span style="text-align:center"><h2>Education Qualification</h2></span>
+                          <span style="text-align:center"><h2>Industry Experience</h2></span>
                         </div>
                     </div>
                   <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                       <mat-form-field> 
                         <input matInput type="text"
-                              placeholder="First Name" #firstname="ngModel" 
-                              [(ngModel)]="carrerModal.firstname"
-                              name="firstname" required>
-                              <mat-error *ngIf="firstname.hasError('required')">Name is required</mat-error>
+                              placeholder="Current Employer Name" #currentEmpName="ngModel" 
+                              [(ngModel)]="carrerModal.currentEmpName"
+                              name="currentEmpName" required>
+                              <mat-error *ngIf="currentEmpName.hasError('required')">Current Employer Name is required</mat-error>
                       </mat-form-field>
                       
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <mat-form-field> 
                                     <input matInput type="text"
-                                          placeholder="Last Name" #lastname="ngModel" 
-                                          [(ngModel)]="carrerModal.lastname"
-                                          name="lastname">
+                                          placeholder="Job Title" #jobTitle="ngModel" 
+                                          [(ngModel)]="carrerModal.jobTitle"
+                                          name="jobTitle" required>
+                                          <mat-error *ngIf="currentEmpName.hasError('required')">Job Title is required</mat-error>
                             </mat-form-field>
                     </div>
                   </div>
+
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <mat-form-field>
+                              <mat-select placeholder="Are you ready to work in Night Shifts?" name="nightShift" 
+                              #nightShift="ngModel" [(ngModel)]="carrerModal.nightShift">
+                                    <mat-option *ngFor="let data1 of nightShiftboxData" 
+                                              [value]="data1.CODE_VALUE" 
+                                               >
+                                      {{ data1.CODE_DESC}}
+                                    </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <mat-form-field> 
+                                      <input matInput type="text"
+                                            placeholder="Total Experience" #totalExp="ngModel" 
+                                            [(ngModel)]="carrerModal.totalExp"
+                                            name="totalExp" required>
+                                            <mat-error *ngIf="totalExp.hasError('required')">Job Title is required</mat-error>
+                              </mat-form-field>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <mat-form-field>
+                                  <textarea matInput placeholder="Key Skills" 
+                                        name="keySkills" #keySkills="ngModel" 
+                                        [(ngModel)]="carrerModal.keySkills">
+                                </textarea>
+                              </mat-form-field>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <mat-form-field>
+                                <textarea matInput placeholder="References" 
+                                      name="references" #references="ngModel" 
+                                      [(ngModel)]="carrerModal.references">
+                              </textarea>
+                              </mat-form-field>
+                        </div>
+                      </div>
     
                   <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center request-outer">
@@ -163,12 +207,12 @@
                        
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center request-outer">
-                        
                        <input type="submit" class="send_your_request" value="Submit"/>
-
                     </div>
                   </div>
                 </form>
+
+
           </div>
     </div>
 </section>

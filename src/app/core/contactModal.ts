@@ -21,5 +21,11 @@ export class carrerModal {
         public email:string,
         public currentLocation:string,
         public gender:string,
+        public currentEmpName:string,
+        public jobTitle:string,
+        public nightShift:string,
+        public totalExp:string,
+        public keySkills:string,
+        public references:string,
     ){}
 }

@@ -12,7 +12,6 @@ export class AboutUsComponent {
     {img: "assets/vrd-group2.jpeg"},
     {img: "assets/vrd-group3.jpeg"},
     {img: "assets/vrd-group4.jpg"}
-    // {img: "assets/vrd-group5.jpg"}
   ];
 
 }

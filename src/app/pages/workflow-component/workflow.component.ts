@@ -5,5 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './workflow.component.html',
   styleUrls: ['./workflow.component.scss']
 })
-export class WorkflowComponent {}
+export class WorkflowComponent {
+  slides = [
+    {img: "assets/banner1.jpg"},
+    {img: "assets/banner2.jpg"}
+  ];
+}
 

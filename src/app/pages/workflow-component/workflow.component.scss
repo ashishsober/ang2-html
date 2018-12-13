@@ -1,22 +1,24 @@
 .val_index_page {
     float: left;
     width: 100%;
-    
     position: relative;
     text-align: center;
   
     .banner_index {
-      height: 400px;
-      background-image: url(../../../assets/banner.jpg);
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
+      height: 75px;
+      // background-image: url(../../../assets/banner.jpg);
+      // background-position: center center;
+      // background-repeat: no-repeat;
+      // background-size: cover;
       .banner_sec{
-        padding: 120px 0 30px;
+        //padding: 120px 0 30px;
         text-align: center;
         background: 0 0;
         float: left;
         width: 100%;
+          .caro-capt {
+               bottom: inherit;
+          }
           h1 {
             font-size: 80px;
             line-height: 90px;
@@ -42,8 +44,12 @@
   @media only screen and (min-width: 320px) and (max-width: 767px) {
     .val_index_page {
       .banner_index {
+        background-image: url(../../../assets/banner.jpg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
         .banner_sec{
-          padding-top: 195px;
+          padding-top: 75px;
             h1 {
               font-size: 30px;
               line-height: 45px;

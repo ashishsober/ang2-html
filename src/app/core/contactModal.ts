@@ -27,5 +27,6 @@ export class carrerModal {
         public totalExp:string,
         public keySkills:string,
         public references:string,
+        public vrd_ref_number:string
     ){}
 }

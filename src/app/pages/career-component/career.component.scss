@@ -34,11 +34,10 @@
       padding: 34px 15px;
       background-color: white;
       .request-outer {
-        padding: 30px 0 0;
+        padding:30px 6px;
        .send_your_request {
-            background: #71da0b;
+            background: #007bff;
             width: 100%;
-            //background: #004666;
             color: #fff!important;
             cursor: pointer;
             display: inline-block;
@@ -48,10 +47,28 @@
             text-align: center;
             text-decoration: none;
             outline: none;
-            border:1px solid #71da0b;
+            border:1px solid #007bff;
+          }
+          .back-button{
+            background: #388e3c;
+            width: 100%;
+            color: #fff!important;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 22px;
+            line-height: 60px;
+            margin: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            border:1px solid #388e3c;
           }
     }
     }
+    .success-msg{
+      color: white;
+      font-size: 25px;
+   }
   }  
 }
 
@@ -64,6 +81,12 @@
             font-size: 30px;
             line-height: 45px;
           }
+       }
+       .form-outer {
+        .request-outer {
+          padding-bottom: 1px;
+          padding-top: 0px;
+        }
        }
      }
    }

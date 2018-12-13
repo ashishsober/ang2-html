@@ -12,7 +12,7 @@
           </div> 
           
           <div class="container">
-                <form #contactForm="ngForm"  class="form-outer" (ngSubmit)="onSubmit(contactForm)" novalidate *ngIf="showBasicForm">
+                <form #contactForm="ngForm"  class="form-outer" (ngSubmit)="onSubmit(contactForm,'bd')" novalidate *ngIf="showBasicForm">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <span style="text-align:center"><h2>Basic Information</h2></span>
@@ -130,7 +130,7 @@
 
 <!-- second form -->
 
-                <form #contactForm="ngForm"  class="form-outer" (ngSubmit)="onSubmit(contactForm)" novalidate *ngIf="showEducationForm">
+                <form #contactForm="ngForm"  class="form-outer" (ngSubmit)="onSubmit(contactForm,'ad')" novalidate *ngIf="showEducationForm">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <span style="text-align:center"><h2>Industry Experience</h2></span>
@@ -203,7 +203,7 @@
     
                   <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center request-outer">
-                        <input type="button" class="send_your_request" value="Back"/>
+                        <input type="button" class="back-button" (click)="goBack()" value="Back"/>
                        
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center request-outer">
@@ -212,6 +212,9 @@
                   </div>
                 </form>
 
+              <div *ngIf="showSuccessMsg" class="success-msg">
+                  <p>Your Information has been saved Successfully.</p>
+              </div>
 
           </div>
     </div>

@@ -65,6 +65,7 @@
                 font-family: "Operator Mono SSm A,Operator Mono SSm B,Consolas,monospace";
                 font-style: italic;
                 font-size: 18px;
+                min-height: 275px;
               }
               
   
@@ -88,12 +89,13 @@
                   font-size: 20px;
                   line-height: 34.16px;
                   margin: 0;
+                  text-transform: uppercase;
   
                 }
   
                 h5 {
                   color: white;
-                  font-size: 12px;
+                  font-size: 14px;
                   line-height: 20px;
                   margin: 0;
                 }

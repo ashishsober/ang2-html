@@ -37,16 +37,17 @@
                   </div>
               </li>
               <li class="no_arrow"><a (click)= "navigateTo('careers')" title="Careers" class="careers_a" routerLinkActive="active">Career</a></li>
-              <li class="menu_arrow"><a title="Recruitment Solutions" (click)="displayRecruitMenu = !displayRecruitMenu"class="recruitment_solution_a">Recruitment Solutions</a>
+              <!-- <li class="menu_arrow"><a title="Recruitment Solutions" (click)="displayRecruitMenu = !displayRecruitMenu"class="recruitment_solution_a">Recruitment Solutions</a>
                 <div class="sub_menu_new srv-list srv-list-for-small-device-recruitment" [ngClass]="{'display_block':displayRecruitMenu}">
                     <ul class="sub-menu-list recruitment_sub">
-                      <!-- <li (click)= "navigateTo('customerStories')" class="first" title="Customer Stories" class="customer-stories">
-                          <img src="../assets/handshake-regular.svg"/>Our Partners</li> -->
+                      <li (click)= "navigateTo('customerStories')" class="first" title="Customer Stories" class="customer-stories">
+                          <img src="../assets/handshake-regular.svg"/>Our Partners</li>
                       <li (click)= "navigateTo('jobBoard')" class="first" title="job_board_a" class="Workflow">
                           <img src="../assets/accusoft-brands.svg"/>Job Board</li>
                      </ul>
                 </div>
-              </li>
+              </li> -->
+              <li class="no_arrow"><a (click)= "navigateTo('jobBoard')" title="job_board_a" class="Workflow">Job Board</a></li>
               <li class="no_arrow"><a (click)= "navigateTo('contact')" title="Contact" class="contact_a">Contact</a></li>
             </ul>
           </div>

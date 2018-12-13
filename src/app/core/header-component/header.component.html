@@ -23,14 +23,14 @@
               <li class="menu_arrow"><a (click)="displayServiceMenu = !displayServiceMenu" title="Services">Services</a>
                   <div class="sub_menu_new srv-list srv-list-for-small-device-services" [ngClass]="{'display_block':displayServiceMenu}">
                     <ul class="sub-menu-list services">
-                     <li (click)= "navigateTo('workflow')" class="first" title="Workflow" class="workflow">
+                      <li (click)= "navigateTo('workflow')" class="first" title="Workflow" class="workflow">
                         <img src="../assets/statistics.svg" />Software Development</li>
+                      <li (click)= "navigateTo('appEngineDevelopment')" class="first" title="App Engine Development" class="app-Engine-Development">
+                          <img src="../assets/cloud-solid.svg"/>App Engine Development</li>
                       <li (click)= "navigateTo('sapSolutions')" class="first" title="SAP Solutions" class="sap-solutions">
                             <img src="../assets/cubes-solid.svg"/>ERP Solutions</li>
-                      <li (click)= "navigateTo('appEngineDevelopment')" class="first" title="App Engine Development" class="app-Engine-Development">
-                                <img src="../assets/cloud-solid.svg"/>App Engine Development</li>
                       <li (click)= "navigateTo('appIntegration')" class="first" title="Apps Integration" class="apps-integration">
-                          <img src="../assets/layer-group-solid.svg"/>Apps Integration</li>
+                          <img src="../assets/layer-group-solid.svg"/>Network Security</li>
                       <li (click)= "navigateTo('iot')" class="first" title="IOT" class="iot">
                               <img src="../assets/ioxhost-brands.svg"/>IOT</li>
                      </ul>

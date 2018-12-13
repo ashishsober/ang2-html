@@ -26,33 +26,5 @@ export class ManagementComponent {
     "profileImage":"assets/user-tie-solid.svg",
     "discription":"He is responsible for the company's marketing efforts globally. His marketing programs focus on the go-to-market strategy and adoption of all of our products, from consumer offerings to business services. He is responsible for the company's Business Development activities specially in United States of America. ",
     "emailid":""
-  },
-  {
-    "name":"Name 4",
-    "position":"position 4",
-    "profileImage":"assets/user-tie-solid.svg",
-    "discription":"",
-    "emailid":""
-  },
-  {
-    "name":"Name 5",
-    "position":"position 5",
-    "profileImage":"assets/user-tie-solid.svg",
-    "discription":"",
-    "emailid":""
-  },
-  {
-    "name":"Name 6",
-    "position":"position 6",
-    "profileImage":"assets/user-tie-solid.svg",
-    "discription":"",
-    "emailid":""
-  },
-  {
-    "name":"Name 7",
-    "position":"position 7",
-    "profileImage":"assets/user-tie-solid.svg",
-    "discription":"",
-    "emailid":""
   }]
 }

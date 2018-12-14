@@ -19,7 +19,7 @@ import { ManagementComponent } from './pages/management-component/management.com
 import { CustomerStoriesComponent } from './pages/customer-stories/customer-stories.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';
 import { AppEngineDevelopmentComponent } from './pages/app-engine-development-component/app-engine-development.component';
-import { WorkflowComponent } from './pages/workflow-component/workflow.component';
+import { SoftwareDevelopmentComponent } from './pages/software-development-component/software-development.component';
 
 import { SapSolutionsComponent } from './pages/sap-solutions-component/sap-solutions.component';
 import { HeaderComponent } from './core/header-component/header.component';
@@ -41,7 +41,7 @@ import { DataService } from '../app/core/data.service';
     CustomerStoriesComponent,
     JobBoardComponent,
     AppEngineDevelopmentComponent,
-    WorkflowComponent,
+    SoftwareDevelopmentComponent,
     SapSolutionsComponent,
     HeaderComponent,
     FooterComponent,

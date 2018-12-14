@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngv-workflow',
-  templateUrl: './workflow.component.html',
-  styleUrls: ['./workflow.component.scss']
+  selector: 'ngv-software-development',
+  templateUrl: './software-development.component.html',
+  styleUrls: ['./software-development.component.scss']
 })
-export class WorkflowComponent {
+export class SoftwareDevelopmentComponent {
   slides = [
     {img: "assets/banner1.jpg",text:'Software-Development'},
     {img: "assets/banner2.jpg",text:'Search engine optimization'},

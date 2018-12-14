@@ -14,7 +14,7 @@ import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CareerComponent } from './pages/career-component/career.component'
 import { ContactComponent } from './pages/contact-component/contact.component';
-import { AppIntegrationComponent } from './pages/app-integration/app.integration.component'
+import { NetworkSecurityComponent } from './pages/network-security-component/network-security.component'
 import { ManagementComponent } from './pages/management-component/management.component';
 import { CustomerStoriesComponent } from './pages/customer-stories/customer-stories.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';
@@ -36,7 +36,7 @@ import { DataService } from '../app/core/data.service';
     AboutUsComponent,
     CareerComponent,
     ContactComponent,
-    AppIntegrationComponent,
+    NetworkSecurityComponent,
     ManagementComponent,
     CustomerStoriesComponent,
     JobBoardComponent,

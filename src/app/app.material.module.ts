@@ -49,7 +49,7 @@ const MATERIAL_MODULES = [
 //   MatTooltipModule,
 //   MatRippleModule,
 //   MatProgressSpinnerModule,
-//   MatDialogModule,
+     MatDialogModule,
 //   MatDatepickerModule,
 //   MatNativeDateModule,
    MatSelectModule

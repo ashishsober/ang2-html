@@ -27,7 +27,7 @@ import { FooterComponent } from '../app/core/footer-component/footer.component';
 import { IOTComponent } from '../app/pages/iot-component/iot-component';
 //Inculde the service we created
 import { DataService } from '../app/core/data.service';
-
+import { AlertDialogComponent} from '../app/dialog/alert-dialog.component';
 
 
 @NgModule({
@@ -45,7 +45,8 @@ import { DataService } from '../app/core/data.service';
     SapSolutionsComponent,
     HeaderComponent,
     FooterComponent,
-    IOTComponent
+    IOTComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +60,7 @@ import { DataService } from '../app/core/data.service';
     MDBBootstrapModule.forRoot()
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[AlertDialogComponent]
 })
 export class AppModule { }

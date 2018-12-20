@@ -3,7 +3,8 @@ import { carrerModal } from '../../core/contactModal';
 import { NgForm } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DataService } from '../../core/data.service';
-
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { AlertDialogComponent } from '../../dialog/alert-dialog.component';
 
 @Component({
   selector: 'ngv-career',
@@ -12,6 +13,7 @@ import { DataService } from '../../core/data.service';
 })
 export class CareerComponent {
   carrerModal = new carrerModal('','','','','',null,null,'','','','','','','','','','');
+  alertDialogRef: MatDialogRef<AlertDialogComponent>;
 
    obj={
      applicants:this.carrerModal,
@@ -26,7 +28,8 @@ export class CareerComponent {
   showEducationForm=false;
   showSuccessMsg=false;
   constructor(private dataService:DataService,
-              private spinner:NgxSpinnerService){}
+              private spinner:NgxSpinnerService,
+              private dialog: MatDialog){}
 
   genderboxData: Array<any> = [
     {
@@ -68,6 +71,7 @@ export class CareerComponent {
       },err => {
         this.spinner.hide();
         console.log(err);
+        this.errorModal(err);
       });
     }
   }
@@ -75,6 +79,16 @@ export class CareerComponent {
   goBack(){
     this.showBasicForm =true;
     this.showEducationForm=false;
+  }
+
+  errorModal(err:any) {
+    this.alertDialogRef = this.dialog.open(AlertDialogComponent, {
+      hasBackdrop: true,
+      height: '316px',
+      width: '874px',
+      disableClose: true,
+      data: err
+    });
   }
   
 }

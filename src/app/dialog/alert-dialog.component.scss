@@ -1,15 +1,14 @@
 .dialog-body {
   .error-icon {
-    background-image:url("/src/assets/iico_warning_sign_red.svg");
+    background-image: url(../../assets/ico_warning_sign_red.svg);
     background-position: 0px 0px;
     background-repeat: no-repeat;
     background-size: 61px 61px;
-    background-color: #FFFFFF;
     width: 61px;
     height: 61px;
     margin: 60px auto 15px;
     &.blue-error-icon {
-      background-image:url("/src/assets/ico_warning_sign_green.svg");
+      background-image:url(../../assets/ico_warning_sign_green.svg);
     }
   }
   .retry {
@@ -17,7 +16,7 @@
     padding: 20px;
     background-color: #cf021b;
     margin: 35px 35px;
-    color: #f6f6f6;
+    color: #fff;
     font-weight: 100;
     cursor: pointer;
     font-size: 12px;

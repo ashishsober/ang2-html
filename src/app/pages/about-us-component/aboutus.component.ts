@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 export class AboutUsComponent {
 
   slides = [
-    {img: "assets/vrd-group1.jpeg"},
-    {img: "assets/vrd-group2.jpeg"},
-    {img: "assets/vrd-group3.jpeg"},
-    {img: "assets/vrd-group4.jpg"}
+    {img: "assets/group-pic/vrd-group1.jpeg"},
+    {img: "assets/group-pic/vrd-group2.jpeg"},
+    {img: "assets/group-pic/vrd-group3.jpeg"},
+    {img: "assets/group-pic/vrd-group4.jpg"}
   ];
 
 }

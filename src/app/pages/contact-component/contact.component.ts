@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material'
-import { contactModal } from '../../core/contactModal';
+import { contactModal } from '../../core/classes';
 import { NgForm } from '@angular/forms';
 import { DataService } from '../../core/data.service';
 import { NgxSpinnerService } from 'ngx-spinner';

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { carrerModal } from '../../core/contactModal';
+import { carrerModal } from '../../core/classes';
 import { NgForm } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DataService } from '../../core/data.service';

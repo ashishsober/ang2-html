@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { DataService } from '../../core/data.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AlertDialogComponent } from '../../dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
 
 
 

@@ -7,5 +7,4 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class AppComponent {
   public right50:boolean;
-  constructor(){}
 }

@@ -12,63 +12,46 @@ import { AlertDialogComponent } from '../../dialog/alert-dialog.component';
   styleUrls: ['./career.component.scss']
 })
 export class CareerComponent {
-  carrerModal = new carrerModal('','','','','',null,null,'','','','','','','','','','');
+  carrerModal = new carrerModal('', '', '', '', '', null, null, '', '', '', '', '', '', '', '', '', '');
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
-
-   obj={
-     applicants:this.carrerModal,
-     application:{
+  obj = {
+    applicants: this.carrerModal,
+    application: {
       "message": "",
       "response_type": "",
       "response_action": "",
-      "stage":""
-     }
-   };
-  showBasicForm =true;
-  showEducationForm=false;
-  showSuccessMsg=false;
-  constructor(private dataService:DataService,
-              private spinner:NgxSpinnerService,
-              private dialog: MatDialog){}
-
-  genderboxData: Array<any> = [
-    {
-      "CODE_DESC": "Male",
-      "CODE_VALUE": "male"
-    },
-    {
-      "CODE_DESC": "Female",
-      "CODE_VALUE": "female"
+      "stage": ""
     }
-    ];
-  nightShiftboxData: Array<any> = [
-      {
-        "CODE_DESC": "Yes",
-        "CODE_VALUE": "yes"
-      },
-      {
-        "CODE_DESC": "No",
-        "CODE_VALUE": "no"
-      }
-      ];
+  };
+  showBasicForm = true;
+  showEducationForm = false;
+  showSuccessMsg = false;
 
-  onSubmit({ form, value,valid }: { form:NgForm ,value:string, valid: boolean },stage:string){
-    this.obj.application.stage=stage;
-    this.obj.applicants=this.carrerModal;
+  constructor(private dataService: DataService,
+    private spinner: NgxSpinnerService,
+    private dialog: MatDialog) { }
+
+  genderboxData: Array<any> = this.dataService.genderboxData;
+  nightShiftboxData: Array<any> = this.dataService.nightShiftboxData;
+
+
+  onSubmit({ form, value, valid }: { form: NgForm, value: string, valid: boolean }, stage: string) {
+    this.obj.application.stage = stage;
+    this.obj.applicants = this.carrerModal;
     console.log(this.obj);
-    if(valid){
+    if (valid) {
       this.spinner.show();
       this.dataService.postCareer(this.obj).subscribe((result) => {
         this.spinner.hide();
         this.carrerModal = result.applicants;
-        this.showBasicForm=false;
-        if(result.application.stage === 'ad'){
-          this.showEducationForm=false;
-          this.showSuccessMsg=true;
+        this.showBasicForm = false;
+        if (result.application.stage === 'ad') {
+          this.showEducationForm = false;
+          this.showSuccessMsg = true;
         } else {
-          this.showEducationForm=true;
+          this.showEducationForm = true;
         }
-      },err => {
+      }, err => {
         this.spinner.hide();
         console.log(err);
         this.errorModal(err);
@@ -76,12 +59,12 @@ export class CareerComponent {
     }
   }
 
-  goBack(){
-    this.showBasicForm =true;
-    this.showEducationForm=false;
+  goBack() {
+    this.showBasicForm = true;
+    this.showEducationForm = false;
   }
 
-  errorModal(err:any) {
+  errorModal(err: any) {
     this.alertDialogRef = this.dialog.open(AlertDialogComponent, {
       hasBackdrop: true,
       height: '316px',
@@ -90,5 +73,5 @@ export class CareerComponent {
       data: err
     });
   }
-  
+
 }

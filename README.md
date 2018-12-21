@@ -23,8 +23,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 * Using Angular Material for Form field
 * Their are two type of forms :
 
-              [Template-driven validation](https://angular.io/guide/form-validation#template-driven-validation)
-              [Reactive form validation](https://angular.io/guide/form-validation#reactive-form-validation)
+          [Template-driven validation](https://angular.io/guide/form-validation#template-driven-validation)
+          [Reactive form validation](https://angular.io/guide/form-validation#reactive-form-validation)
 
 * Using [ngx-spinner](https://www.npmjs.com/package/ngx-spinner)
 

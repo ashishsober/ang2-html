@@ -20,7 +20,6 @@
               font-size: 80px;
               line-height: 90px;
               color: #fff;
-              // font-family: 'SCSans-Bold Noto-Sans';
               font-weight: 700;
                 span.development {
                   margin-top: 5px;
@@ -82,12 +81,10 @@
                   margin: 0 0 30px;
                   padding: 0 0 0 0px; 
                   p.address{
-                    //padding: 5px;
                     color: #0075B0;
                     font-size: 16px;
                     margin-left: 10px;
                     margin-bottom: 0px;
-                    //text-transform: uppercase;
                   }
                   p.desc {
                     margin-left: 10px;
@@ -132,6 +129,11 @@
       .get-support {
         .job_detail {
           padding: 12px;
+          ul li {
+                ul.requirement {
+                  margin-left: 35px;
+                }
+           }
         }
        }
      }

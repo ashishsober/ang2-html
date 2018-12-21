@@ -55,7 +55,6 @@
                 &.srv-list{
                   right: auto;
                   left: 50%;
-                  // margin-left: -150px;
                   box-shadow: 0 8px 10px 0;
                 }
                 ul.sub-menu-list {
@@ -72,9 +71,17 @@
                     width: 230px;
                     right: -30%;
                   }
+                  &.about_sub:before{
+                    left: 98px;
+                    top: -12px;
+                  }
                   &.services{
                     width: 315px;
                     right: -70%;
+                  }
+                  &.services:before{
+                    left: 142px;
+                    top: -12px;
                   }
                   &.recruitment_sub {
                     width: 255px;
@@ -120,6 +127,19 @@
                     color: white;
                   }
                 }
+                ul.sub-menu-list:before { 
+                  content: "";
+                  border-color: transparent white;
+                  border-left: 12px solid transparent;
+                  border-right: 12px solid transparent;
+                  border-bottom: 12px solid white;
+                  display: block;
+                  height: 0;
+                  width: 0;
+                  //left: 75px;
+                  //top: -12px;
+                  position: relative;
+                 }
                }
             }
 
@@ -177,7 +197,7 @@
             }
         
 
-            }
+         }
 
              
           .recruitment_solution_a {
@@ -300,6 +320,9 @@
                           }
                         }
                     }
+                }
+                ul.sub-menu-list:before { 
+                  display: none;
                 }
                }
   

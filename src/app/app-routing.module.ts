@@ -5,7 +5,6 @@ import { CareerComponent } from './pages/career-component/career.component'
 import { ContactComponent } from './pages/contact-component/contact.component';
 import { NetworkSecurityComponent } from './pages/network-security-component/network-security.component';
 import { ManagementComponent } from './pages/management-component/management.component';
-import { CustomerStoriesComponent } from './pages/customer-stories/customer-stories.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';
 import { AppEngineDevelopmentComponent } from './pages/app-engine-development-component/app-engine-development.component';
 import { SoftwareDevelopmentComponent } from './pages/software-development-component/software-development.component';
@@ -19,12 +18,10 @@ const routes: Routes = [
   { path: 'careers', component: CareerComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'networkSecurity', component: NetworkSecurityComponent },
-  { path: 'customerStories', component: CustomerStoriesComponent },
   { path: 'jobBoard', component: JobBoardComponent },
   { path: 'appEngineDevelopment', component: AppEngineDevelopmentComponent },
   { path: 'sapSolutions', component: SapSolutionsComponent },
   { path: 'softwareDevelopment', component: SoftwareDevelopmentComponent },
-  
   { path: 'iot', component: IOTComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

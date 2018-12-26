@@ -38,7 +38,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 * To login from the terminal 
       
-           ssh -i /Users/ashishgupta/Desktop/Vivek\ Sir/vrdNetworkKeyPair.pem ubuntu@ec2-3-16-206-69.us-east-2.compute.amazonaws.com
+           ssh -i /Users/ashishgupta/Desktop/Vivek\ Sir/vrdNetworkKeyPair.pem ubuntu@ec2-3-17-146-125.us-east-2.compute.amazonaws.com
 
 * To run the app from AWS instance,which is alredy running no need of running again
 

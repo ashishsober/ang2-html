@@ -113,9 +113,9 @@ export class DataService {
             if (window.location.host === 'localhost:4200') {
                   hostname = "http://localhost:1337";
             } else {
-                  hostname = 'http://ec2-3-16-206-69.us-east-2.compute.amazonaws.com:1337';
+                  console.log("window.location.host --->"+window.location.host);
+                  hostname = 'http://ec2-3-17-146-125.us-east-2.compute.amazonaws.com:1337';
             }
-            console.log(hostname);
             return hostname;
       }
 

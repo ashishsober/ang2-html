@@ -55,25 +55,12 @@
                                 </div>
                             </div>
                           <div class="row">
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <img src="assets/tech-icons/angular6.png" title="Angular 6"/>
-                                <img src="assets/tech-icons/react.png" title="React"/>
-                                <img src="assets/tech-icons/typescript.png" title="Typescript"/>
-                                <img src="assets/tech-icons/sapui5.png" title="SAPUI5"/>
-                                <img src="assets/tech-icons/firebase.png"/>
-
-                                <img src="assets/tech-icons/bootstrap.png" title="Bootstrap"/>
-                                <img src="assets/tech-icons/html5.png" title="HTML5"/>
-                                <img src="assets/tech-icons/css.png" title="CSS 3"/>
-                                <img src="assets/tech-icons/sass.png" title="SASS"/>
-
-                                <img src="assets/tech-icons/nodejs.png" title="NodeJs"/>
-                                <img src="assets/tech-icons/mongodb.png" title="Mongo DB"/>
-                                <img src="assets/tech-icons/java.png" title="Java"/>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                                  <span *ngFor="let data of techno_learn">
+                                        <img src="{{data.img}}" title="{{data.title}}"/>
+                                  </span>
                                 
-                                <img src="assets/tech-icons/aws.png" title="AWS"/>
-                                
-                              </div>
+                               </div>
                           </div>
                       </div>
                   </section>

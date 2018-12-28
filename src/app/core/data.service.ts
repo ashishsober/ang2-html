@@ -1,23 +1,22 @@
 import { Injectable, Input, Output, EventEmitter } from '@angular/core';
-// import { Observable } from 'rxjs/Rx';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-//import 'rxjs/add/operator/switchMap';
-//import 'rxjs/add/operator/map'
-//import 'rxjs/add/operator/catch';
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 
 @Injectable()
 export class DataService {
       @Output() fire: EventEmitter<any> = new EventEmitter();
-
+      provider = new firebase.auth.GoogleAuthProvider();
 
       //use promisess here to call asynchronous call,If the data is coming from the remote server
       //so that over code will not get blocked. for the waiting of the respond from the server
-      constructor(private http: Http) {
+      constructor(private http: Http,
+            private af: AngularFireAuth) {
             console.log('shared service started');
       }
 
@@ -34,7 +33,6 @@ export class DataService {
                   "CODE_VALUE": "female"
             }
       ];
-
       nightShiftboxData: Array<any> = [
             {
                   "CODE_DESC": "Yes",
@@ -71,8 +69,8 @@ export class DataService {
                   "CODE_VALUE": "other"
             }
       ];
-
-      contact_address: Array<any> = [{
+      contact_address: Array<any> = [
+            {
             "office": "Regd. OFFICE",//mandatory fields
             "address_line1": "127 Vaishali Nagar,",//mandatory fields
             "address_line2": "Bhopal (M.P) / India 4620016",//mandatory fields
@@ -108,6 +106,7 @@ export class DataService {
             "contact": "080-4276-4665",
             "email_id": "hr@vrdnetwork.com"
           }];
+
       getHostname() {
             let hostname: string = '';
             if (window.location.host === 'localhost:4200') {
@@ -149,4 +148,9 @@ export class DataService {
             return throwError(errMsg);
             //return errMsg;
       }
+
+      getAuth() {
+            return firebase.auth().signInWithPopup(this.provider);
+      }
+        
 }

@@ -7,6 +7,8 @@ import { AppMaterialModule  } from './app.material.module';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // Include the components we created
 import { AppComponent } from './app.component';
@@ -28,6 +30,13 @@ import { IOTComponent } from '../app/pages/iot-component/iot-component';
 import { DataService } from '../app/core/data.service';
 import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyBu4vtqAO8iH8Bs-Jeak50DfeqT5NgkH8E",
+  authDomain: "angular-project-5cb99.firebaseapp.com",
+  databaseURL: "https://angular-project-5cb99.firebaseio.com",
+  storageBucket: "angular-project-5cb99.appspot.com",
+  messagingSenderId: "103586939904"
+};
 
 @NgModule({
   declarations: [
@@ -55,7 +64,9 @@ import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
     HttpModule,
     AppMaterialModule,
     NgxSpinnerModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

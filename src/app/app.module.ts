@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppMaterialModule  } from './app.material.module';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 // Include the components we created
 import { AppComponent } from './app.component';
@@ -55,7 +54,6 @@ import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
     HttpModule,
     AppMaterialModule,
     NgxSpinnerModule,
-    MDBBootstrapModule.forRoot()
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

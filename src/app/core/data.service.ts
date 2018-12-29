@@ -10,7 +10,9 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 
 
-@Injectable()
+@Injectable({
+      providedIn: 'root',
+})
 export class DataService {
       @Output() fire: EventEmitter<any> = new EventEmitter();
 

@@ -24,7 +24,7 @@ import { HeaderComponent } from './core/header-component/header.component';
 import { FooterComponent } from '../app/core/footer-component/footer.component';
 import { IOTComponent } from '../app/pages/iot-component/iot-component';
 //Inculde the service we created
-import { DataService } from '../app/core/data.service';
+//import { DataService } from '../app/core/data.service';
 import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
 
 
@@ -55,7 +55,7 @@ import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
     AppMaterialModule,
     NgxSpinnerModule,
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents:[AlertDialogComponent]
 })

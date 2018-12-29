@@ -28,5 +28,17 @@ export class SoftwareDevelopmentComponent {
     {img:"assets/tech-icons/java.png",title:"Java"},
     {img:"assets/tech-icons/aws.png",title:"AWS"}
   ]
+
+  count=0;
+  next(){
+    if(this.count<this.slides.length-1){
+      this.count++;
+    }
+  }
+  prev(){
+    if(this.count>0){
+      this.count--;
+    }
+  }
 }
 

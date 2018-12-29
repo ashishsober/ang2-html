@@ -13,5 +13,15 @@ export class AboutUsComponent {
     {img: "assets/group-pic/vrd-group3.jpeg"},
     {img: "assets/group-pic/vrd-group4.jpg"}
   ];
-
+  count=0;
+  next(){
+    if(this.count<this.slides.length-1){
+      this.count++;
+    }
+  }
+  prev(){
+    if(this.count>0){
+      this.count--;
+    }
+  }
 }

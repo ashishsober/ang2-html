@@ -26,9 +26,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
           [Template-driven validation](https://angular.io/guide/form-validation#template-driven-validation)
           [Reactive form validation](https://angular.io/guide/form-validation#reactive-form-validation)
 
-* Using [ngx-spinner](https://www.npmjs.com/package/ngx-spinner)
-
-          Chosse the desired spinner -- https://napster2210.github.io/ngx-spinner/
 
 * Using Carosel from mdbootstrap
            

@@ -3,7 +3,6 @@ import { MatOptionSelectionChange } from '@angular/material'
 import { contactModal } from '../../core/classes';
 import { NgForm } from '@angular/forms';
 import { DataService } from '../../core/data.service';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
 
@@ -23,7 +22,6 @@ export class ContactComponent {
   contact_address: Array<any> = this.dataService.contact_address;
 
   constructor(private dataService: DataService,
-    private spinner: NgxSpinnerService,
     private dialog: MatDialog) { }
 
   onselect(event: MatOptionSelectionChange) {
@@ -40,13 +38,13 @@ export class ContactComponent {
 
   onSubmit({ form, valid }: { form: NgForm, valid: boolean }) {
     if (valid) {
-      this.spinner.show();
+      //this.spinner.show();
       this.dataService.postContact(form.value).subscribe((result) => {
-        this.spinner.hide();
+        //this.spinner.hide();
         this.showForm = false;
         form.reset();
       }, err => {
-        this.spinner.hide();
+        //this.spinner.hide();
         console.log(err);
         this.errorModal(err);
       });

@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppMaterialModule  } from './app.material.module';
 import { FormsModule } from '@angular/forms';
-import { NgxSpinnerModule } from 'ngx-spinner';
 
 // Include the components we created
 import { AppComponent } from './app.component';
@@ -53,7 +52,6 @@ import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
     FormsModule,
     HttpModule,
     AppMaterialModule,
-    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -45,3 +45,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
             sudo nohup http-server -p 80 &
 
             ps -ef to see the running port
+
+* To check the deployment bundle size
+
+            https://angular.io/guide/deployment#fallback
+            ng build --prod --source-map;
+            node_modules/.bin/source-map-explorer dist/main.*.js

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
-import { CareerComponent } from './pages/career-component/career.component'
 import { ContactComponent } from './pages/contact-component/contact.component';
 import { NetworkSecurityComponent } from './pages/network-security-component/network-security.component';
 import { ManagementComponent } from './pages/management-component/management.component';
@@ -12,7 +11,6 @@ import { SapSolutionsComponent } from './pages/sap-solutions-component/sap-solut
 import { IOTComponent } from '../app/pages/iot-component/iot-component';
 
 const routes: Routes = [
-
   { path: '', component: AboutUsComponent },
   { path: 'management', component: ManagementComponent },
   { path: 'careers',loadChildren: './pages/career-component/career-module#CareerAppModule' },

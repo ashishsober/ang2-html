@@ -1,18 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HeaderComponent } from './core/header-component/header.component';
-import { AppMaterialModule } from './app.material.module';
-//import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule} from '@angular/router';
+import { AppMaterialModule } from './app.material.module';
+
+import { HeaderComponent } from './core/header-component/header.component';
 import { FooterComponent } from './core/footer-component/footer.component';
+
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
         HttpModule,
         AppMaterialModule
     ],
     exports: [
+        CommonModule,
+        FormsModule,
         AppMaterialModule,
         HeaderComponent,
         FooterComponent

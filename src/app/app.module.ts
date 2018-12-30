@@ -24,7 +24,6 @@ import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
   declarations: [
     AppComponent,
     AboutUsComponent,
-    ContactComponent,
     NetworkSecurityComponent,
     ManagementComponent,
     JobBoardComponent,

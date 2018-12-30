@@ -75,6 +75,12 @@
                     </mdb-carousel> -->
 
                      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <div *ngFor="let number of slides let i = index">
+                                    <li [ngClass]="{'active' : i == count}"></li>
+                            </div>
+                                
+                        </ol>
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item" *ngFor="let image of slides let i = index" [ngClass]="{'active' : i == count}">
                                 <img class="d-block w-100" [src]="image.img" alt="First slide">

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { preserveWhitespacesDefault } from '@angular/compiler';
 
 @Component({
   selector: 'ngv-aboutus',
@@ -17,11 +18,15 @@ export class AboutUsComponent {
   next(){
     if(this.count<this.slides.length-1){
       this.count++;
+    } else {
+      this.prev();
     }
   }
   prev(){
     if(this.count>0){
       this.count--;
+    } else {
+      this.next();
     }
   }
 }

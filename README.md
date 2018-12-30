@@ -46,5 +46,5 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 * To check the deployment bundle size
 
             https://angular.io/guide/deployment#fallback
-            ng build --prod --source-map;
+            ng build --prod --source-map
             node_modules/.bin/source-map-explorer dist/main.*.js

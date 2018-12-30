@@ -15,7 +15,7 @@ const routes: Routes = [
 
   { path: '', component: AboutUsComponent },
   { path: 'management', component: ManagementComponent },
-  { path: 'careers', component: CareerComponent },
+  { path: 'careers',loadChildren: './pages/career-component/career-module#CareerAppModule' },
   { path: 'contact', component: ContactComponent },
   { path: 'networkSecurity', component: NetworkSecurityComponent },
   { path: 'jobBoard', component: JobBoardComponent },
@@ -31,7 +31,7 @@ const config: ExtraOptions = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes ,config)],
+  imports: [RouterModule.forRoot(routes,config)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -5,12 +5,11 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppMaterialModule  } from './app.material.module';
 import { FormsModule } from '@angular/forms';
-
+import { SharedModule } from './shared.module';
 // Include the components we created
 import { AppComponent } from './app.component';
 import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CareerComponent } from './pages/career-component/career.component'
 import { ContactComponent } from './pages/contact-component/contact.component';
 import { NetworkSecurityComponent } from './pages/network-security-component/network-security.component'
 import { ManagementComponent } from './pages/management-component/management.component';
@@ -31,7 +30,6 @@ import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
   declarations: [
     AppComponent,
     AboutUsComponent,
-    CareerComponent,
     ContactComponent,
     NetworkSecurityComponent,
     ManagementComponent,
@@ -39,19 +37,15 @@ import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
     AppEngineDevelopmentComponent,
     SoftwareDevelopmentComponent,
     SapSolutionsComponent,
-    HeaderComponent,
-    FooterComponent,
     IOTComponent,
     AlertDialogComponent
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule,
-    AppMaterialModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

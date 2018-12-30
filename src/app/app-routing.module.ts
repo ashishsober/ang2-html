@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
-import { ContactComponent } from './pages/contact-component/contact.component';
 import { NetworkSecurityComponent } from './pages/network-security-component/network-security.component';
 import { ManagementComponent } from './pages/management-component/management.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';

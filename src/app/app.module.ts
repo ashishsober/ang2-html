@@ -7,7 +7,6 @@ import { SharedModule } from './shared.module';
 import { AppComponent } from './app.component';
 import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ContactComponent } from './pages/contact-component/contact.component';
 import { NetworkSecurityComponent } from './pages/network-security-component/network-security.component'
 import { ManagementComponent } from './pages/management-component/management.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';

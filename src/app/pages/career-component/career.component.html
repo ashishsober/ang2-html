@@ -1,4 +1,16 @@
-<section class="val_index_page">  
+<section class="val_index_page">
+  <div class="cdk-overlay-container"  *ngIf="showSpinner">
+      <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"></div>
+      <div class="cdk-global-overlay-wrapper" dir="ltr" style="justify-content: center; align-items: center;">
+        <div id="cdk-overlay-0" class="cdk-overlay-pane" style="max-width: 80vw; pointer-events: auto; width: 874px; height: 316px; position: static;">
+          <div tabindex="0" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+          <div tabindex="0" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+          <div class="spinner-class">
+              <mat-spinner [diameter]="50"></mat-spinner> 
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="banner_index">
          <div class="banner_sec">
               <div class="container">

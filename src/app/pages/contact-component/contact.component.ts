@@ -20,6 +20,7 @@ export class ContactComponent {
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
   selectboxData: Array<any> = this.dataService.technologiesSelectboxData;
   contact_address: Array<any> = this.dataService.contact_address;
+  showSpinner=false;
 
   constructor(private dataService: DataService,
     private dialog: MatDialog) { }
@@ -38,13 +39,13 @@ export class ContactComponent {
 
   onSubmit({ form, valid }: { form: NgForm, valid: boolean }) {
     if (valid) {
-      //this.spinner.show();
+      this.showSpinner=true;
       this.dataService.postContact(form.value).subscribe((result) => {
-        //this.spinner.hide();
+        this.showSpinner=false;
         this.showForm = false;
         form.reset();
       }, err => {
-        //this.spinner.hide();
+        this.showSpinner=false;
         console.log(err);
         this.errorModal(err);
       });

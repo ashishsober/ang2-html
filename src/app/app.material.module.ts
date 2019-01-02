@@ -48,7 +48,7 @@ const MATERIAL_MODULES = [
 //   MatToolbarModule,
 //   MatTooltipModule,
 //   MatRippleModule,
-//   MatProgressSpinnerModule,
+     MatProgressSpinnerModule,
      MatDialogModule,
 //   MatDatepickerModule,
 //   MatNativeDateModule,

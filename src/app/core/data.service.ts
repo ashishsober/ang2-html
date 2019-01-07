@@ -8,7 +8,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 
 
-@Injectable()
+@Injectable({
+      providedIn: 'root',
+})
 export class DataService {
       @Output() fire: EventEmitter<any> = new EventEmitter();
       provider = new firebase.auth.GoogleAuthProvider();

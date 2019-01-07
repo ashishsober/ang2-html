@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { carrerModal } from '../../core/classes';
 import { NgForm } from '@angular/forms';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { DataService } from '../../core/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
@@ -26,9 +25,9 @@ export class CareerComponent {
   showBasicForm = true;
   showEducationForm = false;
   showSuccessMsg = false;
+  showSpinner=false;
 
   constructor(private dataService: DataService,
-    private spinner: NgxSpinnerService,
     private dialog: MatDialog) { }
 
   genderboxData: Array<any> = this.dataService.genderboxData;
@@ -40,9 +39,9 @@ export class CareerComponent {
     this.obj.applicants = this.carrerModal;
     console.log(this.obj);
     if (valid) {
-      this.spinner.show();
+      this.showSpinner=true;
       this.dataService.postCareer(this.obj).subscribe((result) => {
-        this.spinner.hide();
+        this.showSpinner=false;
         this.carrerModal = result.applicants;
         this.showBasicForm = false;
         if (result.application.stage === 'ad') {
@@ -52,7 +51,7 @@ export class CareerComponent {
           this.showEducationForm = true;
         }
       }, err => {
-        this.spinner.hide();
+        this.showSpinner=false;
         console.log(err);
         this.errorModal(err);
       });
@@ -73,5 +72,4 @@ export class CareerComponent {
       data: err
     });
   }
-
 }

@@ -26,9 +26,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
           [Template-driven validation](https://angular.io/guide/form-validation#template-driven-validation)
           [Reactive form validation](https://angular.io/guide/form-validation#reactive-form-validation)
 
-* Using [ngx-spinner](https://www.npmjs.com/package/ngx-spinner)
-
-          Chosse the desired spinner -- https://napster2210.github.io/ngx-spinner/
 
 * Using Carosel from mdbootstrap
            
@@ -45,3 +42,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
             sudo nohup http-server -p 80 &
 
             ps -ef to see the running port
+
+* To check the deployment bundle size
+
+            https://angular.io/guide/deployment#fallback
+            ng build --prod --source-map
+            node_modules/.bin/source-map-explorer dist/main.*.js

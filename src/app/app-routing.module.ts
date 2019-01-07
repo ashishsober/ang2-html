@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
-import { CareerComponent } from './pages/career-component/career.component'
-import { ContactComponent } from './pages/contact-component/contact.component';
 import { NetworkSecurityComponent } from './pages/network-security-component/network-security.component';
 import { ManagementComponent } from './pages/management-component/management.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';
@@ -12,11 +10,10 @@ import { SapSolutionsComponent } from './pages/sap-solutions-component/sap-solut
 import { IOTComponent } from '../app/pages/iot-component/iot-component';
 
 const routes: Routes = [
-
   { path: '', component: AboutUsComponent },
   { path: 'management', component: ManagementComponent },
-  { path: 'careers', component: CareerComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'careers',loadChildren: './pages/career-component/career-module#CareerAppModule' },
+  { path: 'contact', loadChildren: './pages/contact-component/contact-module#ContactAppModule' },
   { path: 'networkSecurity', component: NetworkSecurityComponent },
   { path: 'jobBoard', component: JobBoardComponent },
   { path: 'appEngineDevelopment', component: AppEngineDevelopmentComponent },
@@ -31,7 +28,7 @@ const config: ExtraOptions = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes ,config)],
+  imports: [RouterModule.forRoot(routes,config)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

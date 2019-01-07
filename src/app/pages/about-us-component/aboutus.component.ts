@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { preserveWhitespacesDefault } from '@angular/compiler';
 
 @Component({
   selector: 'ngv-aboutus',
@@ -13,5 +14,19 @@ export class AboutUsComponent {
     {img: "assets/group-pic/vrd-group3.jpeg"},
     {img: "assets/group-pic/vrd-group4.jpg"}
   ];
-
+  count=0;
+  next(){
+    if(this.count<this.slides.length-1){
+      this.count++;
+    } else {
+      this.count=0;
+    }
+  }
+  prev(){
+    if(this.count>0){
+      this.count--;
+    } else {
+      this.count=this.slides.length-1;
+    }
+  }
 }

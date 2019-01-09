@@ -122,13 +122,13 @@ export class DataService {
 
       postContact(data: any): Observable<any> {
             let getHostname = this.getHostname();
-            let url = getHostname.concat('/application/contactVrd')
+            let url = getHostname.concat('/application/contactVrd');
             return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
 
       postCareer(data: any): Observable<any> {
             let getHostname = this.getHostname();
-            let url = getHostname.concat('/application/careerVrd')
+            let url = getHostname.concat('/application/careerVrd');
             return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
 
@@ -151,8 +151,14 @@ export class DataService {
             //return errMsg;
       }
 
-      getAuth() {
+      getGoogleAuth() {
             return firebase.auth().signInWithPopup(this.provider);
+      }
+
+      postEmployee(data: any): Observable<any> {
+            let getHostname = this.getHostname();
+            let url = getHostname.concat('/application/employee');
+            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
         
 }

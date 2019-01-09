@@ -6,17 +6,14 @@ import {MAT_DIALOG_DATA} from '@angular/material';
   templateUrl:'./alert-dialog.component.html' ,
   styleUrls: ['./alert-dialog.component.scss']
 })
-export class AlertDialogComponent implements OnInit{
+export class AlertDialogComponent implements OnInit {
   responseStatus:string;
   responseAction:string;
   message:string;
-  constructor(private router: Router, @Inject(MAT_DIALOG_DATA) public error: any) { 
-  }
+  constructor(private router: Router, @Inject(MAT_DIALOG_DATA) public error: any) { }
 
   ngOnInit(){
-    //console.log(this.appData);
-    //this.responseStatus = this.appData.application.response_type.toUpperCase();//info,hard
-    this.responseAction = 'STOP';//contibue stop..
+    this.responseAction = 'STOP';
     this.message = this.error +'----Please check your connection';
   }
 

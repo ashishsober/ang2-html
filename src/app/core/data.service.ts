@@ -160,5 +160,17 @@ export class DataService {
             let url = getHostname.concat('/application/employee');
             return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
+
+      authenticateEmp(data:any): Observable<any>{
+            let getHostname = this.getHostname();
+            let url = getHostname.concat('/application/auth');
+            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+      }
+
+      logout(data:any): Observable<any>{
+            let getHostname = this.getHostname();
+            let url = getHostname.concat('/application/logout');
+            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+      }
         
 }

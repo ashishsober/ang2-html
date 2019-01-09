@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter ,NgZone} from '@angular/core';
+import { Component, Output, EventEmitter ,NgZone, OnInit} from '@angular/core';
 import { HostListener, Inject } from "@angular/core";
 import { DOCUMENT } from '@angular/platform-browser';
 import { Router } from '@angular/router'
@@ -13,7 +13,7 @@ declare const window: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   bannerColorToBlack:boolean;
   displayBlock:boolean=false;
   right50:boolean=false;
@@ -22,11 +22,29 @@ export class HeaderComponent {
   displayServiceMenu:boolean=false;
   displayRecruitMenu:boolean=false;
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
-  loginInBtn:string = "Login"
+  loginInBtn:string;
+  userData = {
+    accessToken:sessionStorage.getItem("accessToken"),
+    uid:sessionStorage.getItem("user_uid")
+  }
   @Output() right50Event = new EventEmitter<boolean>();  
 
   constructor(private router:Router,private dataService:DataService,
     private dialog: MatDialog,private zone:NgZone,){}
+
+  ngOnInit(){
+    
+     this.dataService.authenticateEmp(this.userData).subscribe((result) => {
+        if(result.length === 1 ){
+          this.loginInBtn = "Logout";
+        } else {
+           this.loginInBtn = "Login";
+        }
+     },(err) => {
+        console.log(err);
+        this.errorModal(err);
+     })
+  } 
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
@@ -74,10 +92,11 @@ export class HeaderComponent {
           sessionStorage.setItem('emalid', result.user.email);  
           this.saveUserCall(result.user);        
       },(err) => {
+        console.log(err);
         this.errorModal(err);
       });
     } else {
-      alert(value);
+      this.logout();
     }
    
   }
@@ -92,6 +111,16 @@ export class HeaderComponent {
             this.loginInBtn = "Logout";
          });  
     },(err) => {
+      console.log(err);
+      this.errorModal(err);
+    });
+  }
+
+  logout () {
+    this.dataService.logout(this.userData).subscribe((result) =>{
+      this.loginInBtn = "Login";
+      sessionStorage.clear();
+    },(err)=>{
       console.log(err);
       this.errorModal(err);
     });

@@ -189,7 +189,20 @@
                     }
                   }
                   &.login_a {
-                    display: none;
+                    transition: all 0.2s ease-in-out;
+                    border-radius: 5px;
+                    -webkit-border-radius: 5px;
+                    -moz-border-radius: 5px;
+                    -ms-border-radius: 5px;
+                    -o-border-radius: 5px;
+                    color: #ffffffc2;
+                    font-size: 18px;
+                    line-height: 36px;
+                    margin: 15px 0px;
+                    padding: 0 18px;
+                    position: relative;
+                    z-index: 10;
+                    transition: 0.8s;
                   }
                 }
                 a:hover{
@@ -351,23 +364,11 @@
                   width: 90%;
                   font-size: 10px;
                   text-align: center;
-                  margin-left: 0px;
+                  margin: 0px;
                   background-color: #ff6640;
                   border-color:   #ff6640;
 
-                    transition: all 0.2s ease-in-out;
-                    border: 1px solid;
-                    border-radius: 5px;
-                    -webkit-border-radius: 5px;
-                    -moz-border-radius: 5px;
-                    -ms-border-radius: 5px;
-                    -o-border-radius: 5px;
-                    line-height: 36px;
-                    //margin: 15px 14px;
-                    padding: 0 18px;
-                    position: relative;
-                    z-index: 10;
-                    transition: 0.8s;
+                    
                 }
               }
             }
@@ -385,7 +386,7 @@
             background-size: 8% !important;
           }
          }
-       }
+     }
    }
 
   @media only screen 
@@ -425,6 +426,12 @@
                 &.contact_a {
                   transition: all 0.2s ease-in-out;
                   font-size: 9px;
+                  line-height: 25px;
+                  padding: 0 12px;
+                }
+                &.login_a {
+                  transition: all 0.2s ease-in-out;
+                  font-size: 12px;
                   line-height: 25px;
                   padding: 0 12px;
                 }

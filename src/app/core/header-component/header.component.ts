@@ -33,8 +33,8 @@ export class HeaderComponent implements OnInit{
     private dialog: MatDialog,private zone:NgZone,){}
 
   ngOnInit(){
-    
-     this.dataService.authenticateEmp(this.userData).subscribe((result) => {
+    if(this.userData.accessToken != null || this.userData.uid != null){
+      this.dataService.authenticateEmp(this.userData).subscribe((result) => {
         if(result.length === 1 ){
           this.loginInBtn = "Logout";
         } else {
@@ -43,7 +43,10 @@ export class HeaderComponent implements OnInit{
      },(err) => {
         console.log(err);
         this.errorModal(err);
-     })
+     });
+    } else {
+      this.loginInBtn = "Login";
+    }
   } 
 
   @HostListener("window:scroll", [])

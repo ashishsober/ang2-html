@@ -1,35 +1,51 @@
-a {
-  background-size: 11%;
-  color: #ffffffc2;
-  display: inline-block;
-  padding: 20px 12px 20px 12px;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 18px;
-
-  &.login_a {
-    transition: all 0.2s ease-in-out;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+.login-btn-header {
+  a {
+    background-size: 11%;
     color: #ffffffc2;
+    display: inline-block;
+    padding: 20px 12px 20px 12px;
+    text-decoration: none;
+    cursor: pointer;
     font-size: 18px;
-    line-height: 36px;
-    margin: 15px 0px;
-    padding: 0 18px;
-    position: relative;
-    z-index: 10;
-    transition: 0.8s;
+  
+    &.login_a {
+      transition: all 0.2s ease-in-out;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      color: #ffffffc2;
+      font-size: 18px;
+      line-height: 36px;
+      margin: 15px 0px;
+      padding: 0 18px;
+      position: relative;
+      z-index: 10;
+      transition: 0.8s;
+    }
+  
+    &.login_a:hover {
+      transition: all .25s ease-out;
+      //background-color: #07b8de;
+      color: #fff;
+    }
   }
-
-  &.login_a:hover {
-    transition: all .25s ease-out;
-    //background-color: #07b8de;
-    color: #fff;
+  
+  .display_none {
+    display: none !important;
+  }
+  .img-circle {
+    float: right;
+    border-radius: 70px;
+    height: 38px;
+    width: 38px;
+    margin: 15px 0px;
   }
 }
+
+
+
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   a {

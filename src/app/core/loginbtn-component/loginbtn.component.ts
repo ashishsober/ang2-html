@@ -12,9 +12,13 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 export class LoginbtnComponent implements OnInit {
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
     loginInBtn: string;
-    userData = {
+    displayNone:boolean = false;
+    user_img:string = sessionStorage.getItem("photoUrl");
+    user_data = {
         accessToken: sessionStorage.getItem("accessToken"),
-        uid: sessionStorage.getItem("user_uid")
+        uid: sessionStorage.getItem("user_uid"),
+        photoURL:sessionStorage.getItem("photoUrl"),
+        emailId:sessionStorage.getItem("emailId"),
     }
     @Output() right50Event = new EventEmitter<boolean>();
 
@@ -22,22 +26,28 @@ export class LoginbtnComponent implements OnInit {
         private dialog: MatDialog, private zone: NgZone, ) { }
 
     ngOnInit() {
-        if (this.userData.accessToken != null || this.userData.uid != null) {
-            this.dataService.authenticateEmp(this.userData).subscribe((result) => {
-                if (result.length === 1) {
-                    this.loginInBtn = "Logout";
-                } else {
-                    sessionStorage.clear();
-                    this.loginInBtn = "Login";
-                }
+        if (this.user_data.accessToken != null || this.user_data.uid != null) {
+            this.dataService.authenticateEmp(this.user_data).subscribe((result) => {
+                this.showLogoutButton();
             }, (err) => {
                 console.log(err);
                 this.errorModal(err);
             });
         } else {
-            sessionStorage.clear();
-            this.loginInBtn = "Login";
+            this.showLoginButton();
         }
+    }
+
+    showLoginButton(){
+        sessionStorage.clear();
+        this.displayNone = false;
+        this.loginInBtn = "Login";
+    }
+
+    showLogoutButton(){
+        this.displayNone = true; //show the user_img
+        this.user_img = sessionStorage.getItem("photoUrl");
+        this.loginInBtn = "Logout";
     }
 
 
@@ -46,8 +56,6 @@ export class LoginbtnComponent implements OnInit {
         if (value === 'Login') {
             this.dataService.getGoogleAuth()
                 .then((result) => {
-                    sessionStorage.setItem('photoUrl', result.user.photoURL);
-                    sessionStorage.setItem('emalid', result.user.email);
                     this.saveUserCall(result.user);
                 }, (err) => {
                     console.log(err);
@@ -64,8 +72,10 @@ export class LoginbtnComponent implements OnInit {
         this.dataService.postEmployee(userData).subscribe((result) => {
             sessionStorage.setItem('user_uid', result.uid);
             sessionStorage.setItem('accessToken', result.accessToken);
+            sessionStorage.setItem('photoUrl', result.photoURL);
+            sessionStorage.setItem('emailId', result.email);
             this.zone.run(() => {
-                this.loginInBtn = "Logout";
+                this.showLogoutButton();
             });
         }, (err) => {
             console.log(err);
@@ -74,7 +84,7 @@ export class LoginbtnComponent implements OnInit {
     }
 
     logout() {
-        this.dataService.logout(this.userData).subscribe((result) => {
+        this.dataService.logout(this.user_data).subscribe((result) => {
             this.loginInBtn = "Login";
             sessionStorage.clear();
         }, (err) => {

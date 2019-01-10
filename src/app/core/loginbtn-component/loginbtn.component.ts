@@ -27,6 +27,7 @@ export class LoginbtnComponent implements OnInit {
                 if (result.length === 1) {
                     this.loginInBtn = "Logout";
                 } else {
+                    sessionStorage.clear();
                     this.loginInBtn = "Login";
                 }
             }, (err) => {
@@ -34,6 +35,7 @@ export class LoginbtnComponent implements OnInit {
                 this.errorModal(err);
             });
         } else {
+            sessionStorage.clear();
             this.loginInBtn = "Login";
         }
     }

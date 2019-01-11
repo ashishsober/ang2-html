@@ -73,48 +73,48 @@ export class DataService {
       ];
       contact_address: Array<any> = [
             {
-            "office": "Regd. OFFICE",//mandatory fields
-            "address_line1": "127 Vaishali Nagar,",//mandatory fields
-            "address_line2": "Bhopal (M.P) / India 4620016",//mandatory fields
-            "address_line3": "",
-            "address_line4": "",
-            "contact": "0755-4272034",
-            "email_id": ""
-          },
-          {
-            "office": "ADMIN OFFICE",
-            "address_line1": "17 Malviya Nagar , ",
-            "address_line2": "Bhopal (M.P) / India ",
-            "address_line3": "",
-            "address_line4": "",
-            "contact": "0755-4276923",
-            "email_id": ""
-          },
-          {
-            "office": "DELHI",
-            "address_line1": "1201 NIRMAL TOWER",
-            "address_line2": "Barakhamba Road",
-            "address_line3": "New Delhi, India 110 001",
-            "address_line4": "",
-            "contact": "",
-            "email_id": "contact@vrdnetwork.com"
-          },
-          {
-            "office": "BANGALORE",
-            "address_line1": "Manyata Embassy Business Park",
-            "address_line2": "Ground Floor, E1 Block, Beech Building",
-            "address_line3": "Outer Ring Road",
-            "address_line4": "Bangalore - (Karnataka) India 560 045",
-            "contact": "080-4276-4665",
-            "email_id": "hr@vrdnetwork.com"
-          }];
+                  "office": "Regd. OFFICE",//mandatory fields
+                  "address_line1": "127 Vaishali Nagar,",//mandatory fields
+                  "address_line2": "Bhopal (M.P) / India 4620016",//mandatory fields
+                  "address_line3": "",
+                  "address_line4": "",
+                  "contact": "0755-4272034",
+                  "email_id": ""
+            },
+            {
+                  "office": "ADMIN OFFICE",
+                  "address_line1": "17 Malviya Nagar , ",
+                  "address_line2": "Bhopal (M.P) / India ",
+                  "address_line3": "",
+                  "address_line4": "",
+                  "contact": "0755-4276923",
+                  "email_id": ""
+            },
+            {
+                  "office": "DELHI",
+                  "address_line1": "1201 NIRMAL TOWER",
+                  "address_line2": "Barakhamba Road",
+                  "address_line3": "New Delhi, India 110 001",
+                  "address_line4": "",
+                  "contact": "",
+                  "email_id": "contact@vrdnetwork.com"
+            },
+            {
+                  "office": "BANGALORE",
+                  "address_line1": "Manyata Embassy Business Park",
+                  "address_line2": "Ground Floor, E1 Block, Beech Building",
+                  "address_line3": "Outer Ring Road",
+                  "address_line4": "Bangalore - (Karnataka) India 560 045",
+                  "contact": "080-4276-4665",
+                  "email_id": "hr@vrdnetwork.com"
+            }];
 
       getHostname() {
             let hostname: string = '';
             if (window.location.host === 'localhost:4200') {
                   hostname = "http://localhost:1337";
             } else {
-                  console.log("window.location.host --->"+window.location.host);
+                  console.log("window.location.host --->" + window.location.host);
                   hostname = 'http://ec2-3-17-146-125.us-east-2.compute.amazonaws.com:1337';
             }
             return hostname;
@@ -155,22 +155,27 @@ export class DataService {
             return firebase.auth().signInWithPopup(this.provider);
       }
 
-      postEmployee(data: any): Observable<any> {
+      postEmployee(data: any) {
             let getHostname = this.getHostname();
-            let url = getHostname.concat('/application/employee');
-            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
-      }
+            let url = getHostname.concat('/auth/google');
+            window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
+            let listener = window.addEventListener('message', (message) => {
+                  //message will contain facebook user and details
+                  console.log(message);
+            });
 
-      authenticateEmp(data:any): Observable<any>{
+
+      }
+      authenticateEmp(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/auth');
             return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
 
-      logout(data:any): Observable<any>{
+      logout(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/logout');
             return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
-        
+
 }

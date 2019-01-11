@@ -79,12 +79,13 @@ export class LoginbtnComponent implements OnInit {
 
     //save user and accestoken call for the database
     saveUserCall(userData: any) {
-        this.dataService.postEmployee(userData).subscribe((result) => {
-                this.showLogoutButton(result);
-        }, (err) => {
-            console.log(err);
-            this.errorModal(err);
-        });
+        this.dataService.postEmployee(userData);
+        // this.dataService.postEmployee(userData).subscribe((result) => {
+        //         this.showLogoutButton(result);
+        // }, (err) => {
+        //     console.log(err);
+        //     this.errorModal(err);
+        // });
     }
 
     logout() {

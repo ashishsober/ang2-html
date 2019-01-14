@@ -24,7 +24,7 @@ export class ManagementComponent {
     name: "PRANJUL",
     position: "HR Executive",
     profileImage: "assets/user-tie-solid.svg",
-    discription: "Handles payroll, benefits, employee relations and training. Responsible for planning , directing & coordinating administrative functions.",
+    discription: "Having worked across industries in both MNC and startup ecosystems, Pranjul assets fine knowledge of employee relations and training. She oversees planning, directing & coordinating administrative functions to set up a strong governance and execution function and build high-end capabilities focusing on long term growth.",
     emailid: "pranjul@vrdnetwork.com "
   }]
 }

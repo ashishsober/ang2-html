@@ -3,15 +3,24 @@
   width: 100%;
   position: relative;
   text-align: center;
-  background: #528c78;
+  background: #8c5252;
 
   .banner_index {
     height: 70px;
+
     .leadership {
       width: 100%;
       float: left;
       padding: 180px 0 61px;
-  
+
+      .intro p {
+        font-size: 28px;
+        text-align: justify;
+        font-family: "Blippo";
+        margin-bottom: 50px;
+        font-style: italic;
+      }
+
       .our_leadership {
         color: white;
         font-size: 45px;
@@ -19,12 +28,12 @@
         font-family: "Blippo";
         font-style: italic;
       }
-  
+
       .manag-board {
         width: 100%;
         float: left;
         margin-top: 30px;
-  
+
         .card {
           border: 1px solid #6bcbd5;
           height: 500px;
@@ -34,27 +43,27 @@
           // float: left; //is wrong  dont enabled
           border-radius: 15px;
           padding: 0;
-  
+
           ul {
             list-style: none;
             padding: 0%;
             margin: 0;
             float: left;
             width: 100%;
-  
+
             li {
               margin: 0 0 40px 0;
               padding: 0 15px;
               float: left;
               width: 100%;
-  
+
               &.profile {
                 background-color: #6bcbd5;
                 padding-top: 12px;
                 height: 100px;
                 border-radius: 13px;
               }
-  
+
               &.descs {
                 margin: 0 0 20px 0;
                 color: black;
@@ -64,8 +73,8 @@
                 font-size: 18px;
                 min-height: 275px;
               }
-              
-  
+
+
               .profile-pic {
                 float: left;
                 width: 107px;
@@ -76,20 +85,20 @@
                 overflow: hidden;
                 margin: 0 20px 0 0;
               }
-  
+
               .valign {
                 display: table-cell;
                 vertical-align: middle;
-  
+
                 h4 {
                   color: white;
                   font-size: 20px;
                   line-height: 34.16px;
                   margin: 0;
                   text-transform: uppercase;
-  
+
                 }
-  
+
                 h5 {
                   color: white;
                   font-size: 12px;
@@ -98,6 +107,7 @@
                 }
               }
             }
+
             p {
               color: black;
             }
@@ -117,20 +127,23 @@
       .leadership {
         .our_leadership {
           font-size: 35px;
-         }
+        }
+
         .manag-board {
           .card {
             ul {
               li {
                 margin: 0 0 25px 0;
+
                 &.descs {
                   font-size: 16px;
                 }
+
                 .valign {
                   h4 {
                     font-size: 14px;
                   }
-    
+
                   h5 {
                     font-size: 12px;
                     line-height: 14px;
@@ -140,7 +153,7 @@
             }
           }
         }
-      } 
+      }
     }
   }
 }
@@ -150,6 +163,9 @@
   .management_page {
     .banner_index {
       .leadership {
+        .intro p {
+          font-size: 22px;
+        }
         .manag-board {
           .card {
             ul {
@@ -157,6 +173,7 @@
                 &.descs {
                   font-size: 15px;
                 }
+
                 .valign {
                   h5 {
                     font-size: 12px;
@@ -169,6 +186,6 @@
         }
       }
     }
-    
+
   }
 }

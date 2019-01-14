@@ -64,7 +64,7 @@ export class LoginbtnComponent implements OnInit {
                 this.loginInBtn = "Logout";
             });
         } else {
-            this.loginInBtn = "Login";
+            this.showLoginButton();
         }
     }
 

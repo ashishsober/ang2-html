@@ -1,12 +1,8 @@
 <div class="login-btn-header">
-<a (click)="googleAuth()" title="{{loginInBtn}}" class="login_a" [ngClass]="{'display_none':displayNone}">{{ loginInBtn }}</a>
+  <a (click)="googleAuth()" title="{{loginInBtn}}" class="login_a" [ngClass]="{'display_none':displayNone}">{{
+    loginInBtn }}</a>
 
-<div [ngClass]="{'display_none':!displayNone}">
+  <div [ngClass]="{'display_none':!displayNone}">
     <img class="img-circle" [src]="user_img">
+  </div>
 </div>
-</div>
-
-
-
-
-<!-- https://lh3.googleusercontent.com/-agyGuziZDk8/AAAAAAAAAAI/AAAAAAAAAUc/xEG0tCjbdLw/photo.jpg -->

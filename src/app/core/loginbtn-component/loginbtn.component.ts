@@ -13,7 +13,7 @@ export class LoginbtnComponent implements OnInit {
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
     loginInBtn: string;
     displayNone: boolean = false;
-    user_img: string = sessionStorage.getItem("photoUrl");
+    user_img: string = sessionStorage.getItem("photoUrl") === null ? "":sessionStorage.getItem("photoUrl");
     user_data = {
         accessToken: sessionStorage.getItem("accessToken"),
         uid: sessionStorage.getItem("user_uid"),

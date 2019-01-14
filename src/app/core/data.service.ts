@@ -1,9 +1,9 @@
 import { Injectable, Input, Output, EventEmitter } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError} from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
+import * as Rx from "rxjs";
 
 
 @Injectable({
@@ -11,6 +11,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 })
 export class DataService {
       @Output() fire: EventEmitter<any> = new EventEmitter();
+      subject = new Rx.Subject();
       //use promisess here to call asynchronous call,If the data is coming from the remote server
       //so that over code will not get blocked. for the waiting of the respond from the server
       constructor(private http: Http) {
@@ -143,7 +144,6 @@ export class DataService {
                   errMsg = "error";
             }
             return throwError(errMsg);
-            //return errMsg;
       }
 
 
@@ -157,6 +157,7 @@ export class DataService {
                   console.log(message);
                   //emit the message to the login button so that we can show the photo
                   message;
+                  this.subject.next(message);
             });
             return listener;
            

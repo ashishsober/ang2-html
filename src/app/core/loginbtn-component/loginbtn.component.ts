@@ -26,6 +26,12 @@ export class LoginbtnComponent implements OnInit {
         private dialog: MatDialog, private zone: NgZone, ) { }
 
     ngOnInit() {
+        this.dataService.subject.subscribe((result) => {
+            console.log("login user data-----"+result);
+            this.showLogoutButton(result);
+        });
+
+
         if (this.user_data.accessToken != null || this.user_data.uid != null) {
             this.dataService.authenticateEmp(this.user_data).subscribe((result) => {
                 if (result.responseAction === "info") {
@@ -49,13 +55,13 @@ export class LoginbtnComponent implements OnInit {
     }
 
     showLogoutButton(result: any) {
-        sessionStorage.setItem('user_uid', result.uid);
-        sessionStorage.setItem('accessToken', result.accessToken);
-        sessionStorage.setItem('photoUrl', result.photoURL);
-        sessionStorage.setItem('emailId', result.email);
+        sessionStorage.setItem('user_uid', result.data.user.id);
+        sessionStorage.setItem('accessToken', result.data.user.accessToken);
+        sessionStorage.setItem('photoUrl', result.data.user.photos[0].value);
+        sessionStorage.setItem('emailId', result.data.user.emails[0].value);
         this.zone.run(() => {
             this.displayNone = true; //show the user_img
-            this.user_img = result.photoURL;
+            this.user_img = result.data.user.photos[0].value;
             this.loginInBtn = "Logout";
         });
     }

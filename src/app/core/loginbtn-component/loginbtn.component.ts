@@ -63,12 +63,6 @@ export class LoginbtnComponent implements OnInit {
     //google auth call
     googleAuth() {
         this.dataService.googleAuthCall();
-        // this.dataService.postEmployee(userData).subscribe((result) => {
-        //         this.showLogoutButton(result);
-        // }, (err) => {
-        //     console.log(err);
-        //     this.errorModal(err);
-        // });
     }
 
     logout() {

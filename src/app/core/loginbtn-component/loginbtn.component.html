@@ -3,7 +3,17 @@
     {{ loginInBtn }}
   </a>
 
-  <div [ngClass]="{'display_none':!displayNone}">
+  <div [ngClass]="{'display_none':!displayNone}" class="logout-user">
     <img class="img-circle" [src]="user_img">
+    <div class="sub_menu_new srv-list srv-list-for-small-device-about">
+        
+        <ul class="sub-menu-list about_sub">
+          <li (click)="googleAuth('Logout')" class="first" title="Logout" class="about-us">
+            <img src="../assets/book-open-solid.svg" />Logout</li>
+          <!-- <li (click)="" class="first" title="Management" class="management">
+            <img src="../assets/users-solid.svg" />Contact</li> -->
+        </ul>
+
+      </div>
   </div>
 </div>

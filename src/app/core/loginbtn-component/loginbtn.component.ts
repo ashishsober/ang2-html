@@ -60,23 +60,6 @@ export class LoginbtnComponent implements OnInit {
         });
     }
 
-
-    //google auth call
-    // gsubmit(value: string) {
-    //     if (value === 'Login') {
-    //         this.dataService.getGoogleAuth()
-    //             .then((result) => {
-    //                 this.saveUserCall(result.user);
-    //             }, (err) => {
-    //                 console.log(err);
-    //                 this.errorModal(err);
-    //             });
-    //     } else {
-    //         this.logout();
-    //     }
-    // }
-
-
     //save user and accestoken call for the database
     saveUserCall(userData: any) {
         this.dataService.postEmployee(userData);

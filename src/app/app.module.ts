@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 import { SharedModule } from './shared.module';
 
 // Include the components we created
@@ -20,13 +18,6 @@ import { IOTComponent } from '../app/pages/iot-component/iot-component';
 //import { DataService } from '../app/core/data.service';
 import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyBu4vtqAO8iH8Bs-Jeak50DfeqT5NgkH8E",
-  authDomain: "angular-project-5cb99.firebaseapp.com",
-  databaseURL: "https://angular-project-5cb99.firebaseio.com",
-  storageBucket: "angular-project-5cb99.appspot.com",
-  messagingSenderId: "103586939904"
-};
 
 @NgModule({
   declarations: [
@@ -45,9 +36,7 @@ export const firebaseConfig = {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

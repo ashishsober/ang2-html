@@ -3,8 +3,6 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
 
 
 
@@ -13,12 +11,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class DataService {
       @Output() fire: EventEmitter<any> = new EventEmitter();
-      provider = new firebase.auth.GoogleAuthProvider();
-
       //use promisess here to call asynchronous call,If the data is coming from the remote server
       //so that over code will not get blocked. for the waiting of the respond from the server
-      constructor(private http: Http,
-            private af: AngularFireAuth) {
+      constructor(private http: Http) {
             console.log('shared service started');
       }
 
@@ -151,9 +146,6 @@ export class DataService {
             //return errMsg;
       }
 
-      // getGoogleAuth() {
-      //       return firebase.auth().signInWithPopup(this.provider);
-      // }
 
       postEmployee(data: any) {
             let msg:any;

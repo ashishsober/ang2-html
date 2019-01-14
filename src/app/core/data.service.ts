@@ -169,7 +169,13 @@ export class DataService {
       logout(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/logout');
-            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+            return this.http.post(url, data)
+            .pipe(map(this.extractData))
+            .pipe(map((data) => {
+                  sessionStorage.clear();
+                  this.subject.next(data.action);
+            }))
+            .pipe(catchError(this.handleError));
       }
 
 }

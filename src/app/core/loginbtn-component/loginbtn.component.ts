@@ -27,6 +27,7 @@ export class LoginbtnComponent implements OnInit {
 
     ngOnInit() {
         this.dataService.subject.subscribe((result) => {
+            console.log("user data at login component" +result)
             this.showLogoutButton(result);
         });
 
@@ -54,17 +55,21 @@ export class LoginbtnComponent implements OnInit {
     }
 
     showLogoutButton(result: any) {
-        sessionStorage.setItem('user_uid', result.id);
-        sessionStorage.setItem('accessToken', result.accessToken);
-        let photoUrl = result.photoUrl === undefined ? result.photos[0].value : result.photoUrl;
-        let email = result.emailId === undefined ? result.emails[0].value : result.emailId;
-        sessionStorage.setItem('photoUrl', photoUrl);
-        sessionStorage.setItem('emailId', email);
-        this.zone.run(() => {
-            this.displayNone = true; //show the user_img
-            this.user_img = photoUrl;
-            this.loginInBtn = "Logout";
-        });
+        if(result != 'logout'){
+            sessionStorage.setItem('user_uid', result.id);
+            sessionStorage.setItem('accessToken', result.accessToken);
+            let photoUrl = result.photoUrl === undefined ? result.photos[0].value : result.photoUrl;
+            let email = result.emailId === undefined ? result.emails[0].value : result.emailId;
+            sessionStorage.setItem('photoUrl', photoUrl);
+            sessionStorage.setItem('emailId', email);
+            this.zone.run(() => {
+                this.displayNone = true; //show the user_img
+                this.user_img = photoUrl;
+                this.loginInBtn = "Logout";
+            });
+        } else {
+               this.loginInBtn = "Login";
+        }
     }
 
     //google auth call
@@ -79,8 +84,7 @@ export class LoginbtnComponent implements OnInit {
 
     logout() {
         this.dataService.logout(this.user_data).subscribe((result) => {
-            this.loginInBtn = "Login";
-            sessionStorage.clear();
+           console.log("logout sucessfully") 
         }, (err) => {
             console.log(err);
             this.errorModal(err);

@@ -1,8 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { HostListener, Inject } from "@angular/core";
 import { DOCUMENT } from '@angular/platform-browser';
 import { Router } from '@angular/router'
-
+import { DataService } from '../data.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 declare const window: any;
 @Component({
@@ -10,7 +11,7 @@ declare const window: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   bannerColorToBlack: boolean;
   displayBlock: boolean = false;
   right50: boolean = false;
@@ -19,8 +20,20 @@ export class HeaderComponent {
   displayServiceMenu: boolean = false;
   displayRecruitMenu: boolean = false;
   @Output() right50Event = new EventEmitter<boolean>();
+  user_img: string = sessionStorage.getItem("photoUrl") === null ? null : sessionStorage.getItem("photoUrl");
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private dataService: DataService) { }
+
+  ngOnInit(){
+    this.dataService.subject.subscribe((data) => {
+      console.log("user data at header component--"+ data);
+      this.updatePhoto(data);
+    })
+  }
+
+  updatePhoto(data){
+     this.user_img = data==='logout'? null:data.photos[0].value ;
+  }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {

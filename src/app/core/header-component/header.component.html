@@ -9,6 +9,9 @@
     </div>
     <div class="col-xs-12 col-lg-9 col-md-10">
       <ul class="menu_new" [ngClass]="{'display_block':displayBlock}">
+        <li class="only_for_mobile" *ngIf="user_img != null">
+            <img class="img-circle" [src]="user_img">
+        </li>
         <li class="menu_arrow"><a (click)="displayCompanyMenu = !displayCompanyMenu" title="Company" class="company_a">Company</a>
           <div class="sub_menu_new srv-list srv-list-for-small-device-about" [ngClass]="{'display_block':displayCompanyMenu}">
             <ul class="sub-menu-list about_sub">
@@ -38,7 +41,7 @@
         <li class="no_arrow"><a (click)="navigateTo('careers')" title="Careers" class="careers_a" routerLinkActive="active">Career</a></li>
         <li class="no_arrow"><a (click)="navigateTo('jobBoard')" title="job_board_a" class="Workflow">Job Board</a></li>
         <li class="no_arrow"><a (click)="navigateTo('contact')" title="Contact" class="contact_a">Contact</a></li>
-        <li class="no_arrow">
+        <li>
           <ngx-login-btn></ngx-login-btn>
         </li>
       </ul>

@@ -13,7 +13,7 @@ export class LoginbtnComponent implements OnInit {
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
     loginInBtn: string;
     displayNone: boolean = false;
-    user_img: string = sessionStorage.getItem("photoUrl") === null ? "":sessionStorage.getItem("photoUrl");
+    user_img: string = sessionStorage.getItem("photoUrl") === null ? "" : sessionStorage.getItem("photoUrl");
     user_data = {
         accessToken: sessionStorage.getItem("accessToken"),
         uid: sessionStorage.getItem("user_uid"),
@@ -27,7 +27,6 @@ export class LoginbtnComponent implements OnInit {
 
     ngOnInit() {
         this.dataService.subject.subscribe((result) => {
-            console.log("login user data-----"+result);
             this.showLogoutButton(result);
         });
 
@@ -55,13 +54,15 @@ export class LoginbtnComponent implements OnInit {
     }
 
     showLogoutButton(result: any) {
-        sessionStorage.setItem('user_uid', result.data.user.id);
-        sessionStorage.setItem('accessToken', result.data.user.accessToken);
-        sessionStorage.setItem('photoUrl', result.data.user.photos[0].value);
-        sessionStorage.setItem('emailId', result.data.user.emails[0].value);
+        sessionStorage.setItem('user_uid', result.id);
+        sessionStorage.setItem('accessToken', result.accessToken);
+        let photoUrl = result.photoUrl === undefined ? result.photos[0].value : result.photoUrl;
+        let email = result.emailId === undefined ? result.emails[0].value : result.emailId;
+        sessionStorage.setItem('photoUrl', photoUrl);
+        sessionStorage.setItem('emailId', email);
         this.zone.run(() => {
             this.displayNone = true; //show the user_img
-            this.user_img = result.data.user.photos[0].value;
+            this.user_img = photoUrl;
             this.loginInBtn = "Logout";
         });
     }

@@ -154,10 +154,7 @@ export class DataService {
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
             let listener = window.addEventListener('message', (message) => {
                   //message will contain facebook user and details
-                  console.log(message);
-                  //emit the message to the login button so that we can show the photo
-                  message;
-                  this.subject.next(message);
+                  this.subject.next(message.data.user);
             });
             return listener;
            

@@ -48,15 +48,23 @@
 
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  a {
-    &.login_a {
-      color: white;
-      width: 90%;
-      font-size: 10px;
-      text-align: center;
-      margin: 0px;
-      background-color: #ff6640;
-      border-color: #ff6640;
+  .login-btn-header {
+    a {
+      &.login_a {
+        color: white;
+        width: 90%;
+        font-size: 10px;
+        text-align: center;
+        margin: 0px;
+        background-color: #ff6640;
+        border-color: #ff6640;
+        display: block !important;
+      }
+    }
+
+    .img-circle {
+      display:none;
     }
   }
+  
 }

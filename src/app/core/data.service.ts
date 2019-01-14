@@ -147,7 +147,7 @@ export class DataService {
       }
 
 
-      postEmployee(data: any) {
+      googleAuthCall() {
             let msg:any;
             let getHostname = this.getHostname();
             let url = getHostname.concat('/auth/google');
@@ -155,8 +155,7 @@ export class DataService {
             let listener = window.addEventListener('message', (message) => {
                   //message will contain facebook user and details
                   console.log(message);
-                  
-                   message;
+                  message;
             });
             return listener;
            

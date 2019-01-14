@@ -1,5 +1,5 @@
 import { Injectable, Input, Output, EventEmitter } from '@angular/core';
-import { Observable, throwError} from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
@@ -148,34 +148,49 @@ export class DataService {
 
 
       googleAuthCall() {
-            let msg:any;
+            let msg: any;
             let getHostname = this.getHostname();
             let url = getHostname.concat('/auth/google');
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
             let listener = window.addEventListener('message', (message) => {
                   //message will contain facebook user and details
                   this.subject.next(message.data.user);
+                  sessionStorage.setItem('user_uid', message.data.user.id);
+                  sessionStorage.setItem('accessToken', message.data.user.accessToken);
+                  sessionStorage.setItem('photoUrl', message.data.user.photos[0].value);
+                  sessionStorage.setItem('emailId', message.data.user.emails[0].value);
+                  sessionStorage.setItem('displayName', message.data.user.displayName);
             });
             return listener;
-           
+
       }
 
       authenticateEmp(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/auth');
-            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+            return this.http.post(url, data)
+                  .pipe(map(this.extractData))
+                  .pipe(map((result) => {
+                        sessionStorage.setItem('user_uid', result.id);
+                        sessionStorage.setItem('accessToken', result.accessToken);
+                        sessionStorage.setItem('photoUrl', result.photoUrl);
+                        sessionStorage.setItem('emailId', result.emailId);
+                        sessionStorage.setItem('displayName', result.displayName);
+                        return result;
+                  }))
+                  .pipe(catchError(this.handleError));
       }
 
       logout(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/logout');
             return this.http.post(url, data)
-            .pipe(map(this.extractData))
-            .pipe(map((data) => {
-                  sessionStorage.clear();
-                  this.subject.next(data.action);
-            }))
-            .pipe(catchError(this.handleError));
+                  .pipe(map(this.extractData))
+                  .pipe(map((data) => {
+                        sessionStorage.clear();
+                        this.subject.next(data.action);
+                  }))
+                  .pipe(catchError(this.handleError));
       }
 
 }

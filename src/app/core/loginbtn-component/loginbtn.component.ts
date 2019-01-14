@@ -27,14 +27,14 @@ export class LoginbtnComponent implements OnInit {
 
     ngOnInit() {
         this.dataService.subject.subscribe((result) => {
-            console.log("user data at login component" +result)
+            console.log("user data at login component" + result)
             this.showLogoutButton(result);
         });
 
 
         if (this.user_data.accessToken != null || this.user_data.uid != null) {
             this.dataService.authenticateEmp(this.user_data).subscribe((result) => {
-                if (result.responseAction === "info") {
+                if (result.action === "authenticated") {
                     this.showLogoutButton(result);
                 } else {
                     this.showLoginButton();
@@ -55,37 +55,32 @@ export class LoginbtnComponent implements OnInit {
     }
 
     showLogoutButton(result: any) {
-        if(result != 'logout'){
-            sessionStorage.setItem('user_uid', result.id);
-            sessionStorage.setItem('accessToken', result.accessToken);
+        if (result != 'logout') {
             let photoUrl = result.photoUrl === undefined ? result.photos[0].value : result.photoUrl;
             let email = result.emailId === undefined ? result.emails[0].value : result.emailId;
-            sessionStorage.setItem('photoUrl', photoUrl);
-            sessionStorage.setItem('emailId', email);
-            sessionStorage.setItem('displayName', result.displayName );
             this.zone.run(() => {
                 this.displayNone = true; //show the user_img
                 this.user_img = photoUrl;
                 this.loginInBtn = "Logout";
             });
         } else {
-               this.loginInBtn = "Login";
+            this.loginInBtn = "Login";
         }
     }
 
     //google auth call
-    googleAuth(value:string) {
-        if(value === 'Login'){
+    googleAuth(value: string) {
+        if (value === 'Login') {
             this.dataService.googleAuthCall();
         } else {
             this.logout();
         }
-       
+
     }
 
     logout() {
         this.dataService.logout(this.user_data).subscribe((result) => {
-           console.log("logout sucessfully") 
+            console.log("logout sucessfully")
         }, (err) => {
             console.log(err);
             this.errorModal(err);

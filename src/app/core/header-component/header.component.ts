@@ -11,7 +11,7 @@ declare const window: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   bannerColorToBlack: boolean;
   displayBlock: boolean = false;
   right50: boolean = false;
@@ -21,20 +21,20 @@ export class HeaderComponent implements OnInit{
   displayRecruitMenu: boolean = false;
   @Output() right50Event = new EventEmitter<boolean>();
   user_img: string = sessionStorage.getItem("photoUrl") === null ? null : sessionStorage.getItem("photoUrl");
-  user_name:string = sessionStorage.getItem("displayName") === null ? null : sessionStorage.getItem("displayName");
-  
-  constructor(private router: Router,private dataService: DataService) { }
+  user_name: string = sessionStorage.getItem("displayName") === null ? null : sessionStorage.getItem("displayName");
 
-  ngOnInit(){
+  constructor(private router: Router, private dataService: DataService) { }
+
+  ngOnInit() {
     this.dataService.subject.subscribe((data) => {
-      console.log("user data at header component--"+ data);
+      console.log("user data at header component--" + data);
       this.updateData(data);
     })
   }
 
-  updateData(data){
-     this.user_img = data==='logout'? null:data.photos[0].value ;
-     this.user_name = data==='logout'? null:data.displayName;
+  updateData(data) {
+    this.user_img = data === 'logout' ? null : data.photos[0].value;
+    this.user_name = data === 'logout' ? null : data.displayName;
   }
 
   @HostListener("window:scroll", [])

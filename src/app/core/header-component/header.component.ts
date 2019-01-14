@@ -21,18 +21,20 @@ export class HeaderComponent implements OnInit{
   displayRecruitMenu: boolean = false;
   @Output() right50Event = new EventEmitter<boolean>();
   user_img: string = sessionStorage.getItem("photoUrl") === null ? null : sessionStorage.getItem("photoUrl");
-
+  user_name:string = sessionStorage.getItem("displayName") === null ? null : sessionStorage.getItem("displayName");
+  
   constructor(private router: Router,private dataService: DataService) { }
 
   ngOnInit(){
     this.dataService.subject.subscribe((data) => {
       console.log("user data at header component--"+ data);
-      this.updatePhoto(data);
+      this.updateData(data);
     })
   }
 
-  updatePhoto(data){
+  updateData(data){
      this.user_img = data==='logout'? null:data.photos[0].value ;
+     this.user_name = data==='logout'? null:data.displayName;
   }
 
   @HostListener("window:scroll", [])

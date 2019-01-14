@@ -62,6 +62,7 @@ export class LoginbtnComponent implements OnInit {
             let email = result.emailId === undefined ? result.emails[0].value : result.emailId;
             sessionStorage.setItem('photoUrl', photoUrl);
             sessionStorage.setItem('emailId', email);
+            sessionStorage.setItem('displayName', result.displayName );
             this.zone.run(() => {
                 this.displayNone = true; //show the user_img
                 this.user_img = photoUrl;

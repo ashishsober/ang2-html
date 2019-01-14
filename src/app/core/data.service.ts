@@ -151,21 +151,25 @@ export class DataService {
             //return errMsg;
       }
 
-      getGoogleAuth() {
-            return firebase.auth().signInWithPopup(this.provider);
-      }
+      // getGoogleAuth() {
+      //       return firebase.auth().signInWithPopup(this.provider);
+      // }
 
       postEmployee(data: any) {
+            let msg:any;
             let getHostname = this.getHostname();
             let url = getHostname.concat('/auth/google');
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
             let listener = window.addEventListener('message', (message) => {
                   //message will contain facebook user and details
                   console.log(message);
+                  
+                   message;
             });
-
-
+            return listener;
+           
       }
+
       authenticateEmp(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/auth');

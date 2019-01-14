@@ -12,13 +12,13 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 export class LoginbtnComponent implements OnInit {
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
     loginInBtn: string;
-    displayNone:boolean = false;
-    user_img:string = sessionStorage.getItem("photoUrl");
+    displayNone: boolean = false;
+    user_img: string = sessionStorage.getItem("photoUrl");
     user_data = {
         accessToken: sessionStorage.getItem("accessToken"),
         uid: sessionStorage.getItem("user_uid"),
-        photoURL:sessionStorage.getItem("photoUrl"),
-        emailId:sessionStorage.getItem("emailId"),
+        photoURL: sessionStorage.getItem("photoUrl"),
+        emailId: sessionStorage.getItem("emailId"),
     }
     @Output() right50Event = new EventEmitter<boolean>();
 
@@ -28,11 +28,11 @@ export class LoginbtnComponent implements OnInit {
     ngOnInit() {
         if (this.user_data.accessToken != null || this.user_data.uid != null) {
             this.dataService.authenticateEmp(this.user_data).subscribe((result) => {
-                if(result.responseAction === "info"){
+                if (result.responseAction === "info") {
                     this.showLogoutButton(result);
                 } else {
                     this.showLoginButton();
-                } 
+                }
             }, (err) => {
                 console.log(err);
                 this.errorModal(err);
@@ -42,13 +42,13 @@ export class LoginbtnComponent implements OnInit {
         }
     }
 
-    showLoginButton(){
+    showLoginButton() {
         sessionStorage.clear();
         this.displayNone = false;
         this.loginInBtn = "Login";
     }
 
-    showLogoutButton(result:any){
+    showLogoutButton(result: any) {
         sessionStorage.setItem('user_uid', result.uid);
         sessionStorage.setItem('accessToken', result.accessToken);
         sessionStorage.setItem('photoUrl', result.photoURL);
@@ -62,19 +62,19 @@ export class LoginbtnComponent implements OnInit {
 
 
     //google auth call
-    gsubmit(value: string) {
-        if (value === 'Login') {
-            this.dataService.getGoogleAuth()
-                .then((result) => {
-                    this.saveUserCall(result.user);
-                }, (err) => {
-                    console.log(err);
-                    this.errorModal(err);
-                });
-        } else {
-            this.logout();
-        }
-    }
+    // gsubmit(value: string) {
+    //     if (value === 'Login') {
+    //         this.dataService.getGoogleAuth()
+    //             .then((result) => {
+    //                 this.saveUserCall(result.user);
+    //             }, (err) => {
+    //                 console.log(err);
+    //                 this.errorModal(err);
+    //             });
+    //     } else {
+    //         this.logout();
+    //     }
+    // }
 
 
     //save user and accestoken call for the database

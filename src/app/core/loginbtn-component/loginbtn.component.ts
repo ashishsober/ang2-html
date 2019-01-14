@@ -34,7 +34,7 @@ export class LoginbtnComponent implements OnInit {
 
         if (this.user_data.accessToken != null || this.user_data.uid != null) {
             this.dataService.authenticateEmp(this.user_data).subscribe((result) => {
-                if (result.action === "authenticated") {
+                if (result.responseAction === "info") {
                     this.showLogoutButton(result);
                 } else {
                     this.showLoginButton();
@@ -79,6 +79,12 @@ export class LoginbtnComponent implements OnInit {
     }
 
     logout() {
+        this.user_data = {
+            accessToken: sessionStorage.getItem("accessToken"),
+            uid: sessionStorage.getItem("user_uid"),
+            photoURL: sessionStorage.getItem("photoUrl"),
+            emailId: sessionStorage.getItem("emailId"),
+        }
         this.dataService.logout(this.user_data).subscribe((result) => {
             console.log("logout sucessfully")
         }, (err) => {

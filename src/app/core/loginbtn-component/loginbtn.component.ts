@@ -3,7 +3,7 @@ import { Router } from '@angular/router'
 import { DataService } from '../data.service';
 import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
-
+import { UserInfoModalComponent } from '../user-info-modal/user-info-modal.component';
 @Component({
     selector: 'ngx-login-btn',
     templateUrl: './loginbtn.component.html',
@@ -21,6 +21,7 @@ export class LoginbtnComponent implements OnInit {
         emailId: sessionStorage.getItem("emailId"),
     }
     @Output() right50Event = new EventEmitter<boolean>();
+    userInfoModalComponent: MatDialogRef<UserInfoModalComponent>;
 
     constructor(private router: Router, private dataService: DataService,
         private dialog: MatDialog, private zone: NgZone, ) { }
@@ -75,7 +76,6 @@ export class LoginbtnComponent implements OnInit {
         } else {
             this.logout();
         }
-
     }
 
     logout() {
@@ -100,6 +100,15 @@ export class LoginbtnComponent implements OnInit {
             width: '874px',
             disableClose: true,
             data: err
+        });
+    }
+
+    infoModal() {
+        this.userInfoModalComponent = this.dialog.open(UserInfoModalComponent, {
+            hasBackdrop: true,
+            height: '400px',
+            width: '300px',
+            position: { top: '65px', right: '15px' }
         });
     }
 }

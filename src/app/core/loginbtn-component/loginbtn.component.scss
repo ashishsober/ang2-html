@@ -7,7 +7,7 @@
     text-decoration: none;
     cursor: pointer;
     font-size: 18px;
-  
+
     &.login_a {
       transition: all 0.2s ease-in-out;
       border-radius: 5px;
@@ -24,16 +24,14 @@
       z-index: 10;
       transition: 0.8s;
     }
-  
+
     &.login_a:hover {
       transition: all .25s ease-out;
       //background-color: #07b8de;
       color: #fff;
     }
-
-    
   }
-  
+
   .display_none {
     display: none !important;
   }
@@ -47,84 +45,7 @@
       margin: 15px 0px;
       cursor: pointer;
     }
-
-    .sub_menu_new {
-      transition: all .25s ease-out;
-      display: none; //keep to block to appear menu all time
-
-      // &.srv-list {
-      //   right: auto;
-      //   left: 50%;
-      //   box-shadow: 0 8px 10px 0;
-      // }
-
-      ul.sub-menu-list {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        z-index: 999;
-        position: absolute;
-        background-color: white;
-        box-shadow: 0 8px 6px -6px black;
-
-        &.about_sub {
-          width: 230px;
-          right: -30%;
-          top: 104%;
-        }
-
-        &.about_sub:before {
-          left: 188px;
-          top: -12px;
-        }
-
-        li {
-          float: none;
-          border-bottom: 1px solid #ddd;
-          margin: 0;
-          background-color: transparent;
-          padding: 13px 0 12px 25px;
-          cursor: pointer;
-          font-family: 'SCSans-Light';
-          font-size: 16px;
-          img {
-            width: 48px;
-            height: 48px;
-            margin-right: 18px;
-            border-radius: 50%;
-          }
-        }
-
-        li:hover {
-          background-color: rgba(0, 0, 0, 0.445);
-          color: white;
-        }
-      }
-
-      ul.sub-menu-list:before {
-        content: "";
-        border-color: transparent white;
-        border-left: 12px solid transparent;
-        border-right: 12px solid transparent;
-        border-bottom: 12px solid white;
-        display: block;
-        height: 0;
-        width: 0;
-        position: relative;
-      }
-    }
-
-   
   }
-  .logout-user:hover {
-    .sub_menu_new {
-      //transition: all .25s ease-in;
-      display: block;
-    }
-  }
-
- 
-  
 }
 
 
@@ -144,10 +65,10 @@
         display: block !important;
       }
     }
-    
+
     .logout-user {
-      display:none;
+      display: none;
     }
   }
-  
+
 }

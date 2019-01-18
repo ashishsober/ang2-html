@@ -45,7 +45,7 @@ export class user_Data {
         info.uid = sessionStorage.getItem("user_uid");
         info.photoURL = sessionStorage.getItem("photoUrl");
         info.emailId = sessionStorage.getItem("emailId");
-        info.displayName = sessionStorage.getItem("displayName")
+        info.displayName = sessionStorage.getItem("displayName");
         return info;
     }
 
@@ -55,7 +55,6 @@ export class user_Data {
         sessionStorage.setItem('photoUrl', result.photos === undefined ? result.photoUrl :result.photos[0].value );
         sessionStorage.setItem('emailId', result.emails === undefined? result.emailId : result.emails[0].value);
         sessionStorage.setItem('displayName', result.displayName);
+
     }
 }
-// var foo = new user_Data();
-// foo.accessToken = 

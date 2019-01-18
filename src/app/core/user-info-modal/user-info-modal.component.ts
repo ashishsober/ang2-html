@@ -19,7 +19,8 @@ export class UserInfoModalComponent {
 
   logout() {
     this.dataService.logout(this.user_data).subscribe((result) => {
-      console.log("logout sucessfully")
+      console.log("logout sucessfully");
+      this.dialog.closeAll();
     }, (err) => {
       console.log(err);
       this.errorModal(err);

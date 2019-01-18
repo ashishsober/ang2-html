@@ -50,11 +50,12 @@ export class user_Data {
     }
 
     public setUserInfo(result: any) {
-        sessionStorage.setItem('user_uid', result.id);
-        sessionStorage.setItem('accessToken', result.accessToken);
-        sessionStorage.setItem('photoUrl', result.photos === undefined ? result.photoUrl :result.photos[0].value );
-        sessionStorage.setItem('emailId', result.emails === undefined? result.emailId : result.emails[0].value);
-        sessionStorage.setItem('displayName', result.displayName);
-
+        if(result != undefined){
+            sessionStorage.setItem('user_uid', result.id);
+            sessionStorage.setItem('accessToken', result.accessToken);
+            sessionStorage.setItem('photoUrl', result.photos === undefined ? result.photoUrl :result.photos[0].value );
+            sessionStorage.setItem('emailId', result.emails === undefined? result.emailId : result.emails[0].value);
+            sessionStorage.setItem('displayName', result.displayName);    
+        }
     }
 }

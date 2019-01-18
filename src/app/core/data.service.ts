@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import * as Rx from "rxjs";
-
+import { user_Data } from './classes';
 
 @Injectable({
       providedIn: 'root',
@@ -12,10 +12,12 @@ import * as Rx from "rxjs";
 export class DataService {
       @Output() fire: EventEmitter<any> = new EventEmitter();
       subject = new Rx.Subject();
+      userModal: user_Data;
       //use promisess here to call asynchronous call,If the data is coming from the remote server
       //so that over code will not get blocked. for the waiting of the respond from the server
       constructor(private http: Http) {
             console.log('shared service started');
+            this.userModal = new user_Data();
       }
 
       /**
@@ -155,11 +157,7 @@ export class DataService {
             let listener = window.addEventListener('message', (message) => {
                   //message will contain facebook user and details
                   this.subject.next(message.data.user);
-                  sessionStorage.setItem('user_uid', message.data.user.id);
-                  sessionStorage.setItem('accessToken', message.data.user.accessToken);
-                  sessionStorage.setItem('photoUrl', message.data.user.photos[0].value);
-                  sessionStorage.setItem('emailId', message.data.user.emails[0].value);
-                  sessionStorage.setItem('displayName', message.data.user.displayName);
+                  this.userModal.setUserInfo(message.data.user);
             });
             return listener;
 
@@ -171,11 +169,7 @@ export class DataService {
             return this.http.post(url, data)
                   .pipe(map(this.extractData))
                   .pipe(map((result) => {
-                        sessionStorage.setItem('user_uid', result.id);
-                        sessionStorage.setItem('accessToken', result.accessToken);
-                        sessionStorage.setItem('photoUrl', result.photoUrl);
-                        sessionStorage.setItem('emailId', result.emailId);
-                        sessionStorage.setItem('displayName', result.displayName);
+                        this.userModal.setUserInfo(result);
                         return result;
                   }))
                   .pipe(catchError(this.handleError));

@@ -3,31 +3,21 @@ import { Router } from '@angular/router';
 import { DataService } from '../../core/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
+import { user_Data } from '../classes';
 @Component({
   templateUrl: './user-info-modal.component.html',
   styleUrls: ['./user-info-modal.component.scss'],
-
 })
 export class UserInfoModalComponent {
-  user_data = {
-    accessToken: sessionStorage.getItem("accessToken"),
-    uid: sessionStorage.getItem("user_uid"),
-    photoURL: sessionStorage.getItem("photoUrl") === null ? "" : sessionStorage.getItem("photoUrl"),
-    emailId: sessionStorage.getItem("emailId") === null ? "" : sessionStorage.getItem("emailId"),
-    displayName:sessionStorage.getItem("displayName") === null ? "" : sessionStorage.getItem("displayName"),
-  }
+  user_data :user_Data
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
   constructor(private router: Router,
-    private dataService: DataService, private dialog: MatDialog) { }
+    private dataService: DataService, private dialog: MatDialog) { 
+      var userModal = new user_Data();
+      this.user_data = userModal.getUserInfo()
+    }
 
   logout() {
-    this.user_data = {
-      accessToken: sessionStorage.getItem("accessToken"),
-      uid: sessionStorage.getItem("user_uid"),
-      photoURL: sessionStorage.getItem("photoUrl"),
-      emailId: sessionStorage.getItem("emailId"),
-      displayName:sessionStorage.getItem("displayName")
-    }
     this.dataService.logout(this.user_data).subscribe((result) => {
       console.log("logout sucessfully")
     }, (err) => {

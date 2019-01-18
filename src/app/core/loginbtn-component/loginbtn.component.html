@@ -4,6 +4,6 @@
   </a>
 
   <div [ngClass]="{'display_none':!displayNone}" class="logout-user">
-    <img class="img-circle" [src]="user_img" (click)="infoModal()">
+    <img class="img-circle" [src]="user_data.photoURL !=null? user_data.photoURL :''" (click)="infoModal()">
   </div>
 </div>

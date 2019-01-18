@@ -4,6 +4,8 @@ import { DataService } from '../data.service';
 import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UserInfoModalComponent } from '../user-info-modal/user-info-modal.component';
+import { user_Data } from '../classes';
+
 @Component({
     selector: 'ngx-login-btn',
     templateUrl: './loginbtn.component.html',
@@ -13,18 +15,15 @@ export class LoginbtnComponent implements OnInit {
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
     loginInBtn: string;
     displayNone: boolean = false;
-    user_img: string = sessionStorage.getItem("photoUrl") === null ? "" : sessionStorage.getItem("photoUrl");
-    user_data = {
-        accessToken: sessionStorage.getItem("accessToken"),
-        uid: sessionStorage.getItem("user_uid"),
-        photoURL: sessionStorage.getItem("photoUrl"),
-        emailId: sessionStorage.getItem("emailId"),
-    }
+    user_data: user_Data;
     @Output() right50Event = new EventEmitter<boolean>();
     userInfoModalComponent: MatDialogRef<UserInfoModalComponent>;
 
     constructor(private router: Router, private dataService: DataService,
-        private dialog: MatDialog, private zone: NgZone, ) { }
+        private dialog: MatDialog, private zone: NgZone ) { 
+            var userModal = new user_Data();
+            this.user_data = userModal.getUserInfo()
+        }
 
     ngOnInit() {
         this.dataService.subject.subscribe((result) => {
@@ -61,7 +60,7 @@ export class LoginbtnComponent implements OnInit {
             let email = result.emailId === undefined ? result.emails[0].value : result.emailId;
             this.zone.run(() => {
                 this.displayNone = true; //show the user_img
-                this.user_img = photoUrl;
+                this.user_data.photoURL = photoUrl;
                 this.loginInBtn = "Logout";
             });
         } else {
@@ -79,12 +78,6 @@ export class LoginbtnComponent implements OnInit {
     }
 
     logout() {
-        this.user_data = {
-            accessToken: sessionStorage.getItem("accessToken"),
-            uid: sessionStorage.getItem("user_uid"),
-            photoURL: sessionStorage.getItem("photoUrl"),
-            emailId: sessionStorage.getItem("emailId"),
-        }
         this.dataService.logout(this.user_data).subscribe((result) => {
             console.log("logout sucessfully")
         }, (err) => {

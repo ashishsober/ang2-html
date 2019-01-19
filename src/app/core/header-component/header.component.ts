@@ -3,7 +3,6 @@ import { HostListener, Inject } from "@angular/core";
 import { DOCUMENT } from '@angular/platform-browser';
 import { Router } from '@angular/router'
 import { DataService } from '../data.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 declare const window: any;
 @Component({

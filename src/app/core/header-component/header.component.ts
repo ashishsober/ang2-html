@@ -1,9 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { HostListener, Inject } from "@angular/core";
 import { DOCUMENT } from '@angular/platform-browser';
 import { Router } from '@angular/router'
-
-
+import { DataService } from '../data.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 declare const window: any;
 @Component({
@@ -11,18 +11,33 @@ declare const window: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-  bannerColorToBlack:boolean;
-  displayBlock:boolean=false;
-  right50:boolean=false;
-  positionFixed:boolean=false;
-  displayCompanyMenu:boolean=false;
-  displayServiceMenu:boolean=false;
-  displayRecruitMenu:boolean=false;
-  
-  @Output() right50Event = new EventEmitter<boolean>();  
+export class HeaderComponent implements OnInit {
+  bannerColorToBlack: boolean;
+  displayBlock: boolean = false;
+  right50: boolean = false;
+  positionFixed: boolean = false;
+  displayCompanyMenu: boolean = false;
+  displayServiceMenu: boolean = false;
+  displayRecruitMenu: boolean = false;
+  @Output() right50Event = new EventEmitter<boolean>();
+  user_img: string = sessionStorage.getItem("photoUrl") === null ? null : sessionStorage.getItem("photoUrl");
+  user_name: string = sessionStorage.getItem("displayName") === null ? null : sessionStorage.getItem("displayName");
 
-  constructor(private router:Router){}
+  constructor(private router: Router, private dataService: DataService) { }
+
+  ngOnInit() {
+    this.dataService.subject.subscribe((data) => {
+      if(data != undefined){
+        console.log("user data at header component--" + data);
+        this.updateData(data);
+      }
+    });
+  }
+
+  updateData(data) {
+    this.user_img = data === 'logout' ? null : data.photos[0].value;
+    this.user_name = data === 'logout' ? null : data.displayName;
+  }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
@@ -30,7 +45,7 @@ export class HeaderComponent {
     if (number > 20 && window.outerHeight > 375) {
       this.bannerColorToBlack = true;
       this.positionFixed = true;
-    } else if (window.outerHeight <= 375){
+    } else if (window.outerHeight <= 375) {
       this.bannerColorToBlack = false;
       this.positionFixed = false;
     } else {
@@ -39,23 +54,23 @@ export class HeaderComponent {
     }
   }
 
-  sidebar(state:any){
-    if(state ==='close'){
-      this.displayBlock =false;
+  sidebar(state: any) {
+    if (state === 'close') {
+      this.displayBlock = false;
       this.right50 = false;  //emit from here
       this.right50Event.emit(this.right50);
       this.positionFixed = false;
     } else {
-      this.displayBlock =true;
+      this.displayBlock = true;
       this.right50 = true;  //emit from here
       this.right50Event.emit(this.right50);
       this.positionFixed = true;
     }
-   
+
   }
 
-  navigateTo(state:any){
-    this.displayBlock =false;
+  navigateTo(state: any) {
+    this.displayBlock = false;
     this.right50 = false;   //emit from here
     this.right50Event.emit(this.right50);
     this.router.navigate([state]);

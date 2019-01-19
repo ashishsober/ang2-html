@@ -1,0 +1,9 @@
+<div class="login-btn-header">
+  <a (click)="googleAuth(loginInBtn)" title="{{loginInBtn}}" class="login_a" [ngClass]="{'display_none':displayNone}">
+    {{ loginInBtn }}
+  </a>
+
+  <div [ngClass]="{'display_none':!displayNone}" class="logout-user">
+    <img class="img-circle" [src]="user_data.photoURL !=null? user_data.photoURL :''" (click)="infoModal()">
+  </div>
+</div>

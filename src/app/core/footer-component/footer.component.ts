@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-
+import { Component } from '@angular/core';
 @Component({
   selector: 'ngx-footer',
   templateUrl: './footer.component.html',

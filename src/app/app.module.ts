@@ -17,7 +17,7 @@ import { IOTComponent } from '../app/pages/iot-component/iot-component';
 //Inculde the service we created
 //import { DataService } from '../app/core/data.service';
 import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
-
+import { UserInfoModalComponent } from '../app/core/user-info-modal/user-info-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
     SoftwareDevelopmentComponent,
     SapSolutionsComponent,
     IOTComponent,
-    AlertDialogComponent
+    AlertDialogComponent,
+    UserInfoModalComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +41,6 @@ import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[AlertDialogComponent]
+  entryComponents:[AlertDialogComponent, UserInfoModalComponent]
 })
 export class AppModule { }

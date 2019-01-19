@@ -12,8 +12,8 @@ import { IOTComponent } from '../app/pages/iot-component/iot-component';
 const routes: Routes = [
   { path: '', component: AboutUsComponent },
   { path: 'management', component: ManagementComponent },
-  { path: 'careers',loadChildren: './pages/career-component/career-module#CareerAppModule' },
-  { path: 'contact', loadChildren: './pages/contact-component/contact-module#ContactAppModule' },
+  { path: 'careers',loadChildren: './pages/career-component-module/career-module#CareerAppModule' },
+  { path: 'contact', loadChildren: './pages/contact-component-module/contact-module#ContactAppModule' },
   { path: 'networkSecurity', component: NetworkSecurityComponent },
   { path: 'jobBoard', component: JobBoardComponent },
   { path: 'appEngineDevelopment', component: AppEngineDevelopmentComponent },

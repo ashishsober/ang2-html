@@ -6,7 +6,7 @@ import { AppMaterialModule } from './app.material.module';
 
 import { HeaderComponent } from './core/header-component/header.component';
 import { FooterComponent } from './core/footer-component/footer.component';
-
+import { LoginbtnComponent } from '../app/core/loginbtn-component/loginbtn.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -19,9 +19,10 @@ import { FooterComponent } from './core/footer-component/footer.component';
         FormsModule,
         AppMaterialModule,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        LoginbtnComponent
     ],
-    declarations: [HeaderComponent,FooterComponent],
+    declarations: [HeaderComponent,FooterComponent,LoginbtnComponent],
     providers: []//services to inject
 })
 export class SharedModule { }

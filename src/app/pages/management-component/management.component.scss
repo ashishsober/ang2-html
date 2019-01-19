@@ -54,7 +54,7 @@
         height: 500px;
         margin-bottom: 50px;
         position: relative;
-        background-color: white;
+        background-color: #f8f9fa;
         // float: left; //is wrong  dont enabled
         border-radius: 15px;
         padding: 0;
@@ -73,10 +73,10 @@
             width: 100%;
 
             &.profile {
-              background-color: #6bcbd5;
+              background-color: #0ca3b3;
               padding-top: 12px;
               height: 100px;
-              border-radius: 13px;
+              border-radius: 13px 13px 0px 0px;;
             }
 
             &.descs {

@@ -20,15 +20,14 @@ export class LoginbtnComponent implements OnInit {
     userInfoModalComponent: MatDialogRef<UserInfoModalComponent>;
 
     constructor(private router: Router, private dataService: DataService,
-        private dialog: MatDialog, private zone: NgZone ) { 
-            var userModal = new user_Data();
-            this.user_data = userModal.getUserInfo()
-        }
+        private dialog: MatDialog, private zone: NgZone) {
+        var userModal = new user_Data();
+        this.user_data = userModal.getUserInfo()
+    }
 
     ngOnInit() {
         this.dataService.subject.subscribe((result) => {
-            if(result != undefined){
-                console.log("user data at login component" + result)
+            if (result != undefined) {
                 this.showLogoutButton(result);
             }
         });

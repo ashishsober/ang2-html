@@ -7,10 +7,12 @@
     width: 61px;
     height: 61px;
     margin: 60px auto 15px;
+
     &.blue-error-icon {
-      background-image:url(../../../assets/ico_warning_sign_green.svg);
+      background-image: url(../../../assets/ico_warning_sign_green.svg);
     }
   }
+
   .retry {
     width: 100%;
     padding: 20px;
@@ -21,6 +23,7 @@
     font-size: 12px;
     font-size: 0.75rem;
   }
+
   .continue {
     width: 100%;
     padding: 20px;

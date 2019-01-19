@@ -9,13 +9,13 @@ import { user_Data } from '../classes';
   styleUrls: ['./user-info-modal.component.scss'],
 })
 export class UserInfoModalComponent {
-  user_data :user_Data
+  user_data: user_Data
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
   constructor(private router: Router,
-    private dataService: DataService, private dialog: MatDialog) { 
-      var userModal = new user_Data();
-      this.user_data = userModal.getUserInfo()
-    }
+    private dataService: DataService, private dialog: MatDialog) {
+    var userModal = new user_Data();
+    this.user_data = userModal.getUserInfo()
+  }
 
   logout() {
     this.dataService.logout(this.user_data).subscribe((result) => {

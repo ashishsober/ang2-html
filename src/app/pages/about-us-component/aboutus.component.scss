@@ -99,62 +99,64 @@
   width: 100%;
   float: left;
   padding: 60px 0;
-
-  .amoajon_sec {
-    width: 100%;
-    float: left;
-    border: 1px solid #f1f1f1;
-    margin: 15px;
-    padding: 0;
-
-    .img_box1 {
-      width: 100%;
-      float: left;
-      border-left: 1px solid #f1f1f1;
-      img {
-        width:338px;
-        height: 238px;
-      }
-    }
-    .content_box1 {
-      width: 100% !important;
-      float: left;
-      padding-left: 20px;
-    }
-    .content_box2 {
-      min-height: 308px;
-    }
-    .content_box {
-      padding: 10px 25px 0 30px;
-      h4 {
+     .amoajon_sec {
         width: 100%;
         float: left;
-        color: #383a3f;
-        font: 400 35px/45px BebasNeueBold;
-        margin: 8px 0 0;
-        text-align: left;
-      }
-      p {
-        float: left;
-        color: #383a3f;
-        font: 400 18px/32px Lato;
-        text-align: justify;
-      }
-      .view {
-        width: 100%;
-        text-align: right;
-        float: left;
-        padding: 10px 15px;
-        a {
-          color: #a2a3ae;
-          font: 700 14px/32px Lato;
-          text-align: right;
-          text-transform: none;
-          text-transform: uppercase;
+        border: 1px solid #f1f1f1;
+        margin: 15px;
+        padding: 0;
+
+        .img_box1 {
+          width: 100%;
+          float: left;
+          border-left: 1px solid #f1f1f1;
+          img {
+            width:338px;
+            height: 238px;
+          }
+        }
+        .content_box1 {
+          width: 100% !important;
+          float: left;
+          padding-left: 20px;
+        }
+        .content_box2 {
+          min-height: 308px;
+        }
+        .content_box {
+          padding: 10px 25px 0 30px;
+          min-height: 434px;
+          h4 {
+            width: 100%;
+            float: left;
+            color: #383a3f;
+            font: 400 35px/40px BebasNeueBold;
+            margin: 8px 0 0;
+            text-align: justify;
+            font-size: 32px;
+          }
+          p {
+            float: left;
+            color: #383a3f;
+            font: 400 18px/32px Lato;
+            text-align: justify;
+          }
+          .view {
+            width: 100%;
+            text-align: right;
+            float: left;
+            padding: 10px 15px;
+            a {
+              color: #a2a3ae;
+              font: 700 14px/32px Lato;
+              text-align: right;
+              text-transform: none;
+              text-transform: uppercase;
+            }
+          }
         }
       }
-    }
-  }
+    
 }
 
 

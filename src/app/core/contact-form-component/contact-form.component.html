@@ -1,3 +1,15 @@
+<div class="cdk-overlay-container"  *ngIf="showSpinner">
+    <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"></div>
+    <div class="cdk-global-overlay-wrapper" dir="ltr" style="justify-content: center; align-items: center;">
+      <div id="cdk-overlay-0" class="cdk-overlay-pane" style="max-width: 80vw; pointer-events: auto; width: 874px; height: 316px; position: static;">
+        <div tabindex="0" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+        <div tabindex="0" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+        <div class="spinner-class">
+            <mat-spinner [diameter]="50"></mat-spinner> 
+        </div>
+      </div>
+    </div>
+  </div>
 <form #contactForm="ngForm" class="form-outer" (ngSubmit)="onSubmit(contactForm)" novalidate *ngIf="showForm">
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">

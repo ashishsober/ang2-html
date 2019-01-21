@@ -14,13 +14,13 @@ import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  contactModal = new contactModal('', '', null, '', '', '');
-  hide: boolean = false;
-  showForm = true;
-  alertDialogRef: MatDialogRef<AlertDialogComponent>;
+  //contactModal = new contactModal('', '', null, '', '', '');
+  //hide: boolean = false;
+  //showForm = true;
+  //alertDialogRef: MatDialogRef<AlertDialogComponent>;
   //selectboxData: Array<any> = this.dataService.technologiesSelectboxData;
   //contact_address: Array<any> = this.dataService.contact_address;
-  showSpinner=false;
+  //showSpinner=false;
 
   constructor() { }
 

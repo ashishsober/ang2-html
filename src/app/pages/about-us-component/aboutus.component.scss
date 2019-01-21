@@ -159,6 +159,52 @@
     
 }
 
+.default-section {
+  background: #247fe1;
+  width: 100%;
+  float: left;
+  padding: 60px 0;
+  .text-column {
+    .padd-right-50 {
+      text-align: justify;
+      padding-right: 50px !important;
+    }
+    h2 {
+      letter-spacing: 0.1em;
+      font-size: 30px;
+      text-transform: capitalize;
+      color: white;
+      margin-bottom: 25px;
+    }
+    .text {
+      color: white;
+    }
+  }
+ 
+    .no-margin-bottom {
+      margin-bottom: 0px !important;
+      
+      .fact-counter {
+        .counter-column {
+          margin-bottom: 70px;
+          .count-outer {
+            font-size: 60px;
+            color: white;
+            font-family: 'Lora',serif;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 60px;
+           }
+           .text {
+            font-size: 18px;
+            color: #484848;
+            }
+         }
+      } 
+    }
+  
+}
+
 
 // Mobile screen size
 @media only screen and (min-width: 320px) and (max-width: 767px) {

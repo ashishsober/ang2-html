@@ -190,7 +190,7 @@
   .text-column {
     .padd-right-50 {
       text-align: justify;
-      padding-right: 50px !important;
+      padding-right: 50px;
     }
 
     h2 {
@@ -261,6 +261,17 @@
           font-size: 30px;
         }
       }
+    }
+  }
+  .default-section {
+    .text-column {
+      .padd-right-50 {
+         padding-right:0px ; 
+      }
+    }
+    .no-margin-bottom {
+      padding-top: 50px;
+      text-align: center;
     }
   }
 }

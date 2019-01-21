@@ -11,6 +11,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+
     .company_desc {
       color: #ffd740;
       font-size: 38px;
@@ -29,6 +30,7 @@
       border-radius: 50px;
       text-decoration: none;
       transition: 0.8s;
+
       &:hover {
         background-color: #f4511e;
         color: white;
@@ -37,27 +39,30 @@
   }
 
   .get-info {
-      width: 100%;
-      float: left;
-      margin-top: 50px;
-      padding: 30px 0 61px;
-      background: white;//#1a1414;
-      color: black;
-      .about {
-        margin-bottom: 25px;
-        font-size: 20px;
-        strong {
-          float: left;
-        }
+    width: 100%;
+    float: left;
+    margin-top: 50px;
+    padding: 30px 0 61px;
+    background: white; //#1a1414;
+    color: black;
+
+    .about {
+      margin-bottom: 25px;
+      font-size: 20px;
+
+      strong {
+        float: left;
       }
-      .content {
-        line-height: 1.7;
-        font-size: 16px;
-        text-align: justify;
-        letter-spacing: 1.5px;
-        font-family: "SCSans-Light";
-      }
-      
+    }
+
+    .content {
+      line-height: 1.7;
+      font-size: 16px;
+      text-align: justify;
+      letter-spacing: 1.5px;
+      font-family: "SCSans-Light";
+    }
+
   }
 
   .when-we-started {
@@ -66,27 +71,90 @@
     width: 100%;
     float: left;
     padding: 90px 0 61px;
+
     .heading-when-we {
       margin-bottom: 25px;
       font-size: 30px;
       font-family: 'Noto-Sans';
       letter-spacing: 0.3rem;
+
       strong {
         float: left;
       }
     }
+
     .content-when-we-started {
-        line-height: 1.7;
-        font-size: 16px;
-        text-align: justify;
-        letter-spacing: 1.5px;
-        font-family: "SCSans-Light";
+      line-height: 1.7;
+      font-size: 16px;
+      text-align: justify;
+      letter-spacing: 1.5px;
+      font-family: "SCSans-Light";
     }
-      
+
   }
+}
 
+.developed_project {
+  background: #fff;
+  width: 100%;
+  float: left;
+  padding: 60px 0;
 
+  .amoajon_sec {
+    width: 100%;
+    float: left;
+    border: 1px solid #f1f1f1;
+    margin: 15px;
+    padding: 0;
 
+    .img_box1 {
+      width: 100%;
+      float: left;
+      border-left: 1px solid #f1f1f1;
+      img {
+        width:338px;
+        height: 238px;
+      }
+    }
+    .content_box1 {
+      width: 100% !important;
+      float: left;
+      padding-left: 20px;
+    }
+    .content_box2 {
+      min-height: 308px;
+    }
+    .content_box {
+      padding: 10px 25px 0 30px;
+      h4 {
+        width: 100%;
+        float: left;
+        color: #383a3f;
+        font: 400 35px/45px BebasNeueBold;
+        margin: 8px 0 0;
+        text-align: left;
+      }
+      p {
+        float: left;
+        color: #383a3f;
+        font: 400 18px/32px Lato;
+        text-align: justify;
+      }
+      .view {
+        width: 100%;
+        text-align: right;
+        float: left;
+        padding: 10px 15px;
+        a {
+          color: #a2a3ae;
+          font: 700 14px/32px Lato;
+          text-align: right;
+          text-transform: none;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
 }
 
 
@@ -95,8 +163,63 @@
   .val_index_page {
     .banner_index {
       padding: 210px 0 200px;
+
       .company_desc {
         font-size: 25px;
+      }
+    }
+  }
+
+  .developed_project {
+    .amoajon_sec {
+      margin:15px 0 0 0;
+      .img_box1 {
+        img {
+          width:299px;
+          height: 188px;
+        }
+      }
+      .content_box {
+        h4 {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
+   // Medium devices (tablets, 768px and up)
+   @media (min-width: 768px) and (max-width: 991px) { 
+
+    .developed_project {
+      .amoajon_sec {
+        .img_box1 {
+          img {
+            width:198px;
+            height: 188px;
+          }
+        }
+
+        .content_box {
+          padding: 7px 15px 0 15px !important;
+          h4 {
+            line-height: 32px;
+            font-size: 25px;
+          }
+        }
+      }
+    }
+   }
+
+   // Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px)  { 
+  .developed_project {
+    .amoajon_sec {
+      .img_box1 {
+        img {
+           width: 278px;
+          height: 238px;
+        }
       }
     }
   }

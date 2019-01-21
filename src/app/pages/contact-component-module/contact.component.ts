@@ -19,10 +19,10 @@ export class ContactComponent {
   //showForm = true;
   //alertDialogRef: MatDialogRef<AlertDialogComponent>;
   //selectboxData: Array<any> = this.dataService.technologiesSelectboxData;
-  //contact_address: Array<any> = this.dataService.contact_address;
+  contact_address: Array<any> = this.dataService.contact_address;
   //showSpinner=false;
 
-  constructor() { }
+  constructor(private dataService:DataService) { }
 
  
 }

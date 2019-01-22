@@ -17,6 +17,16 @@
          &.user-detail {
           background-color: #e9ecef;
          }
+         &.actionItems{
+          float: none;
+          border-bottom: 1px solid #ddd;
+          margin: 0;
+          background-color: transparent;
+          padding: 17px 0 17px 25px;
+          cursor: pointer;
+          font-family: 'SCSans-Light';
+          font-size: 20px;
+         }
         .icon-img {
           float: left;
           width: 48px;

@@ -81,6 +81,7 @@
             &.about_sub {
               width: 230px;
               right: -30%;
+              height: 133px;
             }
 
             &.about_sub:before {
@@ -91,6 +92,7 @@
             &.services {
               width: 315px;
               right: -70%;
+              height: 330px;
             }
 
             &.services:before {
@@ -112,6 +114,7 @@
               cursor: pointer;
               font-family: 'SCSans-Light';
               font-size: 16px;
+              top: -11px;
 
               //border-radius: 1px;
               img {

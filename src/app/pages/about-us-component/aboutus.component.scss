@@ -151,8 +151,8 @@
         color: #383a3f;
         font: 400 35px/40px BebasNeueBold;
         margin: 8px 0 0;
-        text-align: justify;
-        font-size: 32px;
+        text-align: center;
+        font-size: 25px;
       }
 
       p {
@@ -194,11 +194,12 @@
     }
 
     h2 {
-      letter-spacing: 0.1em;
+      letter-spacing: .01em;;
       font-size: 30px;
       text-transform: capitalize;
       color: white;
       margin-bottom: 25px;
+      text-align: left;
     }
 
     .text {

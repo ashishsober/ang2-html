@@ -26,6 +26,7 @@ export class ManagementModalComponent {
         //this.showSpinner=false;
         //this.showForm = false;
         form.reset();
+        this.dialog.closeAll();
       }, err => {
         //this.showSpinner=false;
         console.log(err);

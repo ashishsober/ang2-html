@@ -11,7 +11,7 @@ import { DataService } from '../../core/data.service';
 })
 export class ManagementComponent implements OnInit{
   managementModalComponent: MatDialogRef<ManagementModalComponent>;
-  managementList=[];
+  manageData = [];
   // managementList = [{
   //   name: "Vivek Kumar",
   //   position: "Chairman & CEO",
@@ -38,12 +38,13 @@ export class ManagementComponent implements OnInit{
    }
 
   ngOnInit(){
-      this.dataService.getManagement().subscribe((data)=>{
-       console.log(data);
-       this.managementList =data;
-      },(error)=>{
-         console.error(error);
-      });
+    this.dataService.getManagement().subscribe((data)=>{
+      console.log(data);
+      this.dataService.managementList = data;
+      this.manageData = data;
+     },(error)=>{
+        console.error(error);
+     });
   }
 
   addManagement(){

@@ -13,11 +13,13 @@ export class DataService {
       @Output() fire: EventEmitter<any> = new EventEmitter();
       subject = new Rx.Subject();
       userModal: user_Data;
+      managementList=[];
       //use promisess here to call asynchronous call,If the data is coming from the remote server
       //so that over code will not get blocked. for the waiting of the respond from the server
       constructor(private http: Http) {
             console.log('shared service started');
             this.userModal = new user_Data();
+            
       }
 
       /**

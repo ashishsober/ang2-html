@@ -19,7 +19,7 @@ export class ManagementModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any) {
       
       if(data == null) {
-        this.managementModal = new managementModal('', '', '', '', '','');
+        this.managementModal = new managementModal('', '', '', 'assets/user-tie-solid.svg', '','');
       } else {
         console.log("my selected data----"+data);
         this.managementModal = new managementModal(data.name, data.emailid,data.position, data.profileImage,data.discription,data._id);

@@ -11,6 +11,7 @@ import { DataService } from '../../core/data.service';
 })
 export class ManagementComponent implements OnInit{
   managementModalComponent: MatDialogRef<ManagementModalComponent>;
+  user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
   manageData = [];
   // managementList = [{
   //   name: "Vivek Kumar",
@@ -45,6 +46,16 @@ export class ManagementComponent implements OnInit{
      },(error)=>{
         console.error(error);
      });
+
+     this.dataService.subject.subscribe((data) => {
+      if (data != undefined) {
+        this.updateCurrentUserData(data);
+      }
+    });
+  }
+
+  updateCurrentUserData(data) {
+    this.user_email = data === 'logout' ? null : data.emails[0].value;
   }
 
   addManagement(){

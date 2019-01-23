@@ -20,6 +20,7 @@
     font-weight: bold;
     text-transform: uppercase;
     font-family: Stencil Std;
+    cursor: pointer;
   }
 
   .menu_new {
@@ -81,7 +82,7 @@
             &.about_sub {
               width: 230px;
               right: -30%;
-              height: 133px;
+              height: 67px;
             }
 
             &.about_sub:before {
@@ -328,7 +329,7 @@
             //display: none;
 
             &.srv-list-for-small-device-about {
-              height: 93px;
+              height: 48px;
               box-shadow: none;
 
               ul.sub-menu-list {
@@ -339,7 +340,7 @@
                 &.about_sub {
                   width: 100%;
                   right: 0%;
-                  height: 79px;
+                  height: 47px;
 
                   li {
                     font-size: 12px;

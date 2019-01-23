@@ -1,7 +1,7 @@
 <header class="header_new" role="banner" [ngClass]="{'banner-color':bannerColorToBlack,'positionFixed':positionFixed}">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-lg-3 col-md-2" [ngClass]="{'right50':right50}">
-      <a href="/" title="ValueCoders" style="cursor:pointer;">
+      <a href="/" title="ValueCoders">
         <label class="logo">VRD Network</label>
       </a>
       <span class="mob_icon2" (click)="sidebar('open')" *ngIf="!displayBlock"></span>
@@ -20,8 +20,8 @@
         <li class="menu_arrow"><a (click)="displayCompanyMenu = !displayCompanyMenu" title="Company" class="company_a">About</a>
           <div class="sub_menu_new srv-list srv-list-for-small-device-about" [ngClass]="{'display_block':displayCompanyMenu}">
             <ul class="sub-menu-list about_sub">
-              <li (click)="navigateTo('home')" class="first" title="About US" class="about-us">
-                <img src="../assets/book-open-solid.svg" />Vrd Network</li>
+              <!-- <li (click)="navigateTo('home')" class="first" title="About US" class="about-us">
+                <img src="../assets/book-open-solid.svg" />Vrd Network</li> -->
               <li (click)="navigateTo('management')" class="first" title="Management" class="management">
                 <img src="../assets/users-solid.svg" />Management</li>
             </ul>

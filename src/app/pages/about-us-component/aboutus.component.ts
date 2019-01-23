@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { preserveWhitespacesDefault } from '@angular/compiler';
 
 @Component({
@@ -6,7 +6,7 @@ import { preserveWhitespacesDefault } from '@angular/compiler';
   templateUrl: './aboutus.component.html',
   styleUrls: ['./aboutus.component.scss']
 })
-export class AboutUsComponent {
+export class AboutUsComponent implements OnInit, OnDestroy{
 
   slides = [
     {img: "assets/group-pic/vrd-group1.jpeg"},
@@ -14,7 +14,14 @@ export class AboutUsComponent {
     {img: "assets/group-pic/vrd-group3.jpeg"},
     {img: "assets/group-pic/vrd-group4.jpg"}
   ];
+  interval;
   count=0;
+  ngOnInit() {
+    this.interval = setInterval(() =>{
+      this.next();
+    },2000) 
+  }
+  
   next(){
     if(this.count<this.slides.length-1){
       this.count++;
@@ -27,6 +34,12 @@ export class AboutUsComponent {
       this.count--;
     } else {
       this.count=this.slides.length-1;
+    }
+  }
+
+  ngOnDestroy(){
+    if(this.interval){
+      clearInterval(this.interval);
     }
   }
 }

@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'ngv-software-development',
   templateUrl: './software-development.component.html',
   styleUrls: ['./software-development.component.scss']
 })
-export class SoftwareDevelopmentComponent {
+export class SoftwareDevelopmentComponent implements OnInit,OnDestroy {
   slides = [
     {img: "assets/banner1.jpg",text:'Software-Development'},
     {img: "assets/banner2.jpg",text:'Search engine optimization'},
@@ -28,8 +28,13 @@ export class SoftwareDevelopmentComponent {
     {img:"assets/tech-icons/java.png",title:"Java"},
     {img:"assets/tech-icons/aws.png",title:"AWS"}
   ]
-
+  interval;
   count=0;
+  ngOnInit() {
+    this.interval = setInterval(() =>{
+      this.next();
+    },2000) 
+  }
   next(){
     if(this.count<this.slides.length-1){
       this.count++;
@@ -42,6 +47,12 @@ export class SoftwareDevelopmentComponent {
       this.count--;
     } else {
       this.count=this.slides.length-1;
+    }
+  }
+
+  ngOnDestroy(){
+    if(this.interval){
+      clearInterval(this.interval);
     }
   }
 }

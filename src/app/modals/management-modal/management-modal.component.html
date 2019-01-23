@@ -8,7 +8,7 @@
                 required>
               <mat-error *ngIf="name.hasError('required')">Name is required</mat-error>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field style="display:none;">
                 <input matInput type="text" placeholder="id" #name="ngModel" [(ngModel)]="managementModal._id" name="_id">
               </mat-form-field>
           </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,TemplateRef, ViewChild } from '@angular/core';
 import { ManagementModalComponent } from '../../modals/management-modal/management-modal.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router'
@@ -12,6 +12,8 @@ import { DataService } from '../../core/data.service';
 export class ManagementComponent implements OnInit{
   managementModalComponent: MatDialogRef<ManagementModalComponent>;
   user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
+  @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
+
   constructor(private router: Router, public dataService: DataService,
     private dialog: MatDialog) { 
    }
@@ -34,6 +36,17 @@ export class ManagementComponent implements OnInit{
   updateCurrentUserData(data) {
     this.user_email = data === 'logout' ? null : data.emails[0].value;
   }
+
+  openDialog(id:any): void {
+    const dialogRef = this.dialog.open(this.callAPIDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === 'yes'){
+        //alert("dialog closed"+id);
+         this.deleteManage(id);
+      }
+    });
+  }
+
 
   addManagement(){
     this.managementModalComponent = this.dialog.open(ManagementModalComponent, {

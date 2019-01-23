@@ -23,12 +23,12 @@ const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
-const config: ExtraOptions = {
-  useHash: true,
-};
+// const config: ExtraOptions = {
+//   useHash: true,
+// };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,config)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

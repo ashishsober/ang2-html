@@ -31,7 +31,7 @@
                                                     <ul>
                                                         <div *ngIf="user_email === 'ashishguptawaiting@gmail.com' || user_email === 'vivek.rai@vrdnetwork.com'">
                                                                 <a style="position: absolute;cursor: pointer;right: 25px;" (click)="editManage(item)"><i class="far fa-pen">&#9998;</i></a>
-                                                                <a style="position: absolute;cursor: pointer;right: 6px;" (click)="deleteManage(item._id)"><i class="fa fa-times"></i></a>    
+                                                                <a style="position: absolute;cursor: pointer;right: 6px;" (click)="openDialog(item._id)"><i class="fa fa-times"></i></a>    
                                                         </div>
                                                             <li class="profile">
                                                                 <div class="profile-pic">
@@ -56,5 +56,15 @@
                          </div>
                 </div>
           </div>
-      </section>
+</section>
+
+<ng-template #callAPIDialog>
+    <div mat-dialog-content>
+       <h2 matDialogTitle>Are you sure you want to delete</h2>
+    </div>
+    <mat-dialog-actions align="end">
+        <button mat-button matDialogClose="no" mat-raised-button mat-button color="primary"> No</button>
+        <button mat-button matDialogClose="yes" mat-raised-button mat-button color="warn">Yes</button>
+    </mat-dialog-actions>
+</ng-template>
       

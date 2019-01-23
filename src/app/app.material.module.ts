@@ -31,7 +31,7 @@ import {
 
 const MATERIAL_MODULES = [
 //   MatCardModule,
-//   MatButtonModule,
+     MatButtonModule,
 //   MatIconModule,
   MatInputModule,
 //   MatCheckboxModule,

@@ -9,6 +9,16 @@ export class contactModal {
     ) { }
 }
 
+export class managementModal {
+    constructor(
+        public name: string,
+        public emailid: string,
+        public position: string,
+        public profileImage: string,
+        public discription: string
+    ) { }
+}
+
 export class carrerModal {
     constructor(
         public firstname: string,

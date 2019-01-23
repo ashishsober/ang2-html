@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ManagementModalComponent } from '../../modals/management-modal/management-modal.component';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { Router } from '@angular/router'
+import { DataService } from '../../core/data.service';
 
 @Component({
   selector: 'ngv-management',
@@ -6,6 +10,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./management.component.scss']
 })
 export class ManagementComponent {
+  managementModalComponent: MatDialogRef<ManagementModalComponent>;
   managementList = [{
     name: "Vivek Kumar",
     position: "Chairman & CEO",
@@ -27,4 +32,14 @@ export class ManagementComponent {
     discription: "Having worked across industries in both MNC and startup ecosystems, Pranjul assets fine knowledge of employee relations and training. She oversees planning, directing & coordinating administrative functions to set up a strong governance and execution function and build high-end capabilities focusing on long term growth.",
     emailid: "pranjul@vrdnetwork.com "
   }]
+  constructor(private router: Router, private dataService: DataService,
+    private dialog: MatDialog) { 
+   }
+  addManagement(){
+    this.managementModalComponent = this.dialog.open(ManagementModalComponent, {
+      hasBackdrop: true,
+      height: '600px',
+      width: '400px',
+  });
+  }
 }

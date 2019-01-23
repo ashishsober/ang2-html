@@ -18,7 +18,7 @@ import { IOTComponent } from '../app/pages/iot-component/iot-component';
 //import { DataService } from '../app/core/data.service';
 import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
 import { UserInfoModalComponent } from '../app/core/user-info-modal/user-info-modal.component';
-
+import { ManagementModalComponent } from '../app/modals/management-modal/management-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,8 @@ import { UserInfoModalComponent } from '../app/core/user-info-modal/user-info-mo
     SapSolutionsComponent,
     IOTComponent,
     AlertDialogComponent,
-    UserInfoModalComponent
+    UserInfoModalComponent,
+    ManagementModalComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +42,6 @@ import { UserInfoModalComponent } from '../app/core/user-info-modal/user-info-mo
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[AlertDialogComponent, UserInfoModalComponent]
+  entryComponents:[AlertDialogComponent, UserInfoModalComponent,ManagementModalComponent]
 })
 export class AppModule { }

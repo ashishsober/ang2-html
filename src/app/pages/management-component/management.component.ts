@@ -12,7 +12,7 @@ import { DataService } from '../../core/data.service';
 export class ManagementComponent implements OnInit{
   managementModalComponent: MatDialogRef<ManagementModalComponent>;
   user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
-  manageData = [];
+  //manageData = [];
   // managementList = [{
   //   name: "Vivek Kumar",
   //   position: "Chairman & CEO",
@@ -42,7 +42,6 @@ export class ManagementComponent implements OnInit{
     this.dataService.getManagement().subscribe((data)=>{
       console.log(data);
       this.dataService.managementList = data;
-      this.manageData = data;
      },(error)=>{
         console.error(error);
      });
@@ -67,10 +66,10 @@ export class ManagementComponent implements OnInit{
   }
 
   deleteManage(value:any){
+    const list = this.dataService.managementList;
     this.dataService.deleteManagement(value).subscribe((data)=>{
-      console.log(data);
-      //this.dataService.managementList = data;
-      //this.manageData = data;
+      const listArray=list.filter((item) => item._id !== value);
+      this.dataService.managementList = listArray;
      },(error)=>{
         console.error(error);
      });

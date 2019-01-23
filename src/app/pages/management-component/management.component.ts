@@ -52,6 +52,16 @@ export class ManagementComponent implements OnInit{
       hasBackdrop: true,
       height: '600px',
       width: '400px',
-  });
+    });
+  }
+
+  deleteManage(value:any){
+    this.dataService.deleteManagement(value).subscribe((data)=>{
+      console.log(data);
+      this.dataService.managementList = data;
+      this.manageData = data;
+     },(error)=>{
+        console.error(error);
+     });
   }
 }

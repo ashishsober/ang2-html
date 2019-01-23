@@ -199,5 +199,11 @@ export class DataService {
             let url = getHostname.concat('/application/managementVrd');
             return this.http.get(url).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
+      deleteManagement(id:string):Observable<any> {
+            let getHostname = this.getHostname();
+            let url = getHostname.concat('/application/managementVrd/delete/');
+            url = url +id;
+            return this.http.get(url).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+      }
 
 }

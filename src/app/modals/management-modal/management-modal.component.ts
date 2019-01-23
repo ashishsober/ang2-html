@@ -1,20 +1,30 @@
-import { Component } from '@angular/core';
+import { Component ,Inject} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../../core/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
 import { managementModal } from '../../core/classes';
+import { MAT_DIALOG_DATA } from '@angular/material';
 @Component({
   templateUrl: './management-modal.component.html',
   styleUrls: ['./management-modal.component.scss'],
 })
 export class ManagementModalComponent {
-  managementModal = new managementModal('', '', '', '', '');
+  managementModal : managementModal;
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
   
   constructor(private router: Router,
-    private dataService: DataService, private dialog: MatDialog) {
+    private dataService: DataService, private dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+      
+      if(data == null) {
+        this.managementModal = new managementModal('', '', '', '', '','');
+      } else {
+        console.log("my selected data----"+data);
+        this.managementModal = new managementModal(data.name, data.emailid,data.position, data.profileImage,data.discription,data._id);
+      }
+      
   }
 
   

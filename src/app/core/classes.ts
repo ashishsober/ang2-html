@@ -15,7 +15,8 @@ export class managementModal {
         public emailid: string,
         public position: string,
         public profileImage: string,
-        public discription: string
+        public discription: string,
+        public _id:string
     ) { }
 }
 

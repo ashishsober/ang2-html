@@ -64,4 +64,12 @@ export class ManagementComponent implements OnInit{
         console.error(error);
      });
   }
+  editManage(item:any) {
+    this.managementModalComponent = this.dialog.open(ManagementModalComponent, {
+      hasBackdrop: true,
+      height: '600px',
+      width: '400px',
+      data: item
+    });
+  }
 }

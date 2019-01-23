@@ -192,4 +192,10 @@ export class DataService {
             return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
 
+      getManagement(): Observable<any> {
+            let getHostname = this.getHostname();
+            let url = getHostname.concat('/application/managementVrd');
+            return this.http.get(url).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+      }
+
 }

@@ -29,14 +29,24 @@ export class ManagementModalComponent {
 
   
   onSubmit({ form, valid }: { form: NgForm, valid: boolean }) {
+    const list = this.dataService.managementList;
     if (valid) {
       //this.showSpinner=true;
       form.value.profileImage = 'assets/user-tie-solid.svg';
       this.dataService.postManagement(form.value).subscribe((result) => {
         //this.showSpinner=false;
         //this.showForm = false;
-        form.reset();
+        
         this.dialog.closeAll();
+        const objIndex = list.findIndex((obj => obj._id == form.value._id));
+        if(objIndex == -1){
+          this.dataService.managementList.push(result.applicants);
+        } else {
+          list[objIndex] =form.value;
+          this.dataService.managementList =list;
+        }
+        
+        form.reset();
       }, err => {
         //this.showSpinner=false;
         console.log(err);

@@ -310,9 +310,15 @@
             margin: 10px 0px;
           }
           .user_name {
-            width:77%;
+            width:81%;
             background-size: 10%;
             font-size: 15px;
+            padding-top: 12px;
+            padding-right: 6px;
+            padding-left:8px; 
+            h5 {
+              font-size: 9px;
+            }
           }
         }
 

@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   @Output() right50Event = new EventEmitter<boolean>();
   user_img: string = sessionStorage.getItem("photoUrl") === null ? null : sessionStorage.getItem("photoUrl");
   user_name: string = sessionStorage.getItem("displayName") === null ? null : sessionStorage.getItem("displayName");
-
+  user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
   constructor(private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
   updateData(data) {
     this.user_img = data === 'logout' ? null : data.photos[0].value;
     this.user_name = data === 'logout' ? null : data.displayName;
+    this.user_email = data === 'logout' ? null : data.emails[0].value;
   }
 
   @HostListener("window:scroll", [])

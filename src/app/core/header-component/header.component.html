@@ -11,7 +11,11 @@
       <ul class="menu_new" [ngClass]="{'display_block':displayBlock}">
         <li class="only_for_mobile no_arrow" *ngIf="user_img != null">
             <img class="img-circle" [src]="user_img">
-            <a class="user_name" *ngIf="user_name != null">{{user_name}}</a>
+            <a class="user_name" *ngIf="user_name != null">
+              {{ user_name }}
+              <h5>{{  user_email }}</h5>
+            </a>
+            
         </li>
         <li class="menu_arrow"><a (click)="displayCompanyMenu = !displayCompanyMenu" title="Company" class="company_a">Company</a>
           <div class="sub_menu_new srv-list srv-list-for-small-device-about" [ngClass]="{'display_block':displayCompanyMenu}">

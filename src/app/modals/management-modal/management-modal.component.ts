@@ -22,7 +22,7 @@ export class ManagementModalComponent {
     if (valid) {
       //this.showSpinner=true;
       form.value.profileImage = 'assets/user-tie-solid.svg';
-      this.dataService.postContact(form.value).subscribe((result) => {
+      this.dataService.postManagement(form.value).subscribe((result) => {
         //this.showSpinner=false;
         //this.showForm = false;
         form.reset();

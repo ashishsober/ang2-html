@@ -6,7 +6,13 @@ import { preserveWhitespacesDefault } from '@angular/compiler';
   templateUrl: './aboutus.component.html',
   styleUrls: ['./aboutus.component.scss']
 })
-export class AboutUsComponent implements OnInit, OnDestroy{
+export class AboutUsComponent implements OnInit, OnDestroy {
+  slides2 = [
+    {img: "assets/banner1.jpg",text:'Software-Development'},
+    {img: "assets/banner2.jpg",text:'Search engine optimization'},
+    {img: "assets/banner3.jpg",text:'Responsive websites'},
+    {img: "assets/banner12.jpg",text:''}
+  ];
 
   slides = [
     {img: "assets/group-pic/vrd-group1.jpeg"},

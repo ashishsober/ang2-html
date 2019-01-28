@@ -5,37 +5,37 @@
   text-align: center;
 
   .banner_index {
-    padding: 270px 0 200px;
-    height: 70%;
-    background-image: url('/assets/home_banner.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    .company_desc {
-      color: #ffd740;
-      font-size: 38px;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    .home_contactus {
-      color: #fff;
-      padding: 15px 40px;
-      background-color: #59b400;
-      text-transform: uppercase;
-      margin-top: 50px;
-      font-weight: 700;
-      display: inline-block;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: 0.8s;
-
-      &:hover {
-        background-color: #f4511e;
-        color: white;
-      }
-    }
+    height: 75px;
+     .banner_sec {
+      text-align: center;
+      background: 0 0;
+      float: left;
+      width: 100%;
+        .company_desc {
+          color: #ffd740;
+          font-size: 38px;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+    
+        .home_contactus {
+          color: #fff;
+          padding: 15px 40px;
+          background-color: #59b400;
+          text-transform: uppercase;
+          margin-top: 50px;
+          font-weight: 700;
+          display: inline-block;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: 0.8s;
+    
+          &:hover {
+            background-color: #f4511e;
+            color: white;
+          }
+        }
+     }
   }
 
   .get-info {
@@ -251,11 +251,14 @@
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .val_index_page {
     .banner_index {
-      padding: 210px 0 200px;
-
-      .company_desc {
-        font-size: 25px;
-      }
+      background-color: black;
+        .banner_sec {
+          padding-top: 75px;
+          .company_desc {
+            font-size: 25px;
+          }
+        }
+      
     }
   }
 

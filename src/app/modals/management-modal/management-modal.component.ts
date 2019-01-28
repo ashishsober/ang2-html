@@ -32,7 +32,7 @@ export class ManagementModalComponent {
     const list = this.dataService.managementList;
     if (valid) {
       //this.showSpinner=true;
-      form.value.profileImage = 'assets/user-tie-solid.svg';
+      //form.value.profileImage = 'assets/user-tie-solid.svg';
       this.dataService.postManagement(form.value).subscribe((result) => {
         //this.showSpinner=false;
         //this.showForm = false;

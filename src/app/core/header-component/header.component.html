@@ -1,9 +1,10 @@
 <header class="header_new" role="banner" [ngClass]="{'banner-color':bannerColorToBlack,'positionFixed':positionFixed}">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-lg-3 col-md-2" [ngClass]="{'right50':right50}">
-      <a href="/" title="ValueCoders">
-        <label class="logo">VRD Network</label>
-      </a>
+        <a href="/" title="VRD Network">
+            <i class="fa fa-home home"></i>
+            <label class="logo">VRD Network</label>
+        </a>
       <span class="mob_icon2" (click)="sidebar('open')" *ngIf="!displayBlock"></span>
       <span class="mob_cross" (click)="sidebar('close')" *ngIf="displayBlock"></span>
     </div>

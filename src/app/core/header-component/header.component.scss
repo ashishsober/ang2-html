@@ -11,17 +11,25 @@
     background-color: #212529;
   }
 
-  .logo {
-    margin: 14px 0;
-    // width: 206px;
-    height: 45px;
-    font-size: 25px;
-    color: wheat;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: Stencil Std;
-    cursor: pointer;
+  a {
+    .home{
+      font-size: 26px;
+      color: wheat;
+    }
+   
+    .logo {
+      margin: 14px 0;
+      // width: 206px;
+      height: 45px;
+      font-size: 25px;
+      color: wheat;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-family: Stencil Std;
+      cursor: pointer;
+    }
   }
+
 
   .menu_new {
     display: block;
@@ -310,13 +318,15 @@
             width: 44px;
             margin: 10px 0px;
           }
+
           .user_name {
-            width:77%;
+            width: 77%;
             background-size: 10%;
             font-size: 15px;
             padding-top: 12px;
             padding-right: 6px;
-            padding-left:8px; 
+            padding-left: 8px;
+
             h5 {
               font-size: 9px;
             }
@@ -346,6 +356,7 @@
                     font-size: 12px;
                     padding-left: 10px;
                     top: 0px;
+
                     img {
                       display: none;
                     }
@@ -367,10 +378,12 @@
                   width: 100%;
                   right: 0%;
                   height: 222px;
+
                   li {
                     font-size: 12px;
                     padding-left: 10px;
                     top: 0px;
+
                     img {
                       display: none;
                     }
@@ -467,9 +480,16 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) {
   .header_new {
-    .logo {
-      font-size: 13px;
+    a {
+      .home {
+        display: none;
+      }
+      
+      .logo {
+        font-size: 12px !important;
+      }
     }
+    
 
     .menu_new {
       li {

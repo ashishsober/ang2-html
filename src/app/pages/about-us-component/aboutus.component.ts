@@ -8,10 +8,10 @@ import { preserveWhitespacesDefault } from '@angular/compiler';
 })
 export class AboutUsComponent implements OnInit, OnDestroy {
   slides2 = [
-    {img: "assets/banner1.jpg",text:'Software-Development'},
-    {img: "assets/banner2.jpg",text:'Search engine optimization'},
-    {img: "assets/banner3.jpg",text:'Responsive websites'},
-    {img: "assets/banner12.jpg",text:''}
+    {img: "assets/front-images4.jpg",text:''},
+    {img: "assets/front-images.png",text:'Software-Development'},
+    {img: "assets/front-images2.jpg",text:'Search engine optimization'},
+    {img: "assets/front-images3.jpg",text:'Responsive websites'}
   ];
 
   slides = [

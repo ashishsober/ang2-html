@@ -29,7 +29,7 @@ export class AboutUsComponent implements OnInit, OnDestroy {
   }
   
   next(){
-    if(this.count<this.slides.length-1){
+    if(this.count < this.slides.length-1){
       this.count++;
     } else {
       this.count=0;

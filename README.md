@@ -27,12 +27,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
           [Reactive form validation](https://angular.io/guide/form-validation#reactive-form-validation)
 
 
-* Using Carosel from mdbootstrap
-           
-           https://mdbootstrap.com/docs/angular/advanced/carousel/#caption
-           https://www.npmjs.com/package/angular-bootstrap-md
-           https://www.w3.org/Style/Examples/007/fonts.en.html
-
 * To login from the terminal 
       
            ssh -i /Users/ashishgupta/Desktop/Vivek\ Sir/vrdNetworkKeyPair.pem ubuntu@ec2-3-17-146-125.us-east-2.compute.amazonaws.com
@@ -48,3 +42,5 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
             https://angular.io/guide/deployment#fallback
             ng build --prod --source-map
             node_modules/.bin/source-map-explorer dist/main.*.js
+* https://medium.com/quick-code/understanding-the-this-keyword-in-javascript-cb76d4c7c5e8
+* https://hackernoon.com/the-little-guide-of-linked-list-in-javascript-9daf89b63b54

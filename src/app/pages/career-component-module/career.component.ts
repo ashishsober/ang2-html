@@ -3,7 +3,7 @@ import { carrerModal } from '../../core/classes';
 import { NgForm } from '@angular/forms';
 import { DataService } from '../../core/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'ngv-career',

@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../../core/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { jobBoardModal } from '../../core/classes';
 import { MAT_DIALOG_DATA } from '@angular/material';
 @Component({

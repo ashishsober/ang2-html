@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../../core/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { user_Data } from '../classes';
 @Component({
   templateUrl: './user-info-modal.component.html',

@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { DataService } from '../data.service';
-import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UserInfoModalComponent } from '../user-info-modal/user-info-modal.component';
 import { user_Data } from '../classes';

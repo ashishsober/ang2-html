@@ -20,6 +20,16 @@ export class managementModal {
     ) { }
 }
 
+export class jobBoardModal {
+   constructor(
+       public title: string,
+       public location:string,
+       public jobType:string,
+       public experience:string,
+       public requirement:any[]
+   ){ }
+}
+
 export class carrerModal {
     constructor(
         public firstname: string,

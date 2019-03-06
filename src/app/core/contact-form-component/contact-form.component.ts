@@ -52,12 +52,8 @@ export class ContactFormComponent {
     }
   }
 
-  log(x: any) {
-    console.log(x);
-  }
 
   numberval = true;
-
   onKey(evt: any) {
     if (this.contactModal.phone_no.toString().length >= 10) {
       this.numberval = true;

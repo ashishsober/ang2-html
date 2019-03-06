@@ -7,10 +7,10 @@ import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
 import { managementModal } from '../../core/classes';
 import { MAT_DIALOG_DATA } from '@angular/material';
 @Component({
-  templateUrl: './management-modal.component.html',
-  styleUrls: ['./management-modal.component.scss'],
+  templateUrl: './management-edit-modal.component.html',
+  styleUrls: ['./management-edit-modal.component.scss'],
 })
-export class ManagementModalComponent {
+export class ManagementEditModalComponent {
   managementModal : managementModal;
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
   

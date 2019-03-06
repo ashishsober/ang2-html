@@ -1,5 +1,5 @@
 import { Component, OnInit,TemplateRef, ViewChild } from '@angular/core';
-import { ManagementModalComponent } from '../../modals/management-edit-modal/management-modal.component';
+import { ManagementEditModalComponent } from '../../modals/management-edit-modal/management-edit-modal.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router'
 import { DataService } from '../../core/data.service';
@@ -10,7 +10,7 @@ import { DataService } from '../../core/data.service';
   styleUrls: ['./management.component.scss']
 })
 export class ManagementComponent implements OnInit{
-  managementModalComponent: MatDialogRef<ManagementModalComponent>;
+  ManagementEditModalComponent: MatDialogRef<ManagementEditModalComponent>;
   user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
 
@@ -49,7 +49,7 @@ export class ManagementComponent implements OnInit{
 
 
   addManagement(){
-    this.managementModalComponent = this.dialog.open(ManagementModalComponent, {
+    this.ManagementEditModalComponent = this.dialog.open(ManagementEditModalComponent, {
       hasBackdrop: true,
       height: '600px',
       width: '400px',
@@ -66,7 +66,7 @@ export class ManagementComponent implements OnInit{
      });
   }
   editManage(item:any) {
-    this.managementModalComponent = this.dialog.open(ManagementModalComponent, {
+    this.ManagementEditModalComponent = this.dialog.open(ManagementEditModalComponent, {
       hasBackdrop: true,
       height: '600px',
       width: '400px',

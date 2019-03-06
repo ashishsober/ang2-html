@@ -17,7 +17,7 @@ import { IOTComponent } from '../app/pages/iot-component/iot-component';
 //Inculde the service we created
 //import { DataService } from '../app/core/data.service';
 import { AlertDialogComponent} from '../app/modals/alert-dialog/alert-dialog.component';
-import { UserInfoModalComponent } from '../app/core/user-info-modal/user-info-modal.component';
+import { UserInfoModalComponent } from '../app/modals/user-info-modal/user-info-modal.component';
 import { ManagementEditModalComponent } from './modals/management-edit-modal/management-edit-modal.component';
 import { JobBoardEditModalComponent } from '../app/modals/job-board-edit-modal/job-board-edit.component';
 

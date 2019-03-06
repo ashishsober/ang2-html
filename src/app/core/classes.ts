@@ -26,7 +26,8 @@ export class jobBoardModal {
        public location:string,
        public jobType:string,
        public experience:string,
-       public requirement:any[]
+       public requirement:any[],
+       public _id:string
    ){ }
 }
 

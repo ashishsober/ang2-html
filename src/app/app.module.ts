@@ -18,7 +18,9 @@ import { IOTComponent } from '../app/pages/iot-component/iot-component';
 //import { DataService } from '../app/core/data.service';
 import { AlertDialogComponent} from '../app/core/dialog/alert-dialog.component';
 import { UserInfoModalComponent } from '../app/core/user-info-modal/user-info-modal.component';
-import { ManagementModalComponent } from '../app/modals/management-modal/management-modal.component';
+import { ManagementModalComponent } from '../app/modals/management-edit-modal/management-modal.component';
+import { JobBoardEditModalComponent } from '../app/modals/job-board-edit-modal/job-board-edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { ManagementModalComponent } from '../app/modals/management-modal/managem
     IOTComponent,
     AlertDialogComponent,
     UserInfoModalComponent,
-    ManagementModalComponent
+    ManagementModalComponent,
+    JobBoardEditModalComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,6 @@ import { ManagementModalComponent } from '../app/modals/management-modal/managem
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[AlertDialogComponent, UserInfoModalComponent,ManagementModalComponent]
+  entryComponents:[AlertDialogComponent, UserInfoModalComponent,ManagementModalComponent,JobBoardEditModalComponent]
 })
 export class AppModule { }

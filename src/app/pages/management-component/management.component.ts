@@ -1,5 +1,5 @@
 import { Component, OnInit,TemplateRef, ViewChild } from '@angular/core';
-import { ManagementModalComponent } from '../../modals/management-modal/management-modal.component';
+import { ManagementModalComponent } from '../../modals/management-edit-modal/management-modal.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router'
 import { DataService } from '../../core/data.service';

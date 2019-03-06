@@ -7,10 +7,10 @@ import { AlertDialogComponent } from '../../core/dialog/alert-dialog.component';
 import { jobBoardModal } from '../../core/classes';
 import { MAT_DIALOG_DATA } from '@angular/material';
 @Component({
-    templateUrl: './management-modal.component.html',
-    styleUrls: ['./management-modal.component.scss'],
+    templateUrl: './job-board-edit.component.html',
+    styleUrls: ['./job-board-edit.component.scss'],
 })
-export class ManagementModalComponent {
+export class JobBoardEditModalComponent {
     jobBoardModal : jobBoardModal;
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
 
@@ -20,10 +20,10 @@ export class ManagementModalComponent {
         @Inject(MAT_DIALOG_DATA) public data: any) {
 
           if(data == null) {
-            this.jobBoardModal = new jobBoardModal('', '', '', '',[]);
+            this.jobBoardModal = new jobBoardModal('', '', '', '',[],'');
           } else {
             console.log("my selected data----"+data);
-            this.jobBoardModal = new jobBoardModal(data.title, data.location,data.jobType, data.experience,data.requirement);
+            this.jobBoardModal = new jobBoardModal(data.title, data.location,data.jobType, data.experience,data.requirement,'');
           }
     }
 

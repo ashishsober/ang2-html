@@ -48,3 +48,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 * https://medium.freecodecamp.org/javascript-closures-simplified-d0d23fa06ba4
 * https://hackernoon.com/the-little-guide-of-linked-list-in-javascript-9daf89b63b54
 * http://jasonwatmore.com/post/2018/06/25/angular-6-communicating-between-components-with-observable-subject
+* https://www.peerbits.com/blog/angular-7-features-and-updates.html

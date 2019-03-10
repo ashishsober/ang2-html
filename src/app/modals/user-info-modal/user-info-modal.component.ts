@@ -18,7 +18,21 @@ export class UserInfoModalComponent {
   }
 
   logout() {
-    this.dataService.logout(this.user_data).subscribe((result) => {
+    let obj = {
+      applicants: {},
+      application: {
+        message: "",
+        response_action: ""
+      },
+      client: {
+        uid: this.user_data.uid,
+        accessToken: this.user_data.accessToken,
+        emailId: "",
+        photoUrl: "",
+        displayName: ""
+      }
+    };
+    this.dataService.logout(obj).subscribe((result) => {
       console.log("logout sucessfully");
       this.dialog.closeAll();
     }, (err) => {

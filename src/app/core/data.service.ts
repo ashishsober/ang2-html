@@ -183,7 +183,7 @@ export class DataService {
                   .pipe(map(this.extractData))
                   .pipe(map((data) => {
                         sessionStorage.clear();
-                        this.subject.next(data.action);
+                        this.subject.next(data.application.response_action);
                   }))
                   .pipe(catchError(this.handleError));
       }

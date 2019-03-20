@@ -49,3 +49,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 * https://hackernoon.com/the-little-guide-of-linked-list-in-javascript-9daf89b63b54
 * http://jasonwatmore.com/post/2018/06/25/angular-6-communicating-between-components-with-observable-subject
 * https://www.peerbits.com/blog/angular-7-features-and-updates.html
+
+#Sorting Algorithm
+* https://khan4019.github.io/front-end-Interview-Questions/sort.html
+
+# HTML & CSS
+* https://tutorialzine.com/2013/10/12-awesome-css3-features-you-can-finally-use

@@ -46,12 +46,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 #Important Links            
 * https://medium.com/quick-code/understanding-the-this-keyword-in-javascript-cb76d4c7c5e8
 * https://medium.freecodecamp.org/javascript-closures-simplified-d0d23fa06ba4
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 * https://hackernoon.com/the-little-guide-of-linked-list-in-javascript-9daf89b63b54
 * http://jasonwatmore.com/post/2018/06/25/angular-6-communicating-between-components-with-observable-subject
 * https://www.peerbits.com/blog/angular-7-features-and-updates.html
 * https://medium.com/@adrianfaciu/creating-structural-directives-in-angular-ff17211c7b28
 * https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
-
+* https://medium.com/frontend-fun/angular-unit-testing-jasmine-karma-step-by-step-e3376d110ab4
 
 #Sorting Algorithm
 * https://khan4019.github.io/front-end-Interview-Questions/sort.html

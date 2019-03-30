@@ -73,11 +73,23 @@ export class user_Data {
 
     public setUserInfo(result: any) {
         if (result != undefined) {
-            sessionStorage.setItem('user_uid', result.id);
-            sessionStorage.setItem('accessToken', result.accessToken);
-            sessionStorage.setItem('photoUrl', result.photos === undefined ? result.photoUrl : result.photos[0].value);
-            sessionStorage.setItem('emailId', result.emails === undefined ? result.emailId : result.emails[0].value);
-            sessionStorage.setItem('displayName', result.displayName);
+            sessionStorage.setItem('user_uid', result.client === undefined ? result.id : result.client.uid);
+            sessionStorage.setItem('accessToken', result.client === undefined  ? result.accessToken : result.client.accessToken);
+            sessionStorage.setItem('photoUrl', result.photos === undefined ? result.client.photoUrl : result.photos[0].value);
+            sessionStorage.setItem('emailId', result.emails === undefined ? result.client.emailId : result.emails[0].value);
+            sessionStorage.setItem('displayName', result.client === undefined ?result.displayName : result.client.displayName);
         }
+    }
+}
+
+export interface metaobject {
+    applicants:Object,
+    application:{
+        message:string,
+        response_action:string
+    },
+    client:{
+        uid:string,
+        accessToken:string
     }
 }

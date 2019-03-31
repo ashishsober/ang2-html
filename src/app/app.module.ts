@@ -7,7 +7,6 @@ import { SharedModule } from './shared.module';
 import { AppComponent } from './app.component';
 import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ManagementComponent } from './pages/management-component/management.component';
 import { JobBoardComponent } from './pages/job-board/job-board.component';
 import { AppEngineDevelopmentComponent } from './pages/app-engine-development-component/app-engine-development.component';
 import { SoftwareDevelopmentComponent } from './pages/software-development-component/software-development.component';
@@ -24,7 +23,6 @@ import { JobBoardEditModalComponent } from '../app/modals/job-board-edit-modal/j
   declarations: [
     AppComponent,
     AboutUsComponent,
-    ManagementComponent,
     JobBoardComponent,
     AppEngineDevelopmentComponent,
     SoftwareDevelopmentComponent,

@@ -7,15 +7,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutUsModule } from './pages/about-us-module/aboutus.module'
 import { SharedModule } from './shared/shared.module';
+import { HeaderComponent } from './shared/header-component/header.component';
+import { FooterComponent } from './shared/footer-component/footer.component';
+import { LoginbtnComponent } from './shared/loginbtn-component/loginbtn.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent ,HeaderComponent, FooterComponent,LoginbtnComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     SharedModule,
     AboutUsModule
   ],

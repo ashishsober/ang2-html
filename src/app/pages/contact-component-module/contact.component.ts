@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from '../../core/data.service';
+import { ContactService } from './contact.service';
 
 
 
@@ -10,6 +10,6 @@ import { DataService } from '../../core/data.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-contact_address: Array<any> = this.dataService.contact_address;
-constructor(private dataService:DataService) { }
+contact_address: Array<any> = this.contactService.contact_address;
+constructor(private contactService:ContactService) { }
 }

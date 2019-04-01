@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DataService } from '../../core/data.service';
+import { ManagementService } from '../../pages/management-module/management.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { managementModal } from '../../core/classes';
@@ -17,7 +17,7 @@ export class ManagementEditModalComponent implements OnInit{
   user_Data: user_Data;
 
   constructor(private router: Router,
-    private dataService: DataService,
+    private managementService: ManagementService,
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -47,7 +47,7 @@ export class ManagementEditModalComponent implements OnInit{
       //this.showSpinner=true;
       //form.value.profileImage = 'assets/user-tie-solid.svg';
       obj.applicants = form.value;
-      this.dataService.postManagement(obj).subscribe((result) => {
+      this.managementService.postManagement(obj).subscribe((result) => {
         //this.showSpinner=false;
         //this.showForm = false;
         this.dialog.closeAll();
@@ -62,7 +62,7 @@ export class ManagementEditModalComponent implements OnInit{
 
   checkServerResponse(appData: any, form: NgForm) {
     let responseAction = appData.application.response_action.toUpperCase();
-    const list = this.dataService.managementList;
+    const list = this.managementService.managementList;
     switch (responseAction) {
       case 'STOP':
       case 'HARD':
@@ -72,10 +72,10 @@ export class ManagementEditModalComponent implements OnInit{
       case 'SUCCESS':
         const objIndex = list.findIndex((obj => obj._id == form.value._id));
         if (objIndex == -1) {
-          this.dataService.managementList.push(appData.applicants);
+          this.managementService.managementList.push(appData.applicants);
         } else {
           list[objIndex] = form.value;
-          this.dataService.managementList = list;
+          this.managementService.managementList = list;
         }
         form.reset();
         break;

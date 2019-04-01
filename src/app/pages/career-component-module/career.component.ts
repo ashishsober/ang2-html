@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { carrerModal } from '../../core/classes';
 import { NgForm } from '@angular/forms';
-import { DataService } from '../../core/data.service';
+import { CareerService } from './career.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 
@@ -27,11 +27,11 @@ export class CareerComponent {
   showSuccessMsg = false;
   showSpinner=false;
 
-  constructor(private dataService: DataService,
+  constructor(private careerService: CareerService,
     private dialog: MatDialog) { }
 
-  genderboxData: Array<any> = this.dataService.genderboxData;
-  nightShiftboxData: Array<any> = this.dataService.nightShiftboxData;
+  genderboxData: Array<any> = this.careerService.genderboxData;
+  nightShiftboxData: Array<any> = this.careerService.nightShiftboxData;
 
 
   onSubmit({ form, value, valid }: { form: NgForm, value: string, valid: boolean }, stage: string) {
@@ -40,7 +40,7 @@ export class CareerComponent {
     console.log(this.obj);
     if (valid) {
       this.showSpinner=true;
-      this.dataService.postCareer(this.obj).subscribe((result) => {
+      this.careerService.postCareer(this.obj).subscribe((result) => {
         this.showSpinner=false;
         this.carrerModal = result.applicants;
         this.showBasicForm = false;

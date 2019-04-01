@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material'
 import { contactModal } from '../../../core/classes';
 import { NgForm } from '@angular/forms';
-import { DataService } from '../../../core/data.service';
+import { ContactService } from '../contact.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
 
@@ -18,11 +18,11 @@ export class ContactFormComponent {
   hide: boolean = false;
   showForm = true;
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
-  selectboxData: Array<any> = this.dataService.technologiesSelectboxData;
-  contact_address: Array<any> = this.dataService.contact_address;
+  selectboxData: Array<any> = this.contactService.technologiesSelectboxData;
+  contact_address: Array<any> = this.contactService.contact_address;
   showSpinner=false;
 
-  constructor(private dataService: DataService,
+  constructor(private contactService: ContactService,
     private dialog: MatDialog) { }
 
   onselect(event: MatOptionSelectionChange) {
@@ -40,7 +40,7 @@ export class ContactFormComponent {
   onSubmit({ form, valid }: { form: NgForm, valid: boolean }) {
     if (valid) {
       this.showSpinner=true;
-      this.dataService.postContact(form.value).subscribe((result) => {
+      this.contactService.postContact(form.value).subscribe((result) => {
         this.showSpinner=false;
         this.showForm = false;
         form.reset();

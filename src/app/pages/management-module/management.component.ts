@@ -2,7 +2,7 @@ import { Component, OnInit,TemplateRef, ViewChild } from '@angular/core';
 import { ManagementEditModalComponent } from '../../modals/management-edit-modal/management-edit-modal.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router'
-import { DataService } from '../../core/data.service';
+import { ManagementService } from './management.service';
 
 @Component({
   selector: 'ngv-management',
@@ -14,19 +14,19 @@ export class ManagementComponent implements OnInit{
   user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
 
-  constructor(private router: Router, public dataService: DataService,
+  constructor(private router: Router, public managementService: ManagementService,
     private dialog: MatDialog) { 
    }
 
   ngOnInit(){
-    this.dataService.getManagement().subscribe((data)=>{
+    this.managementService.getManagement().subscribe((data)=>{
       console.log(data);
-      this.dataService.managementList = data;
+      this.managementService.managementList = data;
      },(error)=>{
         console.error(error);
      });
 
-     this.dataService.subject.subscribe((data) => {
+     this.managementService.subject.subscribe((data) => {
       if (data != undefined) {
         this.updateCurrentUserData(data);
       }
@@ -57,10 +57,10 @@ export class ManagementComponent implements OnInit{
   }
 
   deleteManage(value:any){
-    const list = this.dataService.managementList;
-    this.dataService.deleteManagement(value).subscribe((data)=>{
+    const list = this.managementService.managementList;
+    this.managementService.deleteManagement(value).subscribe((data)=>{
       const listArray=list.filter((item) => item._id !== value);
-      this.dataService.managementList = listArray;
+      this.managementService.managementList = listArray;
      },(error)=>{
         console.error(error);
      });

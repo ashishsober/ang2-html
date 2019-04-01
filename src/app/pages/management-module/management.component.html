@@ -26,7 +26,7 @@
                                         <button class="btn btn-primary" (click)="addManagement()">ADD</button>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let item of dataService.managementList">
+                                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let item of managementService.managementList">
                                             <div class="card">
                                                     <ul>
                                                         <div *ngIf="user_email === 'ashishguptawaiting@gmail.com' || user_email === 'vivek.rai@vrdnetwork.com'">

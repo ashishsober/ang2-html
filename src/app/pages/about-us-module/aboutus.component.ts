@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { preserveWhitespacesDefault } from '@angular/compiler';
 
 @Component({
   selector: 'ngv-aboutus',

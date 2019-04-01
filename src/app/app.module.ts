@@ -5,7 +5,7 @@ import { SharedModule } from './shared.module';
 
 // Include the components we created
 import { AppComponent } from './app.component';
-import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
+import { AboutUsComponent } from './pages/about-us-module/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
 //Inculde the service we created
 //import { DataService } from '../app/core/data.service';

@@ -15,4 +15,4 @@ import { ContactComponent } from './contact.component';
   providers: []
   
 })
-export class ContactAppModule { }
+export class ContactModule { }

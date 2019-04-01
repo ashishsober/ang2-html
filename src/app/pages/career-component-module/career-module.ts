@@ -15,4 +15,4 @@ import { CareerComponent } from './career.component';
   providers: []
   
 })
-export class CareerAppModule { }
+export class CareerModule { }

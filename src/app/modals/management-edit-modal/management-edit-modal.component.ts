@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { ManagementService } from '../../pages/management-module/management.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
-import { managementModal } from '../../core/classes';
+import { managementModal } from '../../shared/classes';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { user_Data, metaobject } from '../../core/classes';
+import { user_Data, metaobject } from '../../shared/classes';
 @Component({
   templateUrl: './management-edit-modal.component.html',
   styleUrls: ['./management-edit-modal.component.scss'],

@@ -1,10 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DataService } from '../../core/data.service';
+import { DataService } from '../../shared/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
-import { jobBoardModal } from '../../core/classes';
+import { jobBoardModal } from '../../shared/classes';
 import { MAT_DIALOG_DATA } from '@angular/material';
 @Component({
     templateUrl: './job-board-edit.component.html',

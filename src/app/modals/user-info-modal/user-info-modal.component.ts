@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from '../../core/data.service';
+import { DataService } from '../../shared/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
-import { user_Data } from '../../core/classes';
+import { user_Data } from '../../shared/classes';
 @Component({
   templateUrl: './user-info-modal.component.html',
   styleUrls: ['./user-info-modal.component.scss'],

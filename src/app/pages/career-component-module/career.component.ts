@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { carrerModal } from '../../core/classes';
+import { carrerModal } from '../../shared/classes';
 import { NgForm } from '@angular/forms';
 import { CareerService } from './career.service';
 import { MatDialog, MatDialogRef } from '@angular/material';

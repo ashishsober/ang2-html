@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../../core/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { JobBoardRoutingModule } from './job-board.routing';
 import { JobBoardComponent } from './job-board.component';
 import { JobBoardEditModalComponent } from '../../modals/job-board-edit-modal/job-board-edit.component';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material'
-import { contactModal } from '../../../core/classes';
+import { contactModal } from '../../../shared/classes';
 import { NgForm } from '@angular/forms';
 import { ContactService } from '../contact.service';
 import { MatDialog, MatDialogRef } from '@angular/material';

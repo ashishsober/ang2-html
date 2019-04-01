@@ -9,7 +9,7 @@ import { FooterComponent } from './footer-component/footer.component';
 import { LoginbtnComponent } from './loginbtn-component/loginbtn.component';
 import { AlertDialogComponent } from '../modals/alert-dialog/alert-dialog.component';
 import { UserInfoModalComponent } from '../modals/user-info-modal/user-info-modal.component'
-
+import { DataService } from './data.service';
 @NgModule({
     imports: [
         CommonModule,
@@ -26,7 +26,7 @@ import { UserInfoModalComponent } from '../modals/user-info-modal/user-info-moda
         LoginbtnComponent
     ],
     declarations: [HeaderComponent, FooterComponent, LoginbtnComponent, AlertDialogComponent, UserInfoModalComponent],
-    providers: [],//services to inject,
+    providers: [ DataService ],//services to inject,
     entryComponents:[AlertDialogComponent, UserInfoModalComponent]
 })
 export class SharedModule { }

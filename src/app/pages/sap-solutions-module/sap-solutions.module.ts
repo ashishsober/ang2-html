@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../../core/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { SapSolutionRoutingModule } from './sap-solutions.routing';
 import { SapSolutionsComponent } from './sap-solutions.component';
 @NgModule({

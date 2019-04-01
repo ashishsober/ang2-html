@@ -6,9 +6,7 @@ import { Http, Response } from '@angular/http';
 import * as Rx from "rxjs";
 import { user_Data } from './classes';
 
-@Injectable({
-      providedIn: 'root',
-})
+@Injectable()
 export class DataService {
       @Output() fire: EventEmitter<any> = new EventEmitter();
       subject = new Rx.Subject();

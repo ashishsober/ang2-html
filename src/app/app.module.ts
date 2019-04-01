@@ -7,6 +7,7 @@ import { SharedModule } from './shared.module';
 import { AppComponent } from './app.component';
 import { AboutUsComponent } from './pages/about-us-module/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AboutUsModule } from './pages/about-us-module/aboutus.module'
 //Inculde the service we created
 //import { DataService } from '../app/core/data.service';
 import { AlertDialogComponent} from '../app/modals/alert-dialog/alert-dialog.component';
@@ -17,7 +18,6 @@ import { JobBoardEditModalComponent } from '../app/modals/job-board-edit-modal/j
 @NgModule({
   declarations: [
     AppComponent,
-    AboutUsComponent,
     AlertDialogComponent,
     UserInfoModalComponent,
     ManagementEditModalComponent,
@@ -27,7 +27,8 @@ import { JobBoardEditModalComponent } from '../app/modals/job-board-edit-modal/j
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    AboutUsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

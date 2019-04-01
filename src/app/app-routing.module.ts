@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
 import { SoftwareDevelopmentComponent } from './pages/software-development-component/software-development.component';
-import { SapSolutionsComponent } from './pages/sap-solutions-component/sap-solutions.component';
 import { IOTComponent } from '../app/pages/iot-component/iot-component';
 
 const routes: Routes = [
@@ -13,7 +12,7 @@ const routes: Routes = [
   { path: 'networkSecurity', loadChildren: './pages/network-security-module/network-security.module#NetworkSecurityModule' },
   { path: 'jobBoard', loadChildren: './pages/job-board-module/job-board.module#JobBoardModule' },
   { path: 'appEngineDevelopment', loadChildren:'./pages/app-engine-development-module/app-engine-development.module#AppEngineDevelopementModule' },
-  { path: 'sapSolutions', component: SapSolutionsComponent },
+  { path: 'sapSolutions', loadChildren:'./pages/sap-solutions-module/sap-solutions.module#SapSolutionModule' },
   { path: 'softwareDevelopment', component: SoftwareDevelopmentComponent },
   { path: 'iot', component: IOTComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },

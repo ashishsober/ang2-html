@@ -19,7 +19,6 @@ export class DataService {
       constructor(private http: Http) {
             console.log('shared service started');
             this.userModal = new user_Data();
-            
       }
 
       /**

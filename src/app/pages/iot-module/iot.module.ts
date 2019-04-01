@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../../shared.module';
+import { SharedModule } from '../../core/shared.module';
 import { IOTRoutingModule } from './iot.routing';
 import { IOTComponent } from './iot-component'
 @NgModule({

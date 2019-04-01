@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../../shared.module';
+import { SharedModule } from '../../core/shared.module';
 import { ManagementRoutingModule } from './management.routing';
 import { ManagementComponent } from './management.component';
 import { ManagementEditModalComponent } from '../../modals/management-edit-modal/management-edit-modal.component'

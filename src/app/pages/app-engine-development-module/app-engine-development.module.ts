@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../../shared.module';
+import { SharedModule } from '../../core/shared.module';
 import { AppEngineDevelopmentRoutingModule } from './app-engine-development.routing';
 import { AppEngineDevelopmentComponent } from './app-engine-development.component';
 

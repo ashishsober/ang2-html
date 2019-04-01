@@ -1,7 +1,7 @@
 import { AboutUsRoutingModule } from './aboutus.routing';
 import { AboutUsComponent } from './aboutus.component';
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../../shared.module';
+import { SharedModule } from '../../core/shared.module';
 @NgModule({
   imports: [
     AboutUsRoutingModule,

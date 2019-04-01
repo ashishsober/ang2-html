@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutUsModule } from './pages/about-us-module/aboutus.module'
-import { SharedModule } from './shared.module';
+import { SharedModule } from './core/shared.module';
 
 @NgModule({
   declarations: [

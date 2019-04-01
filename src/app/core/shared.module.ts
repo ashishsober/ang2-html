@@ -7,7 +7,6 @@ import { AppMaterialModule } from './app.material.module';
 import { HeaderComponent } from './header-component/header.component';
 import { FooterComponent } from './footer-component/footer.component';
 import { LoginbtnComponent } from './loginbtn-component/loginbtn.component';
-import { ContactFormComponent } from './contact-form-component/contact-form.component';
 import { AlertDialogComponent } from '../modals/alert-dialog/alert-dialog.component';
 import { UserInfoModalComponent } from '../modals/user-info-modal/user-info-modal.component'
 
@@ -24,10 +23,9 @@ import { UserInfoModalComponent } from '../modals/user-info-modal/user-info-moda
         AppMaterialModule,
         HeaderComponent,
         FooterComponent,
-        LoginbtnComponent,
-        ContactFormComponent
+        LoginbtnComponent
     ],
-    declarations: [HeaderComponent, FooterComponent, LoginbtnComponent, ContactFormComponent, AlertDialogComponent, UserInfoModalComponent],
+    declarations: [HeaderComponent, FooterComponent, LoginbtnComponent, AlertDialogComponent, UserInfoModalComponent],
     providers: [],//services to inject,
     entryComponents:[AlertDialogComponent, UserInfoModalComponent]
 })

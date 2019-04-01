@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { MatOptionSelectionChange } from '@angular/material'
-import { contactModal } from '../../core/classes';
+import { contactModal } from '../../../core/classes';
 import { NgForm } from '@angular/forms';
-import { DataService } from '../../core/data.service';
+import { DataService } from '../../../core/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
 
 
 

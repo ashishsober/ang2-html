@@ -7,7 +7,6 @@ import { SharedModule } from './shared.module';
 import { AppComponent } from './app.component';
 import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SoftwareDevelopmentComponent } from './pages/software-development-component/software-development.component';
 import { IOTComponent } from '../app/pages/iot-component/iot-component';
 //Inculde the service we created
 //import { DataService } from '../app/core/data.service';
@@ -20,7 +19,6 @@ import { JobBoardEditModalComponent } from '../app/modals/job-board-edit-modal/j
   declarations: [
     AppComponent,
     AboutUsComponent,
-    SoftwareDevelopmentComponent,
     IOTComponent,
     AlertDialogComponent,
     UserInfoModalComponent,

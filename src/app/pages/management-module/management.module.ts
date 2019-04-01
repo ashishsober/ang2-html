@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { ManagementRoutingModule } from './management.routing';
 import { ManagementComponent } from './management.component';
+import { ManagementEditModalComponent } from '../../modals/management-edit-modal/management-edit-modal.component'
 @NgModule({
   imports: [
     ManagementRoutingModule,
@@ -9,9 +10,10 @@ import { ManagementComponent } from './management.component';
   ],
   exports: [],
   declarations: [
-    ManagementComponent
+    ManagementComponent, ManagementEditModalComponent
   ],
-  providers: []
+  providers: [],
+  entryComponents:[ManagementEditModalComponent]
   
 })
 export class ManagementModule { }

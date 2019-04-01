@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { JobBoardRoutingModule } from './job-board.routing';
 import { JobBoardComponent } from './job-board.component';
+import { JobBoardEditModalComponent } from '../../modals/job-board-edit-modal/job-board-edit.component';
 @NgModule({
   imports: [
     JobBoardRoutingModule,
@@ -9,9 +10,10 @@ import { JobBoardComponent } from './job-board.component';
   ],
   exports: [],
   declarations: [
-    JobBoardComponent
+    JobBoardComponent,JobBoardEditModalComponent
   ],
-  providers: []
+  providers: [],
+  entryComponents:[JobBoardEditModalComponent]
   
 })
 export class JobBoardModule { }

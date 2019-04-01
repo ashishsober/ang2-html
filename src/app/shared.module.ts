@@ -8,6 +8,9 @@ import { HeaderComponent } from './core/header-component/header.component';
 import { FooterComponent } from './core/footer-component/footer.component';
 import { LoginbtnComponent } from '../app/core/loginbtn-component/loginbtn.component';
 import { ContactFormComponent } from './core/contact-form-component/contact-form.component';
+import { AlertDialogComponent } from './modals/alert-dialog/alert-dialog.component';
+import { UserInfoModalComponent } from './modals/user-info-modal/user-info-modal.component'
+
 @NgModule({
     imports: [
         CommonModule,
@@ -24,7 +27,8 @@ import { ContactFormComponent } from './core/contact-form-component/contact-form
         LoginbtnComponent,
         ContactFormComponent
     ],
-    declarations: [HeaderComponent,FooterComponent,LoginbtnComponent,ContactFormComponent],
-    providers: []//services to inject
+    declarations: [HeaderComponent, FooterComponent, LoginbtnComponent, ContactFormComponent, AlertDialogComponent, UserInfoModalComponent],
+    providers: [],//services to inject,
+    entryComponents:[AlertDialogComponent, UserInfoModalComponent]
 })
 export class SharedModule { }

@@ -53,11 +53,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 * https://medium.com/@adrianfaciu/creating-structural-directives-in-angular-ff17211c7b28
 * https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
 * https://medium.com/frontend-fun/angular-unit-testing-jasmine-karma-step-by-step-e3376d110ab4
-
-@ https://medium.com/@adrianfaciu/custom-preloading-strategy-for-angular-modules-b3b5c873681a
+* https://medium.com/@adrianfaciu/custom-preloading-strategy-for-angular-modules-b3b5c873681a
 
 * http://exploringjs.com/es6/ch_overviews.html
 * http://exploringjs.com/es6/ch_overviews.html#overview-entry-iteration
+* https://medium.com/ecmascript-2015/es6-set-map-weak-a2aeb7e2d384
 
 #Sorting Algorithm
 * https://khan4019.github.io/front-end-Interview-Questions/sort.html

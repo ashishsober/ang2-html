@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us-component/aboutus.component';
-import { IOTComponent } from '../app/pages/iot-component/iot-component';
 
 const routes: Routes = [
   { path: '', component: AboutUsComponent },
@@ -13,7 +12,7 @@ const routes: Routes = [
   { path: 'appEngineDevelopment', loadChildren:'./pages/app-engine-development-module/app-engine-development.module#AppEngineDevelopementModule' },
   { path: 'sapSolutions', loadChildren:'./pages/sap-solutions-module/sap-solutions.module#SapSolutionModule' },
   { path: 'softwareDevelopment', loadChildren:'./pages/software-development-module/software-development.module#SoftwareDevelopmentModule' },
-  { path: 'iot', component: IOTComponent },
+  { path: 'iot', loadChildren:'./pages/iot-module/iot.module#IOTModule' },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

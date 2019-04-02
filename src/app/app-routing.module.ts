@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, ExtraOptions } from '@angular/router';
+import { RouterModule, Routes, ExtraOptions,PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   { path: 'management', loadChildren: './pages/management-module/management.module#ManagementModule'},
@@ -19,7 +19,12 @@ const config: ExtraOptions = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,config)],
+  imports: [RouterModule.forRoot(routes,{
+    // preload all modules; optionally we could
+    // implement a custom preloading strategy for just some
+    // of the modules (PRs welcome 😉)
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

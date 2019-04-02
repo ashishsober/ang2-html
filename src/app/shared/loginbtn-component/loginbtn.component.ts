@@ -69,9 +69,9 @@ export class LoginbtnComponent implements OnInit {
     }
 
     showLogoutButton(result: any) {
-        if (result != 'logout') {
-            let photoUrl = result.client === undefined ? result.photos[0].value  :result.client.photoUrl;
-            let email = result.client === undefined ? result.emails[0].value : result.client.emailId ;
+        if (result && result.application.response_action != 'logout') {
+            let photoUrl = result.client.photoUrl;
+            let email = result.client.emailId ;
             this.zone.run(() => {
                 this.displayNone = true; //show the user_img
                 this.user_data.photoURL = photoUrl;

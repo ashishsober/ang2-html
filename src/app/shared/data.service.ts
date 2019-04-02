@@ -1,19 +1,20 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
-import { Http, Response } from '@angular/http';
 import * as Rx from "rxjs";
 import { user_Data } from './classes';
+import { HttpHeaders, HttpClient, HttpParams,HttpErrorResponse} from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+      providedIn:'root'
+})
 export class DataService {
-      @Output() fire: EventEmitter<any> = new EventEmitter();
+      //@Output() fire: EventEmitter<any> = new EventEmitter();
       subject = new Rx.Subject();
       userModal: user_Data;
-      //use promisess here to call asynchronous call,If the data is coming from the remote server
-      //so that over code will not get blocked. for the waiting of the respond from the server
-      constructor(private http: Http) {
+      
+      constructor(private http: HttpClient) {
             console.log('shared service started');
             this.userModal = new user_Data();
       }
@@ -29,22 +30,24 @@ export class DataService {
       }
 
 
-      private extractData(res: Response) {
-            let body = res.json();
-            return body || {}
-      }
+      // private extractData(res: Response) {
+      //       let body = res.json();
+      //       return body || {}
+      // }
 
-      private handleError(error: Response) {
+      private handleError(error: HttpErrorResponse) {
             // In a real world app, we might use a remote logging infrastructure
             let errMsg: string;
-            if (error instanceof Response) {
-                  const body = error.json() || '';
-                  const err = body.error || JSON.stringify(body);
-                  errMsg = err;//`${error.status} - ${error.statusText || ''} ${err}`;
+            if (error.error instanceof ErrorEvent) {
+                  console.error('An error occurred:', error.error.message);
             } else {
-                  errMsg = "error";
+                  // The backend returned an unsuccessful response code.
+                  // The response body may contain clues as to what went wrong,
+                  console.error(
+                        `Backend returned code ${error.status}, ` +
+                        `body was: ${error.error}`);
             }
-            return throwError(errMsg);
+            return throwError('Something bad happened; please try again later.');
       }
 
 
@@ -54,8 +57,8 @@ export class DataService {
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
             let listener = window.addEventListener('message', (message) => {
                   //message will contain facebook user and details
-                  this.subject.next(message.data.user);
-                  this.userModal.setUserInfo(message.data.user);
+                  this.subject.next(message.data);
+                  this.userModal.setUserInfo(message.data);
             });
             return listener;
 
@@ -65,23 +68,21 @@ export class DataService {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/auth');
             return this.http.post(url, data)
-                  .pipe(map(this.extractData))
                   .pipe(map((result) => {
                         this.userModal.setUserInfo(result);
                         return result;
                   }))
-                  .pipe(catchError(this.handleError));
+                  .pipe(catchError(this.handleError));;
       }
 
       logout(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/logout');
             return this.http.post(url, data)
-                  .pipe(map(this.extractData))
                   .pipe(map((data) => {
                         sessionStorage.clear();
-                        this.subject.next(data.application.response_action);
+                        this.subject.next(data);
                   }))
-                  .pipe(catchError(this.handleError));
+                  .pipe(catchError(this.handleError));;
       }
 }

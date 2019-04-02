@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
-import { Http, Response } from '@angular/http';
-
+import { HttpHeaders, HttpClient, HttpParams, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { careerResponse } from './career.interface';
 
 @Injectable()
 export class CareerService {
-     // subject = new Rx.Subject();
-     // userModal: user_Data;
-      constructor(private http: Http) {
-       //     this.userModal = new user_Data();
+      //subject = new Rx.Subject();
+      //userModal: user_Data;
+      constructor(private http: HttpClient) {
+            //     this.userModal = new user_Data();
       }
 
       /**
@@ -36,41 +35,43 @@ export class CareerService {
                   "CODE_VALUE": "no"
             }
       ];
-      
+
 
       getHostname() {
             let hostname: string = '';
             if (window.location.host === 'localhost:4200') {
                   hostname = "http://localhost:1337";
             } else {
-                  //console.log("window.location.host --->" + window.location.host);
                   hostname = 'http://ec2-3-17-146-125.us-east-2.compute.amazonaws.com:1337';
             }
             return hostname;
       }
 
 
-      postCareer(data: any): Observable<any> {
+      postCareer(data: careerResponse): Observable<careerResponse> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/careerVrd');
-            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+            return this.http.post<careerResponse>(url, data)
+                  .pipe(catchError(this.handleError));
       }
 
-      private extractData(res: Response) {
-            let body = res.json();
-            return body || {}
-      }
+      // private extractData(res:any) {
+      //       let body = res.json();
+      //       return body || {}
+      // }
 
-      private handleError(error: Response) {
+      private handleError(error: HttpErrorResponse) {
             // In a real world app, we might use a remote logging infrastructure
             let errMsg: string;
-            if (error instanceof Response) {
-                  const body = error.json() || '';
-                  const err = body.error || JSON.stringify(body);
-                  errMsg = err;//`${error.status} - ${error.statusText || ''} ${err}`;
+            if (error.error instanceof ErrorEvent) {
+                  console.error('An error occurred:', error.error.message);
             } else {
-                  errMsg = "error";
+                  // The backend returned an unsuccessful response code.
+                  // The response body may contain clues as to what went wrong,
+                  console.error(
+                        `Backend returned code ${error.status}, ` +
+                        `body was: ${error.error}`);
             }
-            return throwError(errMsg);
+            return throwError('Something bad happened; please try again later.');
       }
 }

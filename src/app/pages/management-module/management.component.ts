@@ -1,21 +1,23 @@
-import { Component, OnInit,TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit,TemplateRef, ViewChild, OnDestroy } from '@angular/core';
 import { ManagementEditModalComponent } from '../../modals/management-edit-modal/management-edit-modal.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router'
 import { ManagementService } from './management.service';
-
+import { DataService } from '../../shared/data.service';
+import { Subscriber, Subscription } from 'rxjs';
 @Component({
   selector: 'ngv-management',
   templateUrl: './management.component.html',
   styleUrls: ['./management.component.scss']
 })
-export class ManagementComponent implements OnInit{
+export class ManagementComponent implements OnInit {
   ManagementEditModalComponent: MatDialogRef<ManagementEditModalComponent>;
   user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
-
+   subjectRegistered:Subscription;
   constructor(private router: Router, public managementService: ManagementService,
-    private dialog: MatDialog) { 
+    private dialog: MatDialog,
+    private dataService: DataService) { 
    }
 
   ngOnInit(){
@@ -26,7 +28,7 @@ export class ManagementComponent implements OnInit{
         console.error(error);
      });
 
-     this.managementService.subject.subscribe((data) => {
+     this.subjectRegistered = this.dataService.subject.subscribe((data) => {
       if (data != undefined) {
         this.updateCurrentUserData(data);
       }
@@ -34,7 +36,7 @@ export class ManagementComponent implements OnInit{
   }
 
   updateCurrentUserData(data) {
-    this.user_email = data === 'logout' ? null : data.emails[0].value;
+    this.user_email = data === 'logout' ? null : data.client.emailId;
   }
 
   openDialog(id:any): void {
@@ -73,4 +75,8 @@ export class ManagementComponent implements OnInit{
       data: item
     });
   }
+
+//   ngOnDestroy(){
+//     this.subjectRegistered.unsubscribe(); 
+//  }
 }

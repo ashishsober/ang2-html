@@ -1,18 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { catchError } from 'rxjs/operators';
-import { Http, Response } from '@angular/http';
-
+import { map, catchError } from 'rxjs/operators';
+import { HttpHeaders, HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class ContactService {
-
-      constructor(private http: Http) { }
-
-      /**
-       * firring api's
-       */
       technologiesSelectboxData: Array<any> = [
             {
                   "CODE_DESC": "App Engine Development",
@@ -76,6 +68,7 @@ export class ContactService {
                   "contact": "080-4276-4665",
                   "email_id": "hr@vrdnetwork.com"
             }];
+      constructor(private http: HttpClient) { }
 
       getHostname() {
             let hostname: string = '';
@@ -91,25 +84,20 @@ export class ContactService {
       postContact(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/contactVrd');
-            return this.http.post(url, data).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+            return this.http.post(url, data)
+                  .pipe(catchError(this.handleError));;
       }
 
-
-      private extractData(res: Response) {
-            let body = res.json();
-            return body || {}
-      }
-
-      private handleError(error: Response) {
+      private handleError(error: HttpErrorResponse) {
             // In a real world app, we might use a remote logging infrastructure
             let errMsg: string;
-            if (error instanceof Response) {
-                  const body = error.json() || '';
-                  const err = body.error || JSON.stringify(body);
-                  errMsg = err;//`${error.status} - ${error.statusText || ''} ${err}`;
+            if (error.error instanceof ErrorEvent) {
+                  console.error('An error occurred:', error.error.message);
             } else {
-                  errMsg = "error";
+                  console.error(
+                        `Backend returned code ${error.status}, ` +
+                        `body was: ${error.error}`);
             }
-            return throwError(errMsg);
+            return throwError('Something bad happened; please try again later.');
       }
 }

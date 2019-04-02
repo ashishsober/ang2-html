@@ -6,8 +6,6 @@ import { ContactService } from '../contact.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
 
-
-
 @Component({
   selector: 'ngv-contact-form',
   templateUrl: './contact-form.component.html',
@@ -20,7 +18,7 @@ export class ContactFormComponent {
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
   selectboxData: Array<any> = this.contactService.technologiesSelectboxData;
   contact_address: Array<any> = this.contactService.contact_address;
-  showSpinner=false;
+  showSpinner = false;
 
   constructor(private contactService: ContactService,
     private dialog: MatDialog) { }
@@ -39,13 +37,13 @@ export class ContactFormComponent {
 
   onSubmit({ form, valid }: { form: NgForm, valid: boolean }) {
     if (valid) {
-      this.showSpinner=true;
+      this.showSpinner = true;
       this.contactService.postContact(form.value).subscribe((result) => {
-        this.showSpinner=false;
+        this.showSpinner = false;
         this.showForm = false;
         form.reset();
       }, err => {
-        this.showSpinner=false;
+        this.showSpinner = false;
         console.log(err);
         this.errorModal(err);
       });

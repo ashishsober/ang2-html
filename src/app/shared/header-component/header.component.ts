@@ -1,8 +1,9 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { HostListener, Inject } from "@angular/core";
 import { DOCUMENT } from '@angular/platform-browser';
 import { Router } from '@angular/router'
 import { DataService } from '../data.service';
+import { Subscribable, Subscription } from 'rxjs';
 
 declare const window: any;
 @Component({
@@ -22,10 +23,11 @@ export class HeaderComponent implements OnInit {
   user_img: string = sessionStorage.getItem("photoUrl") === null ? null : sessionStorage.getItem("photoUrl");
   user_name: string = sessionStorage.getItem("displayName") === null ? null : sessionStorage.getItem("displayName");
   user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
+  subjectRegistered :Subscription;
   constructor(private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.subject.subscribe((data) => {
+   this.subjectRegistered = this.dataService.subject.subscribe((data) => {
       if (data != undefined) {
         this.updateData(data);
       }
@@ -33,9 +35,9 @@ export class HeaderComponent implements OnInit {
   }
 
   updateData(data) {
-    this.user_img = data === 'logout' ? null : data.photos[0].value;
-    this.user_name = data === 'logout' ? null : data.displayName;
-    this.user_email = data === 'logout' ? null : data.emails[0].value;
+    this.user_img = data === 'logout' ? null : data.client.photoUrl;
+    this.user_name = data === 'logout' ? null : data.client.displayName;
+    this.user_email = data === 'logout' ? null : data.client.emailId;
   }
 
   @HostListener("window:scroll", [])
@@ -74,4 +76,8 @@ export class HeaderComponent implements OnInit {
     this.right50Event.emit(this.right50);
     this.router.navigate([state]);
   }
+
+  // ngOnDestroy(){
+  //    this.subjectRegistered.unsubscribe(); 
+  // }
 }

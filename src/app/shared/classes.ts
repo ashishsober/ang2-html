@@ -16,19 +16,19 @@ export class managementModal {
         public position: string,
         public profileImage: string,
         public discription: string,
-        public _id:string
+        public _id: string
     ) { }
 }
 
 export class jobBoardModal {
-   constructor(
-       public title: string,
-       public location:string,
-       public jobType:string,
-       public experience:string,
-       public requirement:any[],
-       public _id:string
-   ){ }
+    constructor(
+        public title: string,
+        public location: string,
+        public jobType: string,
+        public experience: string,
+        public requirement: any[],
+        public _id: string
+    ) { }
 }
 
 export class carrerModal {
@@ -73,23 +73,23 @@ export class user_Data {
 
     public setUserInfo(result: any) {
         if (result != undefined) {
-            sessionStorage.setItem('user_uid', result.client === undefined ? result.id : result.client.uid);
-            sessionStorage.setItem('accessToken', result.client === undefined  ? result.accessToken : result.client.accessToken);
-            sessionStorage.setItem('photoUrl', result.photos === undefined ? result.client.photoUrl : result.photos[0].value);
-            sessionStorage.setItem('emailId', result.emails === undefined ? result.client.emailId : result.emails[0].value);
-            sessionStorage.setItem('displayName', result.client === undefined ?result.displayName : result.client.displayName);
+            sessionStorage.setItem('user_uid', result.client.uid);
+            sessionStorage.setItem('accessToken', result.client.accessToken);
+            sessionStorage.setItem('photoUrl', result.client.photoUrl);
+            sessionStorage.setItem('emailId', result.client.emailId);
+            sessionStorage.setItem('displayName', result.client.displayName);
         }
     }
 }
 
 export interface metaobject {
-    applicants:Object,
-    application:{
-        message:string,
-        response_action:string
+    applicants: Object,
+    application: {
+        message: string,
+        response_action: string
     },
-    client:{
-        uid:string,
-        accessToken:string
+    client: {
+        uid: string,
+        accessToken: string
     }
 }

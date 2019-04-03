@@ -7,20 +7,15 @@ import { HttpHeaders, HttpClient, HttpParams,HttpErrorResponse} from '@angular/c
 
 @Injectable()
 export class ManagementService {
-    //subject = new Rx.Subject();
-    //userModal: user_Data;
     managementList = [];
   
-    constructor(private http: HttpClient) {
-       // this.userModal = new user_Data();
-    }
+    constructor(private http: HttpClient) { }
 
     getHostname() {
         let hostname: string = '';
         if (window.location.host === 'localhost:4200') {
             hostname = "http://localhost:1337";
         } else {
-            //console.log("window.location.host --->" + window.location.host);
             hostname = 'http://ec2-3-17-146-125.us-east-2.compute.amazonaws.com:1337';
         }
         return hostname;

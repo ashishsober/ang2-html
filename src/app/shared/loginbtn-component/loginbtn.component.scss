@@ -23,6 +23,9 @@
       position: relative;
       z-index: 10;
       transition: 0.8s;
+      &.logout_for_desktop {
+         display: none;
+      }
     }
 
     &.login_a:hover {
@@ -30,6 +33,7 @@
       //background-color: #07b8de;
       color: #fff;
     }
+    
   }
 
   .display_none {
@@ -63,6 +67,9 @@
         background-color: #ff6640;
         border-color: #ff6640;
         display: block !important;
+        &.logout_for_desktop {
+          display: block;
+       }
       }
     }
 

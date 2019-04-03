@@ -14,7 +14,6 @@ export class ManagementComponent implements OnInit {
   ManagementEditModalComponent: MatDialogRef<ManagementEditModalComponent>;
   user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
-   subjectRegistered:Subscription;
   constructor(private router: Router, public managementService: ManagementService,
     private dialog: MatDialog,
     private dataService: DataService) { 
@@ -28,16 +27,16 @@ export class ManagementComponent implements OnInit {
         console.error(error);
      });
 
-     this.subjectRegistered = this.dataService.subject.subscribe((data) => {
-      if (data != undefined) {
-        this.updateCurrentUserData(data);
-      }
-    });
+    //  this.dataService.subject.subscribe((data) => {
+    //   if (data != undefined) {
+    //     this.updateCurrentUserData(data);
+    //   }
+    // });
   }
 
-  updateCurrentUserData(data) {
-    this.user_email = data === 'logout' ? null : data.client.emailId;
-  }
+  // updateCurrentUserData(data) {
+  //   this.user_email = data === 'logout' ? null : data.client.emailId;
+  // }
 
   openDialog(id:any): void {
     const dialogRef = this.dialog.open(this.callAPIDialog);

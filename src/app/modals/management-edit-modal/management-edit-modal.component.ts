@@ -7,6 +7,7 @@ import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.com
 import { managementModal } from '../../shared/classes';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { user_Data, metaobject } from '../../shared/classes';
+import { DataService } from 'src/app/shared/data.service';
 @Component({
   templateUrl: './management-edit-modal.component.html',
   styleUrls: ['./management-edit-modal.component.scss'],
@@ -14,11 +15,11 @@ import { user_Data, metaobject } from '../../shared/classes';
 export class ManagementEditModalComponent implements OnInit{
   managementModal: managementModal;
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
-  user_Data: user_Data;
+  //user_Data: user_Data;
 
   constructor(private router: Router,
     private managementService: ManagementService,
-    private dialog: MatDialog,
+    private dialog: MatDialog,private dataService:DataService,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(){
@@ -27,8 +28,6 @@ export class ManagementEditModalComponent implements OnInit{
     } else {
       this.managementModal = new managementModal(this.data.name, this.data.emailid, this.data.position, this.data.profileImage, this.data.discription, this.data._id);
     }
-    var userModal = new user_Data();
-    this.user_Data = userModal.getUserInfo()
   }
 
   onSubmit({ form, valid }: { form: NgForm, valid: boolean }) {
@@ -39,8 +38,8 @@ export class ManagementEditModalComponent implements OnInit{
         response_action: ""
       },
       client: {
-        uid: this.user_Data.uid,
-        accessToken: this.user_Data.accessToken
+        uid: this.dataService.getCurrentUser().uid,
+        accessToken: this.dataService.getAccessToken()
       }
     };
     if (valid) {

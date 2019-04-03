@@ -10,11 +10,11 @@
     </div>
     <div class="col-xs-12 col-lg-9 col-md-10">
       <ul class="menu_new" [ngClass]="{'display_block':displayBlock}">
-        <li class="only_for_mobile no_arrow" *ngIf="user_img != null">
-            <img class="img-circle" [src]="user_img">
-            <a class="user_name" *ngIf="user_name != null">
-              {{ user_name }}
-              <h5>{{  user_email }}</h5>
+        <li class="only_for_mobile no_arrow" *ngIf="currentUser.photoUrl">
+            <img class="img-circle" [src]="currentUser.photoUrl">
+            <a class="user_name">
+              {{ currentUser.displayName }}
+              <h5>{{  currentUser.emailId }}</h5>
             </a>
             
         </li>

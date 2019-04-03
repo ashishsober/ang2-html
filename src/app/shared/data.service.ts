@@ -1,6 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, distinctUntilChanged } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import * as Rx from "rxjs";
 import { user_Data } from './classes';
@@ -10,13 +10,13 @@ import { HttpHeaders, HttpClient, HttpParams,HttpErrorResponse} from '@angular/c
       providedIn:'root'
 })
 export class DataService {
-      //@Output() fire: EventEmitter<any> = new EventEmitter();
-      subject = new Rx.Subject();
-      userModal: user_Data;
-      
+      private currentUserSubject = new Rx.BehaviorSubject<user_Data>({} as user_Data);
+      public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
+
+      //subject = new Rx.ReplaySubject(1);
+
       constructor(private http: HttpClient) {
             console.log('shared service started');
-            this.userModal = new user_Data();
       }
 
       getHostname() {
@@ -55,22 +55,34 @@ export class DataService {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/auth/google');
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
-            let listener = window.addEventListener('message', (message) => {
-                  //message will contain facebook user and details
-                  this.subject.next(message.data);
-                  this.userModal.setUserInfo(message.data);
+            window.addEventListener('message', (message) => {
+                  this.setUserInfo(message.data.client);
             });
-            return listener;
-
       }
+
+      setUserInfo(user: any) {
+                this.currentUserSubject.next(user);
+                 window.sessionStorage['accessToken'] = user.accessToken;
+      }
+
+      getAccessToken():String {
+            return window.sessionStorage.getItem("accessToken")
+      }
+
+      getCurrentUser(): user_Data {
+            console.log("last emmited value"+this.currentUserSubject.value)
+            return this.currentUserSubject.value;
+      }
+
+
 
       authenticateEmp(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/auth');
             return this.http.post(url, data)
                   .pipe(map((result) => {
-                        this.userModal.setUserInfo(result);
-                        return result;
+                        this.setUserInfo(result);
+                        //return result;
                   }))
                   .pipe(catchError(this.handleError));;
       }
@@ -80,8 +92,10 @@ export class DataService {
             let url = getHostname.concat('/application/logout');
             return this.http.post(url, data)
                   .pipe(map((data) => {
-                        sessionStorage.clear();
-                        this.subject.next(data);
+                        window.sessionStorage.clear();
+                        // Set current user to an empty object
+                        this.currentUserSubject.next({} as user_Data);
+                        return data;
                   }))
                   .pipe(catchError(this.handleError));;
       }

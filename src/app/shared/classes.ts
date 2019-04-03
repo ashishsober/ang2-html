@@ -53,33 +53,12 @@ export class carrerModal {
     ) { }
 }
 
-export class user_Data {
-    public accessToken: string;
-    public uid: string;
-    public photoURL: string;
-    public emailId: string;
-    public displayName: string;
-    constructor() { }
-
-    public getUserInfo() {
-        var info = new user_Data();
-        info.accessToken = sessionStorage.getItem("accessToken");
-        info.uid = sessionStorage.getItem("user_uid");
-        info.photoURL = sessionStorage.getItem("photoUrl");
-        info.emailId = sessionStorage.getItem("emailId");
-        info.displayName = sessionStorage.getItem("displayName");
-        return info;
-    }
-
-    public setUserInfo(result: any) {
-        if (result != undefined) {
-            sessionStorage.setItem('user_uid', result.client.uid);
-            sessionStorage.setItem('accessToken', result.client.accessToken);
-            sessionStorage.setItem('photoUrl', result.client.photoUrl);
-            sessionStorage.setItem('emailId', result.client.emailId);
-            sessionStorage.setItem('displayName', result.client.displayName);
-        }
-    }
+export interface user_Data {
+    accessToken: string;
+    uid: string;
+    photoUrl: string;
+    emailId: string;
+    displayName: string;
 }
 
 export interface metaobject {

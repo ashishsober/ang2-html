@@ -1,9 +1,8 @@
 import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
-import { HostListener, Inject } from "@angular/core";
-import { DOCUMENT } from '@angular/platform-browser';
+import { HostListener } from "@angular/core";
 import { Router } from '@angular/router'
 import { DataService } from '../data.service';
-import { Subscribable, Subscription } from 'rxjs';
+import { user_Data } from '../classes';
 
 declare const window: any;
 @Component({
@@ -11,7 +10,7 @@ declare const window: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit{
   bannerColorToBlack: boolean;
   displayBlock: boolean = false;
   right50: boolean = false;
@@ -20,24 +19,15 @@ export class HeaderComponent implements OnInit {
   displayServiceMenu: boolean = false;
   displayRecruitMenu: boolean = false;
   @Output() right50Event = new EventEmitter<boolean>();
-  user_img: string = sessionStorage.getItem("photoUrl") === null ? null : sessionStorage.getItem("photoUrl");
-  user_name: string = sessionStorage.getItem("displayName") === null ? null : sessionStorage.getItem("displayName");
-  user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
-  subjectRegistered :Subscription;
   constructor(private router: Router, private dataService: DataService) { }
-
-  ngOnInit() {
-   this.subjectRegistered = this.dataService.subject.subscribe((data) => {
-      if (data != undefined) {
-        this.updateData(data);
-      }
-    });
-  }
-
-  updateData(data) {
-    this.user_img = data === 'logout' ? null : data.client.photoUrl;
-    this.user_name = data === 'logout' ? null : data.client.displayName;
-    this.user_email = data === 'logout' ? null : data.client.emailId;
+  currentUser:user_Data;
+  
+  ngOnInit(){
+   this.dataService.currentUser.subscribe(
+     (userdata)=>{
+       this.currentUser = userdata;
+     }
+   ) 
   }
 
   @HostListener("window:scroll", [])
@@ -76,8 +66,4 @@ export class HeaderComponent implements OnInit {
     this.right50Event.emit(this.right50);
     this.router.navigate([state]);
   }
-
-  // ngOnDestroy(){
-  //    this.subjectRegistered.unsubscribe(); 
-  // }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../../shared/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
@@ -8,13 +8,14 @@ import { user_Data } from '../../shared/classes';
   templateUrl: './user-info-modal.component.html',
   styleUrls: ['./user-info-modal.component.scss'],
 })
-export class UserInfoModalComponent {
-  user_data: user_Data
+export class UserInfoModalComponent implements OnInit {
+  currentUser: user_Data
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
-  constructor(private router: Router,
-    private dataService: DataService, private dialog: MatDialog) {
-    var userModal = new user_Data();
-    this.user_data = userModal.getUserInfo()
+  
+  constructor(private dataService: DataService, private dialog: MatDialog) {  }
+
+  ngOnInit(){
+    this.currentUser = this.dataService.getCurrentUser();
   }
 
   logout() {
@@ -25,8 +26,8 @@ export class UserInfoModalComponent {
         response_action: ""
       },
       client: {
-        uid: this.user_data.uid,
-        accessToken: this.user_data.accessToken,
+        uid: this.dataService.getCurrentUser().uid,
+        accessToken: this.dataService.getAccessToken(),
         emailId: "",
         photoUrl: "",
         displayName: ""

@@ -13,76 +13,21 @@ import { user_Data } from '../classes';
 })
 export class LoginbtnComponent implements OnInit {
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
-    loginInBtn: string;
-    displayNone: boolean = false;
-    user_data: user_Data;
+    displayNone: boolean = false;//do not show the user image icon on initial load
     @Output() right50Event = new EventEmitter<boolean>();
     userInfoModalComponent: MatDialogRef<UserInfoModalComponent>;
-    
     constructor(private router: Router, private dataService: DataService,
         private dialog: MatDialog, private zone: NgZone) {
-        var userModal = new user_Data();
-        this.user_data = userModal.getUserInfo()
     }
-
+    currentUser: user_Data;
     ngOnInit() {
-        this.dataService.subject.subscribe((result) => {
-            if (result != undefined) {
-                this.showLogoutButton(result);
+        this.dataService.currentUser.subscribe(
+            (userData) => {
+                this.currentUser = userData;
             }
-        });
-
-        let obj = {
-            applicants: {},
-            application: {
-              message: "",
-              response_action: ""
-            },
-            client: {
-              uid: this.user_data.uid,
-              accessToken: this.user_data.accessToken,
-              emailId:"",
-              photoUrl:"",
-              displayName:""
-            }
-        };
-        if (this.user_data.accessToken != null || this.user_data.uid != null) {
-            this.dataService.authenticateEmp(obj).subscribe((result) => {
-                if (result.application.response_action === "continue") {
-                    this.showLogoutButton(result);
-                } else {
-                    this.showLoginButton();
-                }
-            }, (err) => {
-                console.log(err);
-                this.errorModal(err);
-            });
-        } else {
-            this.showLoginButton();
-        }
+        );
     }
 
-    showLoginButton() {
-        sessionStorage.clear();
-        this.displayNone = false;
-        this.loginInBtn = "Login";
-    }
-
-    showLogoutButton(result: any) {
-        if (result && result.application.response_action != 'logout') {
-            let photoUrl = result.client.photoUrl;
-            let email = result.client.emailId ;
-            this.zone.run(() => {
-                this.displayNone = true; //show the user_img
-                this.user_data.photoURL = photoUrl;
-                this.loginInBtn = "Logout";
-            });
-        } else {
-            this.showLoginButton();
-        }
-    }
-
-    //google auth call
     googleAuth(value: string) {
         if (value === 'Login') {
             this.dataService.googleAuthCall();
@@ -92,7 +37,21 @@ export class LoginbtnComponent implements OnInit {
     }
 
     logout() {
-        this.dataService.logout(this.user_data).subscribe((result) => {
+        let obj = {
+            applicants: {},
+            application: {
+                message: "",
+                response_action: "logout"
+            },
+            client: {
+                uid: this.dataService.getCurrentUser().uid,
+                accessToken: this.dataService.getAccessToken(),
+                emailId: "",
+                photoUrl: "",
+                displayName: ""
+            }
+        };
+        this.dataService.logout(obj).subscribe((result) => {
             console.log("logout sucessfully")
         }, (err) => {
             console.log(err);

@@ -21,8 +21,8 @@ export class LoginbtnComponent implements OnInit {
     
     constructor(private router: Router, private dataService: DataService,
         private dialog: MatDialog, private zone: NgZone) {
-        var userModal = new user_Data();
-        this.user_data = userModal.getUserInfo()
+        //var userModal = new user_Data();
+        this.user_data = this.dataService.getUserInfo()
     }
 
     ngOnInit() {
@@ -74,7 +74,7 @@ export class LoginbtnComponent implements OnInit {
             let email = result.client === undefined ? result.emails[0].value : result.client.emailId ;
             this.zone.run(() => {
                 this.displayNone = true; //show the user_img
-                this.user_data.photoURL = photoUrl;
+                this.user_data.photoUrl = photoUrl;
                 this.loginInBtn = "Logout";
             });
         } else {

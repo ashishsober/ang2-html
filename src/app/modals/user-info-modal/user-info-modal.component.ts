@@ -13,8 +13,8 @@ export class UserInfoModalComponent {
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
   constructor(private router: Router,
     private dataService: DataService, private dialog: MatDialog) {
-    var userModal = new user_Data();
-    this.user_data = userModal.getUserInfo()
+    //var userModal = new user_Data();
+    this.user_data = this.dataService.getUserInfo()
   }
 
   logout() {

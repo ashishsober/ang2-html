@@ -27,8 +27,8 @@ export class ManagementEditModalComponent implements OnInit{
     } else {
       this.managementModal = new managementModal(this.data.name, this.data.emailid, this.data.position, this.data.profileImage, this.data.discription, this.data._id);
     }
-    var userModal = new user_Data();
-    this.user_Data = userModal.getUserInfo()
+    //var userModal = new user_Data();
+    this.user_Data = this.dataService.getUserInfo()
   }
 
   onSubmit({ form, valid }: { form: NgForm, valid: boolean }) {

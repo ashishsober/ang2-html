@@ -18,7 +18,7 @@ export class DataService {
       //so that over code will not get blocked. for the waiting of the respond from the server
       constructor(private http: Http) {
             console.log('shared service started');
-            this.userModal = new user_Data();
+            //this.userModal = new user_Data();
             
       }
 
@@ -158,7 +158,7 @@ export class DataService {
             let listener = window.addEventListener('message', (message) => {
                   //message will contain facebook user and details
                   this.subject.next(message.data.user);
-                  this.userModal.setUserInfo(message.data.user);
+                  this.setUserInfo(message.data.user);
             });
             return listener;
 
@@ -170,11 +170,32 @@ export class DataService {
             return this.http.post(url, data)
                   .pipe(map(this.extractData))
                   .pipe(map((result) => {
-                        this.userModal.setUserInfo(result);
+                        this.setUserInfo(result);
                         return result;
                   }))
                   .pipe(catchError(this.handleError));
       }
+
+      setUserInfo(result: any) {
+            if (result != undefined) {
+                sessionStorage.setItem('user_uid', result.client === undefined ? result.id : result.client.uid);
+                sessionStorage.setItem('accessToken', result.client === undefined  ? result.accessToken : result.client.accessToken);
+                sessionStorage.setItem('photoUrl', result.photos === undefined ? result.client.photoUrl : result.photos[0].value);
+                sessionStorage.setItem('emailId', result.emails === undefined ? result.client.emailId : result.emails[0].value);
+                sessionStorage.setItem('displayName', result.client === undefined ?result.displayName : result.client.displayName);
+            }
+        }
+
+      getUserInfo() {
+            var userInfo ={
+                  accessToken:sessionStorage.getItem("accessToken"),
+                  uid :sessionStorage.getItem("user_uid"),
+                  photoUrl :sessionStorage.getItem("photoUrl"),
+                  emailId : sessionStorage.getItem("emailId"),
+                  displayName :sessionStorage.getItem("displayName"),
+            }
+            return userInfo;
+        }
 
       logout(data: any): Observable<any> {
             let getHostname = this.getHostname();

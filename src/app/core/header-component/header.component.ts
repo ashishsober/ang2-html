@@ -33,9 +33,9 @@ export class HeaderComponent implements OnInit {
   }
 
   updateData(data) {
-    this.user_img = data === 'logout' ? null : data.photos[0].value;
-    this.user_name = data === 'logout' ? null : data.displayName;
-    this.user_email = data === 'logout' ? null : data.emails[0].value;
+    this.user_img = data === 'logout' ? null : (data.photos === undefined ? data.client.photoUrl : data.photos[0].value);
+    this.user_name = data === 'logout' ? null : (data.client === undefined ? data.displayName : data.client.displayName);
+    this.user_email = data === 'logout' ? null : (data.emails === undefined ? data.client.emailId : data.emails[0].value);
   }
 
   @HostListener("window:scroll", [])

@@ -18,7 +18,7 @@ export class LoginbtnComponent implements OnInit {
     user_data: user_Data;
     @Output() right50Event = new EventEmitter<boolean>();
     userInfoModalComponent: MatDialogRef<UserInfoModalComponent>;
-    
+    photoUrl:String;
     constructor(private router: Router, private dataService: DataService,
         private dialog: MatDialog, private zone: NgZone) {
         //var userModal = new user_Data();
@@ -27,10 +27,12 @@ export class LoginbtnComponent implements OnInit {
 
     ngOnInit() {
         this.dataService.subject.subscribe((result) => {
-            if (result != undefined) {
                 this.showLogoutButton(result);
-            }
         });
+        
+        this.dataService.currentUserPhotoUrl.subscribe( (result) =>{
+           this.photoUrl = result;
+        })
 
         let obj = {
             applicants: {},
@@ -70,11 +72,11 @@ export class LoginbtnComponent implements OnInit {
 
     showLogoutButton(result: any) {
         if (result != 'logout') {
-            let photoUrl = result.client === undefined ? result.photos[0].value  :result.client.photoUrl;
+            //let photoUrl = result.client === undefined ? result.photos[0].value  :result.client.photoUrl;
             let email = result.client === undefined ? result.emails[0].value : result.client.emailId ;
             this.zone.run(() => {
                 this.displayNone = true; //show the user_img
-                this.user_data.photoUrl = photoUrl;
+                //this.user_data.photoUrl = photoUrl;
                 this.loginInBtn = "Logout";
             });
         } else {

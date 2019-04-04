@@ -34,7 +34,7 @@ export class ManagementComponent implements OnInit{
   }
 
   updateCurrentUserData(data) {
-    this.user_email = data === 'logout' ? null : data.emails[0].value;
+    this.user_email = data === 'logout' ? null : (data.emails === undefined ? data.client.emailId : data.emails[0].value);
   }
 
   openDialog(id:any): void {

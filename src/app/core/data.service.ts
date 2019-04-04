@@ -1,6 +1,6 @@
 import { Injectable, Input, Output, EventEmitter } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map ,distinctUntilChanged } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import * as Rx from "rxjs";
@@ -10,16 +10,18 @@ import { user_Data } from './classes';
       providedIn: 'root',
 })
 export class DataService {
-      @Output() fire: EventEmitter<any> = new EventEmitter();
       subject = new Rx.Subject();
       userModal: user_Data;
       managementList=[];
-      //use promisess here to call asynchronous call,If the data is coming from the remote server
-      //so that over code will not get blocked. for the waiting of the respond from the server
+      
+      private currentUserEmailSubject = new Rx.BehaviorSubject<String>(null);
+      public currentUserEmail = this.currentUserEmailSubject.asObservable().pipe(distinctUntilChanged());
+
+      private currentUserPhotoUrlSubject = new Rx.BehaviorSubject<String>(null);
+      public currentUserPhotoUrl = this.currentUserPhotoUrlSubject.asObservable().pipe(distinctUntilChanged());
+      
       constructor(private http: Http) {
             console.log('shared service started');
-            //this.userModal = new user_Data();
-            
       }
 
       /**
@@ -157,7 +159,7 @@ export class DataService {
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
             let listener = window.addEventListener('message', (message) => {
                   //message will contain facebook user and details
-                  this.subject.next(message.data.user);
+                  
                   this.setUserInfo(message.data.user);
             });
             return listener;
@@ -178,6 +180,10 @@ export class DataService {
 
       setUserInfo(result: any) {
             if (result != undefined) {
+                this.subject.next(result);
+                this.currentUserEmailSubject.next(result.emails === undefined ? result.client.emailId : result.emails[0].value);
+                this.currentUserPhotoUrlSubject.next(result.photos === undefined ? result.client.photoUrl : result.photos[0].value)
+                
                 sessionStorage.setItem('user_uid', result.client === undefined ? result.id : result.client.uid);
                 sessionStorage.setItem('accessToken', result.client === undefined  ? result.accessToken : result.client.accessToken);
                 sessionStorage.setItem('photoUrl', result.photos === undefined ? result.client.photoUrl : result.photos[0].value);

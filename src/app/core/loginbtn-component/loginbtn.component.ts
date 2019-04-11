@@ -22,14 +22,15 @@ export class LoginbtnComponent implements OnInit {
     constructor(private router: Router, private dataService: DataService,
         private dialog: MatDialog, private zone: NgZone) {
         //var userModal = new user_Data();
-        this.user_data = this.dataService.getUserInfo()
+        
     }
 
     ngOnInit() {
-        this.dataService.subject.subscribe((result) => {
-                this.showLogoutButton(result);
-        });
-        
+        // this.dataService.subject.subscribe((result) => {
+        //         this.showLogoutButton(result);
+        // });
+        this.user_data = this.dataService.getUserInfo()
+
         this.dataService.currentUserPhotoUrl.subscribe( (result) =>{
            this.photoUrl = result;
         })
@@ -41,20 +42,18 @@ export class LoginbtnComponent implements OnInit {
               response_action: ""
             },
             client: {
-              uid: this.user_data.uid,
+              uid: "",
               accessToken: this.user_data.accessToken,
               emailId:"",
               photoUrl:"",
               displayName:""
             }
         };
-        if (this.user_data.accessToken != null || this.user_data.uid != null) {
+        if (this.user_data.accessToken != null) {
             this.dataService.authenticateEmp(obj).subscribe((result) => {
                 if (result.application.response_action === "continue") {
-                    this.showLogoutButton(result);
-                } else {
-                    this.showLoginButton();
-                }
+                    console.log("succesfully authenticated");
+                } 
             }, (err) => {
                 console.log(err);
                 this.errorModal(err);

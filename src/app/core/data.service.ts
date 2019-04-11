@@ -1,6 +1,6 @@
 import { Injectable, Input, Output, EventEmitter } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { map ,distinctUntilChanged } from 'rxjs/operators';
+import { map, distinctUntilChanged } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import * as Rx from "rxjs";
@@ -12,14 +12,20 @@ import { user_Data } from './classes';
 export class DataService {
       subject = new Rx.Subject();
       userModal: user_Data;
-      managementList=[];
-      
+      managementList = [];
+
       private currentUserEmailSubject = new Rx.BehaviorSubject<String>(null);
       public currentUserEmail = this.currentUserEmailSubject.asObservable().pipe(distinctUntilChanged());
 
       private currentUserPhotoUrlSubject = new Rx.BehaviorSubject<String>(null);
       public currentUserPhotoUrl = this.currentUserPhotoUrlSubject.asObservable().pipe(distinctUntilChanged());
-      
+
+      private currentUserIdSubject = new Rx.BehaviorSubject<String>(null);
+      public currentUserId = this.currentUserIdSubject.asObservable().pipe(distinctUntilChanged());
+
+      private currentUserDisplayNameSubject = new Rx.BehaviorSubject<String>(null);
+      public currentUserDisplayName = this.currentUserDisplayNameSubject.asObservable().pipe(distinctUntilChanged());
+
       constructor(private http: Http) {
             console.log('shared service started');
       }
@@ -159,7 +165,7 @@ export class DataService {
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
             let listener = window.addEventListener('message', (message) => {
                   //message will contain facebook user and details
-                  
+
                   this.setUserInfo(message.data.user);
             });
             return listener;
@@ -180,28 +186,30 @@ export class DataService {
 
       setUserInfo(result: any) {
             if (result != undefined) {
-                this.subject.next(result);
-                this.currentUserEmailSubject.next(result.emails === undefined ? result.client.emailId : result.emails[0].value);
-                this.currentUserPhotoUrlSubject.next(result.photos === undefined ? result.client.photoUrl : result.photos[0].value)
-                
-                sessionStorage.setItem('user_uid', result.client === undefined ? result.id : result.client.uid);
-                sessionStorage.setItem('accessToken', result.client === undefined  ? result.accessToken : result.client.accessToken);
-                sessionStorage.setItem('photoUrl', result.photos === undefined ? result.client.photoUrl : result.photos[0].value);
-                sessionStorage.setItem('emailId', result.emails === undefined ? result.client.emailId : result.emails[0].value);
-                sessionStorage.setItem('displayName', result.client === undefined ?result.displayName : result.client.displayName);
+                  //this.subject.next(result);
+                  this.currentUserIdSubject.next(result.client === undefined ? result.id : result.client.uid);
+                  this.currentUserEmailSubject.next(result.emails === undefined ? result.client.emailId : result.emails[0].value);
+                  this.currentUserPhotoUrlSubject.next(result.photos === undefined ? result.client.photoUrl : result.photos[0].value);
+                  this.currentUserDisplayNameSubject.next(result.client === undefined ? result.displayName : result.client.displayName);
+
+                  //sessionStorage.setItem('user_uid', result.client === undefined ? result.id : result.client.uid);
+                  sessionStorage.setItem('accessToken', result.client === undefined ? result.accessToken : result.client.accessToken);
+                  //sessionStorage.setItem('photoUrl', result.photos === undefined ? result.client.photoUrl : result.photos[0].value);
+                  //sessionStorage.setItem('emailId', result.emails === undefined ? result.client.emailId : result.emails[0].value);
+                  //sessionStorage.setItem('displayName', result.client === undefined ?result.displayName : result.client.displayName);
             }
-        }
+      }
 
       getUserInfo() {
-            var userInfo ={
-                  accessToken:sessionStorage.getItem("accessToken"),
-                  uid :sessionStorage.getItem("user_uid"),
-                  photoUrl :sessionStorage.getItem("photoUrl"),
-                  emailId : sessionStorage.getItem("emailId"),
-                  displayName :sessionStorage.getItem("displayName"),
+            var userInfo = {
+                  accessToken: sessionStorage.getItem("accessToken"),
+                  uid: this.currentUserIdSubject.value,
+                  photoUrl: this.currentUserPhotoUrlSubject.value,
+                  emailId: this.currentUserEmailSubject.value,
+                  displayName: this.currentUserDisplayNameSubject.value,
             }
             return userInfo;
-        }
+      }
 
       logout(data: any): Observable<any> {
             let getHostname = this.getHostname();
@@ -226,10 +234,10 @@ export class DataService {
             let url = getHostname.concat('/application/managementVrd');
             return this.http.get(url).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
-      deleteManagement(id:string):Observable<any> {
+      deleteManagement(id: string): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/managementVrd/delete/');
-            url = url +id;
+            url = url + id;
             return this.http.get(url).pipe(map(this.extractData)).pipe(catchError(this.handleError));
       }
 

@@ -1,9 +1,13 @@
 <div class="login-btn-header">
-  <a (click)="googleAuth(loginInBtn)" title="{{loginInBtn}}" class="login_a" [ngClass]="{'display_none':displayNone}">
-    {{ loginInBtn }}
+  <a (click)="googleAuth('Login')" title="login" class="login_a" *ngIf="!photoUrl">
+   Login
   </a>
 
-  <div [ngClass]="{'display_none':!displayNone}" class="logout-user">
-    <img class="img-circle" [src]="photoUrl!=null ? photoUrl :''" (click)="infoModal()">
+  <a (click)="googleAuth('logout')" title="Logout" class="login_a logout_for_desktop" *ngIf="photoUrl">
+    Logout
+  </a>
+
+  <div class="logout-user" >
+    <img class="img-circle" [src]="photoUrl" *ngIf="photoUrl"(click)="infoModal()">
   </div>
 </div>

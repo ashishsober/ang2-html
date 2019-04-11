@@ -54,11 +54,11 @@ export class carrerModal {
 }
 
 export interface user_Data {
-     accessToken: string;
-     uid: string;
-     photoUrl: string;
-     emailId: string;
-     displayName: string;
+     accessToken: String;
+     uid: String;
+     photoUrl: String;
+     emailId: String;
+     displayName: String;
 }
 
 export interface metaobject {

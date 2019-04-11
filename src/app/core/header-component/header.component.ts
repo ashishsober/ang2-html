@@ -19,17 +19,27 @@ export class HeaderComponent implements OnInit {
   displayServiceMenu: boolean = false;
   displayRecruitMenu: boolean = false;
   @Output() right50Event = new EventEmitter<boolean>();
-  user_img: string = sessionStorage.getItem("photoUrl") === null ? null : sessionStorage.getItem("photoUrl");
-  user_name: string = sessionStorage.getItem("displayName") === null ? null : sessionStorage.getItem("displayName");
-  user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
+  user_img: String;
+  user_name: String;
+  user_email:String;
   constructor(private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.subject.subscribe((data) => {
-      if (data != undefined) {
-        this.updateData(data);
+    this.dataService.currentUserPhotoUrl.subscribe(
+      (result) =>{
+        this.user_img =result;
       }
-    });
+    );
+    this.dataService.currentUserDisplayName.subscribe(
+      (result) =>{
+        this.user_name =result;
+      }
+    );
+    this.dataService.currentUserEmail.subscribe(
+      (result) =>{
+        this.user_email = result;
+      }
+    )
   }
 
   updateData(data) {

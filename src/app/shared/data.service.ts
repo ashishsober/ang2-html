@@ -6,6 +6,8 @@ import * as Rx from "rxjs";
 import { user_Data } from './classes';
 import { HttpHeaders, HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { TokenService } from './token.service';
+
+
 @Injectable({
       providedIn: 'root'
 })
@@ -15,7 +17,7 @@ export class DataService {
 
       constructor(private http: HttpClient,
             private tokenService: TokenService) {
-            console.log('shared service started');
+            //console.log('shared service started');
       }
 
       getHostname() {
@@ -28,11 +30,80 @@ export class DataService {
             return hostname;
       }
 
+      populate() {
+            if(this.tokenService.getToken()){
+                  let data = {
+                        applicants: {},
+                        application: {
+                            message: "",
+                            response_action: "logout"
+                        },
+                        client: {
+                            uid: "",
+                            accessToken: this.tokenService.getToken(),
+                            emails: [{value:''}],
+                            photos: [{value:''}],
+                            displayName: ""
+                        }
+                  };
+                  this.getUser(data).subscribe((result) => {
+                        this.setAuth(result.client);
+                  })
+                  
+            } else {
+                  this.purgeAuth();
+            }
+           
+      }
+      getUser(data:any): Observable<any> {
+            let getHostname = this.getHostname();
+            let url = getHostname.concat('/application/auth');
+            return this.http.post(url, data).pipe(catchError(this.handleError));
+      }
+      
 
-      // private extractData(res: Response) {
-      //       let body = res.json();
-      //       return body || {}
-      // }
+      googleAuthCall() {
+            let getHostname = this.getHostname();
+            let url = getHostname.concat('/auth/google');
+            window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
+            window.addEventListener('message', (message) => {
+                  this.setAuth(message.data.user);
+            });
+      }
+
+      setAuth(user: user_Data) {
+            this.currentUserSubject.next(user);
+             // Save JWT sent from server in localstorage
+             if (user != undefined) {
+                this.tokenService.saveToken(user.accessToken);
+             }
+
+      }
+
+      purgeAuth() {
+            this.tokenService.destroyToken();
+            // Set current user to an empty object
+            this.currentUserSubject.next({} as user_Data);
+            // Set auth status to false
+            //this.isAuthenticatedSubject.next(false);
+      }
+
+      getCurrentUser(): user_Data {
+            console.log("last emmited value" + this.currentUserSubject.value)
+            return this.currentUserSubject.value;
+      }
+
+      logout(data: any): Observable<any> {
+            let getHostname = this.getHostname();
+            let url = getHostname.concat('/application/logout');
+            return this.http.post(url, data)
+                  .pipe(map((data) => {
+                        this.purgeAuth();
+                        return data;
+                  }))
+                  .pipe(catchError(this.handleError));;
+      }
+
 
       private handleError(error: HttpErrorResponse) {
             // In a real world app, we might use a remote logging infrastructure
@@ -47,55 +118,5 @@ export class DataService {
                         `body was: ${error.error}`);
             }
             return throwError('Something bad happened; please try again later.');
-      }
-
-
-      googleAuthCall() {
-            let getHostname = this.getHostname();
-            let url = getHostname.concat('/auth/google');
-            window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
-            window.addEventListener('message', (message) => {
-                  this.setUserInfo(message.data.user);
-            });
-      }
-
-      setUserInfo(user: user_Data) {
-            this.currentUserSubject.next(user);
-             // Save JWT sent from server in localstorage
-             if (user != undefined) {
-                this.tokenService.saveToken(user.accessToken);
-             }
-
-      }
-
-      getCurrentUser(): user_Data {
-            console.log("last emmited value" + this.currentUserSubject.value)
-            return this.currentUserSubject.value;
-      }
-
-
-
-      // authenticateEmp(data: any): Observable<any> {
-      //       let getHostname = this.getHostname();
-      //       let url = getHostname.concat('/application/auth');
-      //       return this.http.post(url, data)
-      //             .pipe(map((result) => {
-      //                   this.setUserInfo(result);
-      //                   //return result;
-      //             }))
-      //             .pipe(catchError(this.handleError));;
-      // }
-
-      logout(data: any): Observable<any> {
-            let getHostname = this.getHostname();
-            let url = getHostname.concat('/application/logout');
-            return this.http.post(url, data)
-                  .pipe(map((data) => {
-                        window.sessionStorage.clear();
-                        // Set current user to an empty object
-                        this.currentUserSubject.next({} as user_Data);
-                        return data;
-                  }))
-                  .pipe(catchError(this.handleError));;
       }
 }

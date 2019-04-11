@@ -5,15 +5,15 @@ import { Injectable } from '@angular/core';
 export class TokenService {
 
   getToken(): String {
-    return window.localStorage['accessToken'];
+    return window.sessionStorage['accessToken'];
   }
 
   saveToken(token: String) {
-    window.localStorage['accessToken'] = token;
+    window.sessionStorage['accessToken'] = token;
   }
 
   destroyToken() {
-    window.localStorage.removeItem('accessToken');
+    window.sessionStorage.removeItem('accessToken');
   }
 
 }

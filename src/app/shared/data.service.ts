@@ -80,6 +80,7 @@ export class DataService {
       }
 
       setAuth(user: user_Data) {
+            console.log("in Set auth behaviour subject emitting the value of user------------------"+user)
             this.currentUserSubject.next(user);
             this.isAuthenticatedSubject.next(true);
              // Save JWT sent from server in localstorage
@@ -90,6 +91,7 @@ export class DataService {
       }
 
       purgeAuth() {
+            console.log("in purge auth behaviour subject emitting the value of user------------->>>>>>")
             this.tokenService.destroyToken();
             // Set current user to an empty object
             this.currentUserSubject.next({} as user_Data);

@@ -1,7 +1,7 @@
 <ul class="sub-menu-list">
     <li class="user-detail">
       <div class="icon-img">
-          <img [src]="currentUser.photos[0].value" *ngIf="currentUser.photos[0].value"/>
+          <img [src]="currentUser.photos === undefined ? currentUser.photos : currentUser.photos[0].value" *ngIf="currentUser.photos === undefined ? currentUser.photos : currentUser.photos[0].value"/>
       </div>
       <div class="valign">
           <h4>{{ currentUser.displayName }}</h4>

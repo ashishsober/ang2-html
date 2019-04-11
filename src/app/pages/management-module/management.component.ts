@@ -24,7 +24,6 @@ export class ManagementComponent implements OnInit {
 
   ngOnInit(){
     this.managementService.getManagement().subscribe((data)=>{
-      console.log(data);
       this.managementService.managementList = data;
      },(error)=>{
         console.error(error);

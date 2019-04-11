@@ -10,7 +10,7 @@ declare const window: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   bannerColorToBlack: boolean;
   displayBlock: boolean = false;
   right50: boolean = false;
@@ -20,14 +20,17 @@ export class HeaderComponent implements OnInit{
   displayRecruitMenu: boolean = false;
   @Output() right50Event = new EventEmitter<boolean>();
   constructor(private router: Router, private dataService: DataService) { }
-  currentUser:user_Data;
-  
-  ngOnInit(){
-   this.dataService.currentUser.subscribe(
-     (userdata)=>{
-       this.currentUser = userdata;
-     }
-   ) 
+  currentUser: user_Data;
+
+  ngOnInit() {
+    this.dataService.currentUser.subscribe(
+      (userData) => {
+        if (userData != undefined) {
+          console.log("at header component");
+          this.currentUser = userData;
+        }
+      }
+    )
   }
 
   @HostListener("window:scroll", [])

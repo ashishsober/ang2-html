@@ -19,13 +19,16 @@ export class LoginbtnComponent implements OnInit {
     userInfoModalComponent: MatDialogRef<UserInfoModalComponent>;
     constructor(private router: Router, private dataService: DataService,
         private dialog: MatDialog, private zone: NgZone,
-        private jwtService: TokenService) {
+        private tokenService: TokenService) {
     }
     currentUser: user_Data;
     ngOnInit() {
         this.dataService.currentUser.subscribe(
             (userData) => {
-                this.currentUser = userData;
+                if(userData != undefined) {
+                    console.log("at login button component");
+                    this.currentUser = userData;
+                }
             }
         );
     }
@@ -47,7 +50,7 @@ export class LoginbtnComponent implements OnInit {
             },
             client: {
                 uid: this.dataService.getCurrentUser().uid,
-                accessToken: this.jwtService.getToken(),
+                accessToken: this.tokenService.getToken(),
                 emailId: "",
                 photoUrl: "",
                 displayName: ""

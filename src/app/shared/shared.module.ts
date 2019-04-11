@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AlertDialogComponent } from '../modals/alert-dialog/alert-dialog.component';
 import { UserInfoModalComponent } from '../modals/user-info-modal/user-info-modal.component'
 import { TokenService } from './token.service';
+import { ShowAuthedDirective } from './show-authed.directive';
 
 @NgModule({
     imports: [
@@ -22,8 +23,9 @@ import { TokenService } from './token.service';
         HttpClientModule,
         RouterModule,
         AppMaterialModule,
+        ShowAuthedDirective
     ],
-    declarations: [ AlertDialogComponent, UserInfoModalComponent],
+    declarations: [ AlertDialogComponent, UserInfoModalComponent,ShowAuthedDirective],
     providers: [ TokenService ],//services to inject,
     entryComponents:[ AlertDialogComponent, UserInfoModalComponent]
 })

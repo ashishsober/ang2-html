@@ -14,6 +14,9 @@ import { TokenService } from './token.service';
 export class DataService {
       private currentUserSubject = new Rx.BehaviorSubject<user_Data>({} as user_Data);
       public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
+      
+      private isAuthenticatedSubject = new Rx.ReplaySubject<boolean>(1);
+      public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
       constructor(private http: HttpClient,
             private tokenService: TokenService) {
@@ -73,6 +76,7 @@ export class DataService {
 
       setAuth(user: user_Data) {
             this.currentUserSubject.next(user);
+            this.isAuthenticatedSubject.next(true);
              // Save JWT sent from server in localstorage
              if (user != undefined) {
                 this.tokenService.saveToken(user.accessToken);
@@ -85,7 +89,7 @@ export class DataService {
             // Set current user to an empty object
             this.currentUserSubject.next({} as user_Data);
             // Set auth status to false
-            //this.isAuthenticatedSubject.next(false);
+            this.isAuthenticatedSubject.next(false);
       }
 
       getCurrentUser(): user_Data {

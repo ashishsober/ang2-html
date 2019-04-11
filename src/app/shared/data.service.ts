@@ -50,7 +50,12 @@ export class DataService {
                         }
                   };
                   this.getUser(data).subscribe((result) => {
-                        this.setAuth(result.client);
+                        if(result.application.response_action !="hard"){
+                              this.setAuth(result.client);
+                        } else {
+                              this.purgeAuth();
+                        }
+                        
                   })
                   
             } else {

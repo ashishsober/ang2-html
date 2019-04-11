@@ -27,9 +27,9 @@ import {
                  if(Object.keys(currentUser).length != 0){
                     console.log(`inside the isauthenticated subscriber ----${currentUser.emails[0].value}`);
                     this.show(currentUser.emails[0].value)
+                 } else {
+                    this.viewContainer.clear();
                  }
-                    
-
              })
       }
 

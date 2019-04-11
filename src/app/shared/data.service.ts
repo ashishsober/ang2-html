@@ -56,7 +56,7 @@ export class DataService {
             let url = getHostname.concat('/auth/google');
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
             window.addEventListener('message', (message) => {
-                  this.setUserInfo(message.data.client);
+                  this.setUserInfo(message.data.user);
             });
       }
 

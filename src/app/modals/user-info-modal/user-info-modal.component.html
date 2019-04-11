@@ -1,11 +1,11 @@
 <ul class="sub-menu-list">
     <li class="user-detail">
       <div class="icon-img">
-          <img [src]="currentUser.photoUrl" *ngIf="currentUser.photoUrl"/>
+          <img [src]="currentUser.photos === undefined ? currentUser.photoUrl : currentUser.photos[0].value" *ngIf="currentUser.photos === undefined ? currentUser.photoUrl : currentUser.photos[0].value"/>
       </div>
       <div class="valign">
           <h4>{{ currentUser.displayName }}</h4>
-          <h5>{{ currentUser.emailId }}</h5>
+          <h5>{{ currentUser.emails === undefined ? currentUser.client.emailId : currentUser.emails[0].value }}</h5>
       </div>
     </li>
     <li (click)="logout()" class="actionItems">

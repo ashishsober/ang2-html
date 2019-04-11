@@ -4,7 +4,9 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router'
 import { ManagementService } from './management.service';
 import { DataService } from '../../shared/data.service';
-import { Subscriber, Subscription } from 'rxjs';
+import { user_Data } from '../../shared/classes';
+
+
 @Component({
   selector: 'ngv-management',
   templateUrl: './management.component.html',
@@ -12,8 +14,9 @@ import { Subscriber, Subscription } from 'rxjs';
 })
 export class ManagementComponent implements OnInit {
   ManagementEditModalComponent: MatDialogRef<ManagementEditModalComponent>;
-  user_email:string = sessionStorage.getItem("emailId") === null ? null : sessionStorage.getItem("emailId");
+  currentUser:user_Data;
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
+
   constructor(private router: Router, public managementService: ManagementService,
     private dialog: MatDialog,
     private dataService: DataService) { 
@@ -25,18 +28,8 @@ export class ManagementComponent implements OnInit {
       this.managementService.managementList = data;
      },(error)=>{
         console.error(error);
-     });
-
-    //  this.dataService.subject.subscribe((data) => {
-    //   if (data != undefined) {
-    //     this.updateCurrentUserData(data);
-    //   }
-    // });
+     }); 
   }
-
-  // updateCurrentUserData(data) {
-  //   this.user_email = data === 'logout' ? null : data.client.emailId;
-  // }
 
   openDialog(id:any): void {
     const dialogRef = this.dialog.open(this.callAPIDialog);

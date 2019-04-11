@@ -22,14 +22,14 @@
                 <div class="container">
                         <div class="manag-board">
                                 <div class="container">
-                                    <div class="row" style="margin-bottom: 15px;padding-left: 18px;" *ngIf="user_email === 'ashishguptawaiting@gmail.com' || user_email === 'vivek.rai@vrdnetwork.com'">
+                                    <div class="row" style="margin-bottom: 15px;padding-left: 18px;" *ngIf="false">
                                         <button class="btn btn-primary" (click)="addManagement()">ADD</button>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let item of managementService.managementList">
                                             <div class="card">
                                                     <ul>
-                                                        <div *ngIf="user_email === 'ashishguptawaiting@gmail.com' || user_email === 'vivek.rai@vrdnetwork.com'">
+                                                        <div *ngIf="false">
                                                                 <a style="position: absolute;cursor: pointer;right: 25px;" (click)="editManage(item)"><i class="far fa-pen">&#9998;</i></a>
                                                                 <a style="position: absolute;cursor: pointer;right: 6px;" (click)="openDialog(item._id)"><i class="fa fa-times"></i></a>    
                                                         </div>

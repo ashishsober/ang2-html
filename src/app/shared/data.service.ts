@@ -25,7 +25,7 @@ export class DataService {
 
       getHostname() {
             let hostname: string = '';
-            if (window.location.host === 'localhost:4200') {
+            if (window.location.host === 'localhost:4200' || window.location.host === '192.168.0.3:8080') {
                   hostname = "http://localhost:1337";
             } else {
                   hostname = 'http://ec2-3-17-146-125.us-east-2.compute.amazonaws.com:1337';
@@ -74,13 +74,17 @@ export class DataService {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/auth/google');
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
-            window.addEventListener('message', (message) => {
-                  this.setAuth(message.data.user);
+            let listener = window.addEventListener('message', (message) => {
+                  console.log("inside the listener---"+message.data.user);
+                  if(message.data.user != undefined){
+                        this.setAuth(message.data.user);
+                  }
+                 
             });
+            return listener;
       }
 
       setAuth(user: user_Data) {
-            console.log("in Set auth behaviour subject emitting the value of user------------------"+user)
             this.currentUserSubject.next(user);
             this.isAuthenticatedSubject.next(true);
              // Save JWT sent from server in localstorage
@@ -91,7 +95,6 @@ export class DataService {
       }
 
       purgeAuth() {
-            console.log("in purge auth behaviour subject emitting the value of user------------->>>>>>")
             this.tokenService.destroyToken();
             // Set current user to an empty object
             this.currentUserSubject.next({} as user_Data);

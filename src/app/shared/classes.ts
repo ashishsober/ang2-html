@@ -60,15 +60,3 @@ export interface user_Data {
     emails: Array<{value:''}>;
     displayName: string;
 }
-
-export interface metaobject {
-    applicants: Object,
-    application: {
-        message: string,
-        response_action: string
-    },
-    client: {
-        uid: string,
-        accessToken: string
-    }
-}

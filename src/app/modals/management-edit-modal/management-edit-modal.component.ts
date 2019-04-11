@@ -6,8 +6,9 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { managementModal } from '../../shared/classes';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { user_Data, metaobject } from '../../shared/classes';
 import { DataService } from 'src/app/shared/data.service';
+import { TokenService } from '../../shared/token.service';
+
 @Component({
   templateUrl: './management-edit-modal.component.html',
   styleUrls: ['./management-edit-modal.component.scss'],
@@ -19,7 +20,7 @@ export class ManagementEditModalComponent implements OnInit{
 
   constructor(private router: Router,
     private managementService: ManagementService,
-    private dialog: MatDialog,private dataService:DataService,
+    private dialog: MatDialog,private dataService:DataService,private tokenService: TokenService,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(){
@@ -39,7 +40,7 @@ export class ManagementEditModalComponent implements OnInit{
       },
       client: {
         uid: this.dataService.getCurrentUser().uid,
-        accessToken: this.dataService.getAccessToken()
+        accessToken: this.tokenService.getToken()
       }
     };
     if (valid) {

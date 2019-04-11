@@ -4,6 +4,7 @@ import { DataService } from '../../shared/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { user_Data } from '../../shared/classes';
+import { TokenService } from '../../shared/token.service';
 @Component({
   templateUrl: './user-info-modal.component.html',
   styleUrls: ['./user-info-modal.component.scss'],
@@ -11,10 +12,12 @@ import { user_Data } from '../../shared/classes';
 export class UserInfoModalComponent implements OnInit {
   currentUser: user_Data
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
-  
-  constructor(private dataService: DataService, private dialog: MatDialog) {  }
 
-  ngOnInit(){
+  constructor(private dataService: DataService,
+    private dialog: MatDialog,
+    private tokenService: TokenService) { }
+
+  ngOnInit() {
     this.currentUser = this.dataService.getCurrentUser();
   }
 
@@ -27,7 +30,7 @@ export class UserInfoModalComponent implements OnInit {
       },
       client: {
         uid: this.dataService.getCurrentUser().uid,
-        accessToken: this.dataService.getAccessToken(),
+        accessToken: this.tokenService.getToken(),
         emailId: "",
         photoUrl: "",
         displayName: ""

@@ -5,6 +5,7 @@ import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.com
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UserInfoModalComponent } from '../../modals/user-info-modal/user-info-modal.component';
 import { user_Data } from '../classes';
+import { TokenService } from '../token.service';
 
 @Component({
     selector: 'ngx-login-btn',
@@ -17,7 +18,8 @@ export class LoginbtnComponent implements OnInit {
     @Output() right50Event = new EventEmitter<boolean>();
     userInfoModalComponent: MatDialogRef<UserInfoModalComponent>;
     constructor(private router: Router, private dataService: DataService,
-        private dialog: MatDialog, private zone: NgZone) {
+        private dialog: MatDialog, private zone: NgZone,
+        private jwtService: TokenService) {
     }
     currentUser: user_Data;
     ngOnInit() {
@@ -45,7 +47,7 @@ export class LoginbtnComponent implements OnInit {
             },
             client: {
                 uid: this.dataService.getCurrentUser().uid,
-                accessToken: this.dataService.getAccessToken(),
+                accessToken: this.jwtService.getToken(),
                 emailId: "",
                 photoUrl: "",
                 displayName: ""

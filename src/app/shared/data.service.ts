@@ -4,18 +4,17 @@ import { map, distinctUntilChanged } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import * as Rx from "rxjs";
 import { user_Data } from './classes';
-import { HttpHeaders, HttpClient, HttpParams,HttpErrorResponse} from '@angular/common/http';
-
+import { HttpHeaders, HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { TokenService } from './token.service';
 @Injectable({
-      providedIn:'root'
+      providedIn: 'root'
 })
 export class DataService {
       private currentUserSubject = new Rx.BehaviorSubject<user_Data>({} as user_Data);
       public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
 
-      //subject = new Rx.ReplaySubject(1);
-
-      constructor(private http: HttpClient) {
+      constructor(private http: HttpClient,
+            private tokenService: TokenService) {
             console.log('shared service started');
       }
 
@@ -60,32 +59,32 @@ export class DataService {
             });
       }
 
-      setUserInfo(user: any) {
-                this.currentUserSubject.next(user);
-                 window.sessionStorage['accessToken'] = user.accessToken;
-      }
+      setUserInfo(user: user_Data) {
+            this.currentUserSubject.next(user);
+             // Save JWT sent from server in localstorage
+             if (user != undefined) {
+                this.tokenService.saveToken(user.accessToken);
+             }
 
-      getAccessToken():String {
-            return window.sessionStorage.getItem("accessToken")
       }
 
       getCurrentUser(): user_Data {
-            console.log("last emmited value"+this.currentUserSubject.value)
+            console.log("last emmited value" + this.currentUserSubject.value)
             return this.currentUserSubject.value;
       }
 
 
 
-      authenticateEmp(data: any): Observable<any> {
-            let getHostname = this.getHostname();
-            let url = getHostname.concat('/application/auth');
-            return this.http.post(url, data)
-                  .pipe(map((result) => {
-                        this.setUserInfo(result);
-                        //return result;
-                  }))
-                  .pipe(catchError(this.handleError));;
-      }
+      // authenticateEmp(data: any): Observable<any> {
+      //       let getHostname = this.getHostname();
+      //       let url = getHostname.concat('/application/auth');
+      //       return this.http.post(url, data)
+      //             .pipe(map((result) => {
+      //                   this.setUserInfo(result);
+      //                   //return result;
+      //             }))
+      //             .pipe(catchError(this.handleError));;
+      // }
 
       logout(data: any): Observable<any> {
             let getHostname = this.getHostname();

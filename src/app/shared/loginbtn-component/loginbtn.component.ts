@@ -47,11 +47,7 @@ export class LoginbtnComponent implements OnInit {
                 response_action: "logout"
             },
             client: {
-                uid: this.dataService.getCurrentUser().uid,
-                accessToken: this.tokenService.getToken(),
-                emailId: "",
-                photoUrl: "",
-                displayName: ""
+                accessToken: this.tokenService.getToken()
             }
         };
         this.dataService.logout(obj).subscribe((result) => {

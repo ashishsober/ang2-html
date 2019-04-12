@@ -28,12 +28,8 @@ export class UserInfoModalComponent implements OnInit {
         message: "",
         response_action: ""
       },
-      client: {
-        uid: this.dataService.getCurrentUser().uid,
-        accessToken: this.tokenService.getToken(),
-        emailId: "",
-        photoUrl: "",
-        displayName: ""
+      client: { 
+        accessToken: this.tokenService.getToken()
       }
     };
     this.dataService.logout(obj).subscribe((result) => {

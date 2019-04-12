@@ -56,8 +56,7 @@ export class DataService {
                               this.purgeAuth();
                         }
                         
-                  })
-                  
+                  });
             } else {
                   this.purgeAuth();
             }

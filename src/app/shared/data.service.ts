@@ -39,7 +39,7 @@ export class DataService {
                         applicants: {},
                         application: {
                             message: "",
-                            response_action: "logout"
+                            response_action: ""
                         },
                         client: {
                             uid: "",

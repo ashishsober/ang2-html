@@ -10,11 +10,6 @@ import {
   
   @Directive({ selector: '[appShowAuthed]' })
   export class ShowAuthedDirective implements OnInit {
-      condition:boolean;
-      @Input() set appShowAuthed(condition:boolean){
-       // console.log(`inside directive set method -----${condition}`);
-        this.condition =condition;
-      }
 
       constructor(private dataservice:DataService,
         private templateRef: TemplateRef<any>,
@@ -39,8 +34,5 @@ import {
           } else {
               this.viewContainer.clear();
           }
-
       }
-
-      
   }

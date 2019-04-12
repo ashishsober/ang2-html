@@ -79,19 +79,15 @@ export class DataService {
                   if(message.data.user != undefined){
                         this.setAuth(message.data.user);
                   }
-                 
             });
             return listener;
       }
 
       setAuth(user: user_Data) {
+            // Save JWT sent from server in localstorage
+            this.tokenService.saveToken(user.accessToken);
             this.currentUserSubject.next(user);
             this.isAuthenticatedSubject.next(true);
-             // Save JWT sent from server in localstorage
-             if (user != undefined) {
-                this.tokenService.saveToken(user.accessToken);
-             }
-
       }
 
       purgeAuth() {

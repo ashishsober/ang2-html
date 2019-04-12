@@ -25,10 +25,8 @@ export class LoginbtnComponent implements OnInit {
     ngOnInit() {
         this.dataService.currentUser.subscribe(
             (userData) => {
-                if(userData != undefined) {
                     console.log("at login button component");
                     this.currentUser = userData;
-                }
             }
         );
     }

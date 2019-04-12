@@ -25,10 +25,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.dataService.currentUser.subscribe(
       (userData) => {
-        if (userData != undefined) {
           console.log("at header component");
           this.currentUser = userData;
-        }
+        
       }
     )
   }

@@ -55,7 +55,7 @@ export class carrerModal {
 
 export interface user_Data {
     accessToken: string;
-    uid: string;
+    id: string;
     photos: Array<{value:''}>;
     emails: Array<{value:''}>;
     displayName: string;

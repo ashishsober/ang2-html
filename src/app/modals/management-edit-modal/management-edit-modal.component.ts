@@ -39,7 +39,6 @@ export class ManagementEditModalComponent implements OnInit{
         response_action: ""
       },
       client: {
-        uid: this.dataService.getCurrentUser().uid,
         accessToken: this.tokenService.getToken()
       }
     };

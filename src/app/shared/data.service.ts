@@ -42,7 +42,7 @@ export class DataService {
                             response_action: ""
                         },
                         client: {
-                            uid: "",
+                            id: "",
                             accessToken: this.tokenService.getToken(),
                             emails: [{value:''}],
                             photos: [{value:''}],

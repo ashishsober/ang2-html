@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
-import { jobBoardModal } from '../../pages/job-board-module/job.model';
+import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
+import { jobBoardModal } from '../job.model';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({

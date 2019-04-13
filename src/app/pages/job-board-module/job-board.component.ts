@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { job_board } from './job.model';
 import { MatDialog ,MatDialogRef } from '@angular/material';
-import { JobBoardEditModalComponent } from '../../modals/job-board-edit-modal/job-board-edit.component';
+import { JobBoardEditModalComponent } from './job-board-edit-modal/job-board-edit.component';
 
 @Component({
   selector: 'ngv-job-board',
@@ -55,7 +55,7 @@ export class JobBoardComponent {
 
   addJob(){
     this.jobBoardEditModalComponent = this.dialog.open(JobBoardEditModalComponent, {
-      hasBackdrop: true,
+      hasBackdrop: false,
       height: '600px',
       width: '800px',
     });

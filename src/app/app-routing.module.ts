@@ -3,7 +3,7 @@ import { RouterModule, Routes, ExtraOptions,PreloadAllModules } from '@angular/r
 
 const routes: Routes = [
   { path: 'management', loadChildren: './pages/management-module/management.module#ManagementModule'},
-  { path: 'careers',loadChildren: './pages/career-component-module/career-module#CareerModule' },
+  { path: 'careers',loadChildren: './pages/career-module/career-module#CareerModule' },
   { path: 'contact', loadChildren: './pages/contact-module/contact-module#ContactModule' },
   { path: 'networkSecurity', loadChildren: './pages/network-security-module/network-security.module#NetworkSecurityModule' },
   { path: 'jobBoard', loadChildren: './pages/job-board-module/job-board.module#JobBoardModule' },

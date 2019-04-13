@@ -1,33 +1,54 @@
 import { Component, Inject } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
 import { jobBoardModal } from '../job.model';
 import { MAT_DIALOG_DATA } from '@angular/material';
-
+import { job_board } from '../job.model';
+import { JobService } from '../jobs.service';
 @Component({
     templateUrl: './job-board-edit.component.html',
     styleUrls: ['./job-board-edit.component.scss'],
 })
 export class JobBoardEditModalComponent {
-    jobBoardModal : jobBoardModal;
+    jobBoardModal: jobBoardModal;
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
-
+    job: job_board = {} as job_board;
+    jobForm: FormGroup;
     constructor(private dialog: MatDialog,
-        @Inject(MAT_DIALOG_DATA) public data: any) {
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        private fb: FormBuilder,
+        private jobService: JobService) {
 
-          if(data == null) {
-            this.jobBoardModal = new jobBoardModal('', '', '', '','','',[]);
-          } else {
-            console.log("my selected data----"+data);
-           // this.jobBoardModal = new jobBoardModal(data.title, data.location,data.jobType, data.experience,data.requirement,'');
-          }
+        this.jobForm = this.fb.group({
+            title: '',
+            location: '',
+            jobType: '',
+            jobId: '',
+            experience: '',
+            _id: ''
+        });
+
+        this.job.requirement = [];
     }
 
 
-    onSubmit({ form, valid }: { form: NgForm, valid: boolean }) {
-        console.log(form.value);
+    onSubmit() {
+        //update the model
+        this.updateJobForm(this.jobForm.value);
+        console.log("my form data to sent to server" + this.job);
+        this.jobService.save(this.job).subscribe(
+            (data) => {
+                console.log("successfully created" + data)
+                this.dialog.closeAll();
+            },
+            err => this.errorModal(err))
     }
+
+    updateJobForm(values: Object) {
+        Object.assign(this.job, values);
+    }
+
     errorModal(err: any) {
         this.alertDialogRef = this.dialog.open(AlertDialogComponent, {
             hasBackdrop: true,

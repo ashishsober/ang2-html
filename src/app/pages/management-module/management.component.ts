@@ -58,7 +58,7 @@ export class ManagementComponent implements OnInit {
 
   editManage(item: any) {
     this.ManagementEditModalComponent = this.dialog.open(ManagementEditModalComponent, {
-      hasBackdrop: true,
+      hasBackdrop: false,
       height: '600px',
       width: '400px',
       data: item

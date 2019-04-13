@@ -8,7 +8,7 @@ import { AlertDialogComponent } from '../modals/alert-dialog/alert-dialog.compon
 import { UserInfoModalComponent } from '../modals/user-info-modal/user-info-modal.component'
 import { TokenService } from './token.service';
 import { ShowAuthedDirective } from './show-authed.directive';
-
+import { ReactiveFormsModule } from '@angular/forms'
 @NgModule({
     imports: [
         CommonModule,
@@ -16,6 +16,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
         HttpClientModule,
         RouterModule,
         AppMaterialModule,
+        ReactiveFormsModule
     ],
     exports: [
         CommonModule,
@@ -23,7 +24,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
         HttpClientModule,
         RouterModule,
         AppMaterialModule,
-        ShowAuthedDirective
+        ShowAuthedDirective,
+        ReactiveFormsModule
     ],
     declarations: [ AlertDialogComponent, UserInfoModalComponent,ShowAuthedDirective],
     providers: [ TokenService ],//services to inject,

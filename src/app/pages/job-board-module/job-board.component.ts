@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { job_board } from './job.model';
+import { MatDialog ,MatDialogRef } from '@angular/material';
+import { JobBoardEditModalComponent } from '../../modals/job-board-edit-modal/job-board-edit.component';
+
 @Component({
   selector: 'ngv-job-board',
   templateUrl: './job-board.component.html',
   styleUrls: ['./job-board.component.scss']
 })
 export class JobBoardComponent {
-  jobData: Array<job_board> = [
+  jobData= [
     {
       title: 'SAP PP-PI Consultant',
       location: 'Bengaluru',
@@ -47,4 +50,14 @@ export class JobBoardComponent {
       ]
     }
   ]
+  jobBoardEditModalComponent: MatDialogRef<JobBoardEditModalComponent>;
+  constructor( private dialog: MatDialog){}
+
+  addJob(){
+    this.jobBoardEditModalComponent = this.dialog.open(JobBoardEditModalComponent, {
+      hasBackdrop: true,
+      height: '600px',
+      width: '800px',
+    });
+  }
 }

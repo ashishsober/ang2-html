@@ -17,7 +17,6 @@ export class jobBoardModal {
         public jobType: string,
         public jobId:string,
         public experience: string,
-        public requirement: any[],
-        
+        public requirement: Array<string>
     ) { }
 }

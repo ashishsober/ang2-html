@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/cor
 import { HostListener } from "@angular/core";
 import { Router } from '@angular/router'
 import { DataService } from '../data.service';
-import { user_Data } from '../classes';
+import { user_Data } from '../userData.modal';
 
 declare const window: any;
 @Component({

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../../shared/data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
-import { user_Data } from '../../shared/classes';
+import { user_Data } from '../../shared/userData.modal';
 import { TokenService } from '../../shared/token.service';
 @Component({
   templateUrl: './user-info-modal.component.html',

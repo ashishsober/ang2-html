@@ -3,7 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import * as Rx from "rxjs";
-import { user_Data } from './classes';
+import { user_Data } from './userData.modal';
 import { HttpHeaders, HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { TokenService } from './token.service';
 

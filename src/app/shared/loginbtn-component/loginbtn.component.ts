@@ -4,7 +4,7 @@ import { DataService } from '../data.service';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UserInfoModalComponent } from '../../modals/user-info-modal/user-info-modal.component';
-import { user_Data } from '../classes';
+import { user_Data } from '../userData.modal';
 import { TokenService } from '../token.service';
 
 @Component({

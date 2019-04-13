@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ManagementService } from '../../pages/management-module/management.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
-import { managementModal } from '../../shared/classes';
+import { managementModal } from '../../pages/management-module/management.model';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { DataService } from 'src/app/shared/data.service';
 import { TokenService } from '../../shared/token.service';

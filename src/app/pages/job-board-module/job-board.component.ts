@@ -9,7 +9,7 @@ import { JobBoardEditModalComponent } from '../../modals/job-board-edit-modal/jo
   styleUrls: ['./job-board.component.scss']
 })
 export class JobBoardComponent {
-  jobData= [
+  jobData = [
     {
       title: 'SAP PP-PI Consultant',
       location: 'Bengaluru',

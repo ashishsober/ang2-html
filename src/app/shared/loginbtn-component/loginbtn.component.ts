@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import { DataService } from '../data.service';
+import { UserService } from '../user.service';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UserInfoModalComponent } from '../../modals/user-info-modal/user-info-modal.component';
@@ -17,13 +17,13 @@ export class LoginbtnComponent implements OnInit {
     displayNone: boolean = false;//do not show the user image icon on initial load
     @Output() right50Event = new EventEmitter<boolean>();
     userInfoModalComponent: MatDialogRef<UserInfoModalComponent>;
-    constructor(private router: Router, private dataService: DataService,
+    constructor(private router: Router, private userService: UserService,
         private dialog: MatDialog, private zone: NgZone,
         private tokenService: TokenService) {
     }
     currentUser: user_Data;
     ngOnInit() {
-        this.dataService.currentUser.subscribe(
+        this.userService.currentUser.subscribe(
             (userData) => {
                     console.log("at login button component");
                     this.currentUser = userData;
@@ -33,7 +33,7 @@ export class LoginbtnComponent implements OnInit {
 
     googleAuth(value: string) {
         if (value === 'Login') {
-            this.dataService.googleAuthCall();
+            this.userService.googleAuthCall();
         } else {
             this.logout();
         }
@@ -50,7 +50,7 @@ export class LoginbtnComponent implements OnInit {
                 accessToken: this.tokenService.getToken()
             }
         };
-        this.dataService.logout(obj).subscribe((result) => {
+        this.userService.logout(obj).subscribe((result) => {
             console.log("logout sucessfully")
         }, (err) => {
             console.log(err);

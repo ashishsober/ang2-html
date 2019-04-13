@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { HostListener } from "@angular/core";
 import { Router } from '@angular/router'
-import { DataService } from '../data.service';
+import { UserService } from '../user.service';
 import { user_Data } from '../userData.modal';
 
 declare const window: any;
@@ -19,11 +19,11 @@ export class HeaderComponent implements OnInit {
   displayServiceMenu: boolean = false;
   displayRecruitMenu: boolean = false;
   @Output() right50Event = new EventEmitter<boolean>();
-  constructor(private router: Router, private dataService: DataService) { }
+  constructor(private router: Router, private userService: UserService) { }
   currentUser: user_Data;
 
   ngOnInit() {
-    this.dataService.currentUser.subscribe(
+    this.userService.currentUser.subscribe(
       (userData) => {
           console.log("at header component");
           this.currentUser = userData;

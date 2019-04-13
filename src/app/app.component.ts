@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DataService } from './shared/data.service';
+import { UserService } from './shared/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,8 @@ import { DataService } from './shared/data.service';
 })
 export class AppComponent implements OnInit {
   public right50:boolean;
-  constructor(private dataService:DataService){}
+  constructor(private userService:UserService){}
   ngOnInit(){
-    this.dataService.populate();
+    this.userService.populate();
   }
 }

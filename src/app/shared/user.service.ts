@@ -11,7 +11,7 @@ import { TokenService } from './token.service';
 @Injectable({
       providedIn: 'root'
 })
-export class DataService {
+export class UserService {
       private currentUserSubject = new Rx.BehaviorSubject<user_Data>({} as user_Data);
       public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
       

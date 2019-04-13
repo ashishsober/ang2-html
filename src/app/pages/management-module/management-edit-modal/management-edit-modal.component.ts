@@ -6,7 +6,6 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
 import { managementModal } from '../management.model';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { DataService } from 'src/app/shared/data.service';
 import { TokenService } from '../../../shared/token.service';
 
 @Component({
@@ -20,7 +19,7 @@ export class ManagementEditModalComponent implements OnInit{
 
   constructor(private router: Router,
     private managementService: ManagementService,
-    private dialog: MatDialog,private dataService:DataService,private tokenService: TokenService,
+    private dialog: MatDialog,private tokenService: TokenService,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(){

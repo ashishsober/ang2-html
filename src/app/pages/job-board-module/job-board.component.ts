@@ -9,8 +9,8 @@ import { JobBoardEditModalComponent } from './job-board-edit-modal/job-board-edi
   styleUrls: ['./job-board.component.scss']
 })
 export class JobBoardComponent {
-  jobData = [
-    {
+  jobData:job_board[] = [
+    { _id:"",
       title: 'SAP PP-PI Consultant',
       location: 'Bengaluru',
       jobType: 'Permanent Position',
@@ -23,6 +23,7 @@ export class JobBoardComponent {
       ]
     },
     {
+      _id:"",
       title: 'Syteline Functional Consultant',
       location: 'Bengaluru',
       jobType: 'Permanent Position',
@@ -31,6 +32,7 @@ export class JobBoardComponent {
       requirement: []
     },
     {
+      _id:"",
       title: 'Power BI Consultant',
       location: 'Bengaluru',
       jobType: 'Contract',
@@ -39,6 +41,7 @@ export class JobBoardComponent {
       requirement: []
     },
     {
+      _id:"",
       title: '.Net Consultant',
       location: 'Bengaluru',
       jobType: 'Permanent Position',

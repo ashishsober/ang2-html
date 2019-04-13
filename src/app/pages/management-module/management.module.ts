@@ -14,8 +14,8 @@ import { ManagementService } from './management.service';
   declarations: [
     ManagementComponent, ManagementEditModalComponent
   ],
-  providers: [ ManagementService ],
-  entryComponents:[ManagementEditModalComponent]
-  
+  providers: [ManagementService],
+  entryComponents: [ManagementEditModalComponent]
+
 })
 export class ManagementModule { }

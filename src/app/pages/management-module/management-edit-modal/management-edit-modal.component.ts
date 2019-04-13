@@ -1,13 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ManagementService } from '../../pages/management-module/management.service';
+import { ManagementService } from '../management.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
-import { managementModal } from '../../pages/management-module/management.model';
+import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
+import { managementModal } from '../management.model';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { DataService } from 'src/app/shared/data.service';
-import { TokenService } from '../../shared/token.service';
+import { TokenService } from '../../../shared/token.service';
 
 @Component({
   templateUrl: './management-edit-modal.component.html',

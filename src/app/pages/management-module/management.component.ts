@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild, OnDestroy } from '@angular/core';
-import { ManagementEditModalComponent } from '../../modals/management-edit-modal/management-edit-modal.component';
+import { ManagementEditModalComponent } from './management-edit-modal/management-edit-modal.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ManagementService } from './management.service';
 import { user_Data } from '../../shared/userData.modal';

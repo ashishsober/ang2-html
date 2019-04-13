@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
@@ -10,13 +10,14 @@ import { JobService } from '../jobs.service';
     templateUrl: './job-board-edit.component.html',
     styleUrls: ['./job-board-edit.component.scss'],
 })
-export class JobBoardEditModalComponent {
+export class JobBoardEditModalComponent implements OnInit{
     jobBoardModal: jobBoardModal;
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
     job: job_board = {} as job_board;
     jobForm: FormGroup;
+
     constructor(private dialog: MatDialog,
-        @Inject(MAT_DIALOG_DATA) public data: any,
+        @Inject(MAT_DIALOG_DATA) public data: job_board,
         private fb: FormBuilder,
         private jobService: JobService) {
 
@@ -32,6 +33,9 @@ export class JobBoardEditModalComponent {
         this.job.requirement = [];
     }
 
+    ngOnInit(){
+        console.log(this.data);
+    }
 
     onSubmit() {
         //update the model

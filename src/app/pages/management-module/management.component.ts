@@ -28,7 +28,6 @@ export class ManagementComponent implements OnInit {
     }, (error) => {
       console.error(error);
     });
-
     this.refreshTable();
     this.showUpdatedItem();
   }
@@ -37,7 +36,6 @@ export class ManagementComponent implements OnInit {
     const dialogRef = this.dialog.open(this.callAPIDialog);
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'yes') {
-        //alert("dialog closed"+id);
         this.deleteManage(id);
       }
     });
@@ -56,9 +54,8 @@ export class ManagementComponent implements OnInit {
   refreshTable() {
     this.managementService.currentManagementData.subscribe(
       (newAddedData: management) => {
-        if (Object.keys(newAddedData).length != 0) {
+        if (Object.keys(newAddedData).length != 0 &&  this.managementList != undefined) {
           this.managementList.push(newAddedData);
-          console.log("inside the refresh table function");
         }
 
       }
@@ -88,8 +85,7 @@ export class ManagementComponent implements OnInit {
   showUpdatedItem() {
     this.managementService.updateManagementData.subscribe(
       (newUpdatedData: management) => {
-        if (Object.keys(newUpdatedData).length != 0) {
-          console.log("inside updated item method");
+        if (Object.keys(newUpdatedData).length != 0 &&  this.managementList != undefined) {
           let index = this.managementList.findIndex(item => item._id == newUpdatedData._id);
           this.managementList[index] = newUpdatedData;
         }

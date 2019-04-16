@@ -1,11 +1,9 @@
 import { Component, Output, EventEmitter, NgZone, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
 import { UserService } from '../user.service';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UserInfoModalComponent } from '../../modals/user-info-modal/user-info-modal.component';
 import { user_Data } from '../userData.modal';
-import { TokenService } from '../token.service';
 
 @Component({
     selector: 'ngx-login-btn',
@@ -17,9 +15,9 @@ export class LoginbtnComponent implements OnInit {
     displayNone: boolean = false;//do not show the user image icon on initial load
     @Output() right50Event = new EventEmitter<boolean>();
     userInfoModalComponent: MatDialogRef<UserInfoModalComponent>;
-    constructor(private router: Router, private userService: UserService,
-        private dialog: MatDialog, private zone: NgZone,
-        private tokenService: TokenService) {
+    
+    constructor(private userService: UserService,
+        private dialog: MatDialog) {
     }
     currentUser: user_Data;
     ngOnInit() {

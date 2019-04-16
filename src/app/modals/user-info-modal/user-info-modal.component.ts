@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserService } from '../../shared/user.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../modals/alert-dialog/alert-dialog.component';
 import { user_Data } from '../../shared/userData.modal';
-import { TokenService } from '../../shared/token.service';
+
 @Component({
   templateUrl: './user-info-modal.component.html',
   styleUrls: ['./user-info-modal.component.scss'],
@@ -14,8 +13,7 @@ export class UserInfoModalComponent implements OnInit {
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
 
   constructor(private userService: UserService,
-    private dialog: MatDialog,
-    private tokenService: TokenService) { }
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.currentUser = this.userService.getCurrentUser();

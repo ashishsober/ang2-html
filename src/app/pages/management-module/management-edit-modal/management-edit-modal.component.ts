@@ -1,12 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ManagementService } from '../management.service';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
 import { managementModal } from '../management.model';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { TokenService } from '../../../shared/token.service';
 import { management } from '../management.model';
 
 @Component({
@@ -19,7 +17,6 @@ export class ManagementEditModalComponent implements OnInit{
 
   constructor(
     private managementService: ManagementService,
-    private tokenService: TokenService,
     @Inject(MAT_DIALOG_DATA) public data: management) { }
 
   ngOnInit(){

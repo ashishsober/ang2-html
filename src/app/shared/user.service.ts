@@ -14,7 +14,7 @@ import { TokenService } from './token.service';
 export class UserService {
       private currentUserSubject = new Rx.BehaviorSubject<user_Data>({} as user_Data);
       public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
-      
+
       private isAuthenticatedSubject = new Rx.ReplaySubject<boolean>(1);
       public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
@@ -34,48 +34,48 @@ export class UserService {
       }
 
       populate() {
-            if(this.tokenService.getToken()){
+            if (this.tokenService.getToken()) {
                   let data = {
                         applicants: {},
                         application: {
-                            message: "",
-                            response_action: ""
+                              message: "",
+                              response_action: ""
                         },
                         client: {
-                            id: "",
-                            accessToken: this.tokenService.getToken(),
-                            emails: [{value:''}],
-                            photos: [{value:''}],
-                            displayName: ""
+                              id: "",
+                              accessToken: "",
+                              emails: [{ value: '' }],
+                              photos: [{ value: '' }],
+                              displayName: ""
                         }
                   };
                   this.getUser(data).subscribe((result) => {
-                        if(result.application.response_action !="hard"){
+                        if (result.application.response_action != "hard") {
                               this.setAuth(result.client);
                         } else {
                               this.purgeAuth();
                         }
-                        
+
                   });
             } else {
                   this.purgeAuth();
             }
-           
+
       }
-      getUser(data:any): Observable<any> {
+      getUser(data: any): Observable<any> {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/application/auth');
             return this.http.post(url, data).pipe(catchError(this.handleError));
       }
-      
+
 
       googleAuthCall() {
             let getHostname = this.getHostname();
             let url = getHostname.concat('/auth/google');
             window.open(url, "mywindow", "location=1,status=1,scrollbars=1, width=800,height=800");
             let listener = window.addEventListener('message', (message) => {
-                  console.log("inside the listener---"+message.data.user);
-                  if(message.data.user != undefined){
+                  console.log("inside the listener---" + message.data.user);
+                  if (message.data.user != undefined) {
                         this.setAuth(message.data.user);
                   }
             });

@@ -47,7 +47,7 @@ export class LoginbtnComponent implements OnInit {
                 response_action: "logout"
             },
             client: {
-                accessToken: this.tokenService.getToken()
+                accessToken: ""
             }
         };
         this.userService.logout(obj).subscribe((result) => {

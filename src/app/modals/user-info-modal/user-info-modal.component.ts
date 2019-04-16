@@ -29,7 +29,7 @@ export class UserInfoModalComponent implements OnInit {
         response_action: ""
       },
       client: { 
-        accessToken: this.tokenService.getToken()
+        accessToken:""
       }
     };
     this.userService.logout(obj).subscribe((result) => {

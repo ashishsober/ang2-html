@@ -38,7 +38,7 @@ export class ManagementEditModalComponent implements OnInit{
         response_action: ""
       },
       client: {
-        accessToken: this.tokenService.getToken()
+        accessToken:""
       }
     };
     if (valid) {

@@ -1,8 +1,10 @@
-import { Component, OnInit, TemplateRef, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, OnDestroy, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { ManagementEditModalComponent } from './management-edit-modal/management-edit-modal.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ManagementService } from './management.service';
 import { user_Data } from '../../shared/userData.modal';
+import { management } from './management.model'
+import * as Rx from "rxjs";
 
 
 @Component({
@@ -13,6 +15,7 @@ import { user_Data } from '../../shared/userData.modal';
 export class ManagementComponent implements OnInit {
   ManagementEditModalComponent: MatDialogRef<ManagementEditModalComponent>;
   currentUser: user_Data;
+  managementList: management[];
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
 
   constructor(public managementService: ManagementService,
@@ -20,11 +23,14 @@ export class ManagementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.managementService.getManagement().subscribe((data) => {
-      this.managementService.managementList = data;
+    this.managementService.getManagement().subscribe((data: management[]) => {
+      this.managementList = data;
     }, (error) => {
       console.error(error);
     });
+
+    this.refreshTable();
+    this.showUpdatedItem();
   }
 
   openDialog(id: any): void {
@@ -39,29 +45,55 @@ export class ManagementComponent implements OnInit {
 
 
   addManagement() {
-    this.ManagementEditModalComponent = this.dialog.open(ManagementEditModalComponent, {
-      hasBackdrop: true,
+    this.dialog.open(ManagementEditModalComponent, {
+      hasBackdrop: false,
       height: '600px',
       width: '400px',
+      data: null
     });
   }
 
+  refreshTable() {
+    this.managementService.currentManagementData.subscribe(
+      (newAddedData: management) => {
+        if (Object.keys(newAddedData).length != 0) {
+          this.managementList.push(newAddedData);
+          console.log("inside the refresh table function");
+        }
+
+      }
+    )
+  }
+
+
   deleteManage(value: any) {
-    const list = this.managementService.managementList;
+    const list = this.managementList;
     this.managementService.deleteManagement(value).subscribe((data) => {
       const listArray = list.filter((item) => item._id !== value);
-      this.managementService.managementList = listArray;
+      this.managementList = listArray;
     }, (error) => {
       console.error(error);
     });
   }
 
-  editManage(item: any) {
-    this.ManagementEditModalComponent = this.dialog.open(ManagementEditModalComponent, {
+  editManage(item: management) {
+   this.dialog.open(ManagementEditModalComponent, {
       hasBackdrop: false,
       height: '600px',
       width: '400px',
       data: item
     });
+  }
+
+  showUpdatedItem() {
+    this.managementService.updateManagementData.subscribe(
+      (newUpdatedData: management) => {
+        if (Object.keys(newUpdatedData).length != 0) {
+          console.log("inside updated item method");
+          let index = this.managementList.findIndex(item => item._id == newUpdatedData._id);
+          this.managementList[index] = newUpdatedData;
+        }
+      }
+    )
   }
 }

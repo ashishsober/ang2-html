@@ -7,6 +7,7 @@ import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.
 import { managementModal } from '../management.model';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { TokenService } from '../../../shared/token.service';
+import { management } from '../management.model';
 
 @Component({
   templateUrl: './management-edit-modal.component.html',
@@ -15,12 +16,11 @@ import { TokenService } from '../../../shared/token.service';
 export class ManagementEditModalComponent implements OnInit{
   managementModal: managementModal;
   alertDialogRef: MatDialogRef<AlertDialogComponent>;
-  //user_Data: user_Data;
 
-  constructor(private router: Router,
+  constructor(
     private managementService: ManagementService,
-    private dialog: MatDialog,private tokenService: TokenService,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    private tokenService: TokenService,
+    @Inject(MAT_DIALOG_DATA) public data: management) { }
 
   ngOnInit(){
     if (this.data == null) {
@@ -42,56 +42,8 @@ export class ManagementEditModalComponent implements OnInit{
       }
     };
     if (valid) {
-      //this.showSpinner=true;
-      //form.value.profileImage = 'assets/user-tie-solid.svg';
       obj.applicants = form.value;
-      this.managementService.postManagement(obj).subscribe((result) => {
-        //this.showSpinner=false;
-        //this.showForm = false;
-        this.dialog.closeAll();
-        this.checkServerResponse(result, form);
-      }, err => {
-        //this.showSpinner=false;
-        console.log(err);
-        this.errorModal(err);
-      });
+      this.managementService.addManagement(obj);
     }
-  }
-
-  checkServerResponse(appData: any, form: NgForm) {
-    let responseAction = appData.application.response_action.toUpperCase();
-    const list = this.managementService.managementList;
-    switch (responseAction) {
-      case 'STOP':
-      case 'HARD':
-        this.errorModal(appData.application.message);
-        break;
-      case 'CONTINUE':
-      case 'SUCCESS':
-        const objIndex = list.findIndex((obj => obj._id == form.value._id));
-        if (objIndex == -1) {
-          this.managementService.managementList.push(appData.applicants);
-        } else {
-          list[objIndex] = form.value;
-          this.managementService.managementList = list;
-        }
-        form.reset();
-        break;
-      default:
-        //error modal to show  
-        this.errorModal(appData.application.message);
-    }
-
-  }
-
-
-  errorModal(err: any) {
-    this.alertDialogRef = this.dialog.open(AlertDialogComponent, {
-      hasBackdrop: true,
-      height: '316px',
-      width: '874px',
-      disableClose: true,
-      data: err
-    });
   }
 }

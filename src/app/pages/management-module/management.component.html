@@ -26,7 +26,7 @@
                                         <button class="btn btn-primary" (click)="addManagement()">ADD</button>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let item of managementService.managementList">
+                                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let item of managementList">
                                             <div class="card">
                                                     <ul>
                                                         <div *appShowAuthed>
@@ -45,7 +45,7 @@
                                                             <li class="descs">
                                                                     {{item.discription}}
                                                             </li>
-                                                            <p *ngIf="item.emailid !== ''"><i class="fa fa-envelope"></i> : {{item.emailid}}</p>
+                                                            <p *ngIf="item.emailid"><i class="fa fa-envelope"></i> : {{item.emailid}}</p>
                                                     </ul>
                     
                                             </div>

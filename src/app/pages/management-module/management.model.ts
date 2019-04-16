@@ -8,3 +8,12 @@ export class managementModal {
         public _id: string
     ) { }
 }
+
+export interface management {
+    name: string;
+    emailid: string;
+    position: string;
+    profileImage: string;
+    discription: string;
+    _id: string;
+}

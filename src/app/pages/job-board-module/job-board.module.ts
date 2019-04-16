@@ -11,10 +11,10 @@ import { JobService } from './jobs.service';
   ],
   exports: [],
   declarations: [
-    JobBoardComponent,JobBoardEditModalComponent
+    JobBoardComponent, JobBoardEditModalComponent
   ],
   providers: [JobService],
-  entryComponents:[JobBoardEditModalComponent]
-  
+  entryComponents: [JobBoardEditModalComponent]
+
 })
 export class JobBoardModule { }

@@ -1,20 +1,20 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AlertDialogComponent } from '../../../modals/alert-dialog/alert-dialog.component';
-import { jobBoardModal } from '../job.model';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { job_board } from '../job.model';
 import { JobService } from '../jobs.service';
+
 @Component({
     templateUrl: './job-board-edit.component.html',
     styleUrls: ['./job-board-edit.component.scss'],
 })
-export class JobBoardEditModalComponent implements OnInit{
-    jobBoardModal: jobBoardModal;
+export class JobBoardEditModalComponent implements OnInit {
     alertDialogRef: MatDialogRef<AlertDialogComponent>;
     job: job_board = {} as job_board;
     jobForm: FormGroup;
+    requirements: FormArray;
 
     constructor(private dialog: MatDialog,
         @Inject(MAT_DIALOG_DATA) public data: job_board,
@@ -27,14 +27,30 @@ export class JobBoardEditModalComponent implements OnInit{
             jobType: '',
             jobId: '',
             experience: '',
-            _id: ''
+            _id: '',
+            requirements: this.buildArray()
         });
-
-        this.job.requirement = [];
     }
 
-    ngOnInit(){
+    buildArray() {
+        this.requirements = this.fb.array([
+            this.buildGroup()
+        ]);
+        return this.requirements;
+    }
+
+    buildGroup(): FormGroup {
+        return this.fb.group({
+            requirement: ''
+        })
+    }
+
+    ngOnInit() {
         console.log(this.data);
+    }
+
+    addRequirement() {
+        this.requirements.push(this.buildGroup());
     }
 
     onSubmit() {

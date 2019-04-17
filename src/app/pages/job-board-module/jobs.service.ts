@@ -22,7 +22,12 @@ export class JobService {
         let url = getHostname.concat('/application/jobVrd');
         return this.http.post(url,job).pipe(catchError(this.formatErrors))
     }
+    getJob():Observable<any>{
+        let getHostname = this.getHostname();
+        let url = getHostname.concat('/application/jobVrd');
+        return this.http.get(url).pipe(catchError(this.formatErrors));
+    }
     private formatErrors(error: any) {
         return  throwError(error.error);
-      }
+    }
 }

@@ -30,10 +30,11 @@
                                         <p class="address"><strong>Title:</strong>{{ item.title}}</p>
                                         <p class="address"><strong>Location:</strong>{{ item.location}}</p>
                                         <p class="address"><strong>Job Type:</strong>{{ item.jobType }}</p>
+                                        <p class="address"><strong>Job ID:</strong>{{ item.jobId }}</p>
                                         <p class="desc"><strong>Experience:</strong></p>
                                         <p class="address">{{ item.experience }}</p>
                                          <ul class="requirement">
-                                             <li  *ngFor = "let req of item.requirement">{{ req }}</li>
+                                             <li  *ngFor = "let req of item.requirements">{{ req.requirement }}</li>
                                          </ul>       
                                  </li>
                             </ul>

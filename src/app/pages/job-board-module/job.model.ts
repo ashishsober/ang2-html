@@ -4,7 +4,7 @@ export interface job_board {
     jobType:string;
     jobId:string;
     experience:string;
-    requirement:Array<string>;
+    requirements:Array<Object>;
     _id:string;
 }
 

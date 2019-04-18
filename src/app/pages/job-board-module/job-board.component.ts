@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { job_board } from './job.model';
-import { MatDialog ,MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { JobBoardEditModalComponent } from './job-board-edit-modal/job-board-edit.component';
 import { JobService } from './jobs.service';
 
@@ -9,9 +9,9 @@ import { JobService } from './jobs.service';
   templateUrl: './job-board.component.html',
   styleUrls: ['./job-board.component.scss']
 })
-export class JobBoardComponent implements OnInit{
+export class JobBoardComponent implements OnInit {
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
-  jobData:job_board[] = [
+  jobData: job_board[] = [
     // { _id:"",
     //   title: 'SAP PP-PI Consultant',
     //   location: 'Bengaluru',
@@ -56,16 +56,16 @@ export class JobBoardComponent implements OnInit{
     // },
   ]
   jobBoardEditModalComponent: MatDialogRef<JobBoardEditModalComponent>;
-  constructor( private dialog: MatDialog,
-    private jobService:JobService){}
+  constructor(private dialog: MatDialog,
+    private jobService: JobService) { }
 
-  ngOnInit(){
-      this.jobService.getJob().subscribe(
-        data => this.jobData =data,
-        err => console.log(err)
-      )
+  ngOnInit() {
+    this.jobService.getJob().subscribe(
+      data => this.jobData = data,
+      err => console.log(err)
+    )
   }
-  addJob(){
+  addJob() {
     this.jobBoardEditModalComponent = this.dialog.open(JobBoardEditModalComponent, {
       hasBackdrop: false,
       height: '600px',
@@ -84,11 +84,19 @@ export class JobBoardComponent implements OnInit{
   deleteJob(value: any) {
     const list = this.jobData;
     this.jobService.deleteJob(value).subscribe((data) => {
-     console.log(data);
+      console.log(data);
       const listArray = list.filter((item) => item._id !== value);
       this.jobData = listArray;
     }, (error) => {
       console.error(error);
+    });
+  }
+  editJob(data: job_board) {
+    this.jobBoardEditModalComponent = this.dialog.open(JobBoardEditModalComponent, {
+      hasBackdrop: false,
+      height: '600px',
+      width: '800px',
+      data: data
     });
   }
 }

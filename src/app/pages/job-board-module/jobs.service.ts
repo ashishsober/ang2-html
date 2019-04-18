@@ -20,7 +20,12 @@ export class JobService {
     save(job):Observable<any>{
         let getHostname = this.getHostname();
         let url = getHostname.concat('/application/jobVrd');
-        return this.http.post(url,job).pipe(catchError(this.formatErrors))
+        if(!job._id){
+            return this.http.post(url,job).pipe(catchError(this.formatErrors));
+        } else {
+            return this.http.put(url,job).pipe(catchError(this.formatErrors));
+        }
+       
     }
     getJob():Observable<any>{
         let getHostname = this.getHostname();

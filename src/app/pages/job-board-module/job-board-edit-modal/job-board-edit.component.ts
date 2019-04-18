@@ -47,6 +47,10 @@ export class JobBoardEditModalComponent implements OnInit {
 
     ngOnInit() {
         console.log(this.data);
+        if(this.data){
+           this.jobForm.patchValue(this.data);
+        }
+        
     }
 
     addRequirement() {
@@ -58,10 +62,10 @@ export class JobBoardEditModalComponent implements OnInit {
         this.updateJobForm(this.jobForm.value);
         this.jobService.save(this.job).subscribe(
             (data) => {
-                console.log("successfully created" + data)
-                this.dialog.closeAll();
+                console.log("successfully created" + data);
             },
-            err => this.errorModal(err))
+            err => this.errorModal(err)
+        )
     }
 
     updateJobForm(values: Object) {

@@ -27,6 +27,12 @@ export class JobService {
         let url = getHostname.concat('/application/jobVrd');
         return this.http.get(url).pipe(catchError(this.formatErrors));
     }
+    deleteJob(id:any):Observable<any>{
+        let getHostname = this.getHostname();
+        let url = getHostname.concat('/application/jobVrd/delete/');
+        url = url + id;
+        return this.http.get(url).pipe(catchError(this.formatErrors));
+    }
     private formatErrors(error: any) {
         return  throwError(error.error);
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { job_board } from './job.model';
 import { MatDialog ,MatDialogRef } from '@angular/material';
 import { JobBoardEditModalComponent } from './job-board-edit-modal/job-board-edit.component';
@@ -10,6 +10,7 @@ import { JobService } from './jobs.service';
   styleUrls: ['./job-board.component.scss']
 })
 export class JobBoardComponent implements OnInit{
+  @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
   jobData:job_board[] = [
     // { _id:"",
     //   title: 'SAP PP-PI Consultant',
@@ -69,6 +70,25 @@ export class JobBoardComponent implements OnInit{
       hasBackdrop: false,
       height: '600px',
       width: '800px',
+    });
+  }
+  openDialog(id: any): void {
+    const dialogRef = this.dialog.open(this.callAPIDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'yes') {
+        this.deleteJob(id);
+      }
+    });
+  }
+
+  deleteJob(value: any) {
+    const list = this.jobData;
+    this.jobService.deleteJob(value).subscribe((data) => {
+     console.log(data);
+      // const listArray = list.filter((item) => item._id !== value);
+      //this.managementList = listArray;
+    }, (error) => {
+      console.error(error);
     });
   }
 }

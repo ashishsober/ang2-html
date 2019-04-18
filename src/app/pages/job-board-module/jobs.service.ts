@@ -31,7 +31,7 @@ export class JobService {
         let getHostname = this.getHostname();
         let url = getHostname.concat('/application/jobVrd/delete/');
         url = url + id;
-        return this.http.get(url).pipe(catchError(this.formatErrors));
+        return this.http.delete(url).pipe(catchError(this.formatErrors));
     }
     private formatErrors(error: any) {
         return  throwError(error.error);

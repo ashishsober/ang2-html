@@ -49,7 +49,7 @@ export class ManagementService {
         let getHostname = this.getHostname();
         let url = getHostname.concat('/application/managementVrd/delete/');
         url = url + id;
-        return this.http.get(url).pipe(catchError(this.handleError));
+        return this.http.delete(url).pipe(catchError(this.handleError));
     }
 
     addManagement(data) {

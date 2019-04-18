@@ -85,8 +85,8 @@ export class JobBoardComponent implements OnInit{
     const list = this.jobData;
     this.jobService.deleteJob(value).subscribe((data) => {
      console.log(data);
-      // const listArray = list.filter((item) => item._id !== value);
-      //this.managementList = listArray;
+      const listArray = list.filter((item) => item._id !== value);
+      this.jobData = listArray;
     }, (error) => {
       console.error(error);
     });

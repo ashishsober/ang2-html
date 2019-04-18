@@ -56,7 +56,6 @@ export class JobBoardEditModalComponent implements OnInit {
     onSubmit() {
         //update the model
         this.updateJobForm(this.jobForm.value);
-        console.log("my form data to sent to server" + this.job);
         this.jobService.save(this.job).subscribe(
             (data) => {
                 console.log("successfully created" + data)

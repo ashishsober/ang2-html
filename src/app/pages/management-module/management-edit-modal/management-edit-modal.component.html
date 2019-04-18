@@ -43,7 +43,7 @@
 
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center request-outer">
-      <button type="submit" mat-button mat-raised-button [mat-dialog-close]="1" (click)="onSubmit(managementForm)">Save</button>
+      <button type="submit" mat-button mat-raised-button [mat-dialog-close]="1" (click)="onSubmit(managementForm)" [disabled]="!managementForm.valid">Save</button>
       <button mat-dialog-close type="button" mat-button style="margin-left: 10px;">Cancel</button>
     </div>
   </div>

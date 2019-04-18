@@ -47,10 +47,19 @@ export class JobBoardEditModalComponent implements OnInit {
 
     ngOnInit() {
         console.log(this.data);
-        if(this.data){
-           this.jobForm.patchValue(this.data);
+        if (this.data) {
+            this.jobForm.patchValue(this.data);
+            let controlArray = <FormArray>this.jobForm.controls['requirements'];
+            this.data.requirements.forEach((req, index) => {
+                if (index > 0) {
+                    const fb = this.buildGroup();
+                    fb.patchValue(req);
+                    controlArray.push(fb);
+                }
+
+            });
         }
-        
+
     }
 
     addRequirement() {

@@ -28,7 +28,8 @@ export class ShowAuthedDirective implements OnInit {
     }
 
     show(currentUserEmail: string) {
-        if (currentUserEmail === 'ashishguptawaiting@gmail.com' || currentUserEmail === 'vivek.rai@gmail.com') {
+        if (currentUserEmail === 'ashishguptawaiting@gmail.com' || currentUserEmail === 'vivek.rai@gmail.com' 
+    || currentUserEmail === 'hr@vrdnetwork.com') {
             this.viewContainer.createEmbeddedView(this.templateRef);
         } else {
             this.viewContainer.clear();

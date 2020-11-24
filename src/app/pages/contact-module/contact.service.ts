@@ -76,7 +76,7 @@ export class ContactService {
                   hostname = "http://localhost:1337";
             } else {
                   //console.log("window.location.host --->" + window.location.host);
-                  hostname = 'http://ec2-3-17-146-125.us-east-2.compute.amazonaws.com:1337';
+                  hostname = 'http://ec2-3-138-199-39.us-east-2.compute.amazonaws.com:1337';
             }
             return hostname;
       }

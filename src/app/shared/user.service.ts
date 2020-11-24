@@ -28,7 +28,7 @@ export class UserService {
             if (window.location.host === 'localhost:4200' || window.location.host === '192.168.0.3:8080') {
                   hostname = "http://localhost:1337";
             } else {
-                  hostname = 'http://ec2-3-17-146-125.us-east-2.compute.amazonaws.com:1337';
+                  hostname = 'http://ec2-3-138-199-39.us-east-2.compute.amazonaws.com:1337';
             }
             return hostname;
       }

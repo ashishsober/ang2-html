@@ -32,7 +32,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
            ssh -i /Users/ashishgupta/Desktop/Vivek\ Sir/vrdNetworkKeyPair.pem ubuntu@ec2-3-138-199-39.us-east-2.compute.amazonaws.com
 
 * To run the app from AWS instance,which is alredy running no need of running again
+            
 
+            http://ec2-3-138-199-39.us-east-2.compute.amazonaws.com/#/management
             sudo nohup http-server -p 80 &
 
             ps -ef to see the running port
